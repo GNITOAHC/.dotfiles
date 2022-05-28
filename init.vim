@@ -9,6 +9,13 @@ set relativenumber
 " Map Ctrl+c to a yank shortcut. and it could yank it to the clipboard BTW. 
 map <C-c> "+y<CR>
 
+" Map ctrl-p to search files (by vim-plug fzf)
+nnoremap <C-p> :Files<Cr>
+
+" Map ctrl-o to toggle NERDTree (close when open and open when closed)
+nnoremap <C-o> :NERDTreeToggle<Cr>
+
+
 " Start the Vim-Plug section
 call plug#begin('~/.config/nvim/plugged')
 
@@ -64,6 +71,3 @@ colorscheme github_dimmed
 
 " fzf source file
 source /opt/homebrew/opt/fzf/plugin/fzf.vim
-
-" ctrl-p to search files (by vim-plug fzf)
-nnoremap <C-p> :Files<Cr>

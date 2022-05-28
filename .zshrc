@@ -116,6 +116,11 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
+# Make Neovim default editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+
 alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code -r'
 alias mooc='open http://moocs.nccu.edu.tw/'
 alias mood='open http://moodle.nccu.edu.tw/'
