@@ -6,15 +6,17 @@ set mouse=a
 " set relative numbers at the left in your vim editor.
 set relativenumber
 
-" Map Ctrl+c to a yank shortcut. and it could yank it to the clipboard BTW. 
+" Map Ctrl+c to a yank shortcut, it could yank it to the clipboard BTW. 
 map <C-c> "+y<CR>
 
-" Map ctrl-p to search files (by vim-plug fzf)
+" Map ctrl-p to search files. (by vim-plug fzf)
 nnoremap <C-p> :Files<Cr>
 
-" Map ctrl-o to toggle NERDTree (close when open and open when closed)
+" Map ctrl-o to toggle NERDTree. (close when open and open when closed)
 nnoremap <C-o> :NERDTreeToggle<Cr>
 
+" Press <esc> to close terminal in vim, and manually `:bd!` to close this buffer.
+tnoremap <ESC> <C-\><C-n><CR>
 
 " Start the Vim-Plug section
 call plug#begin('~/.config/nvim/plugged')
