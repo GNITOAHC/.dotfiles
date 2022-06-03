@@ -18,6 +18,9 @@ nnoremap <C-o> :NERDTreeToggle<Cr>
 " Press <esc> to close terminal in vim, and manually `:bd!` to close this buffer.
 tnoremap <ESC> <C-\><C-n><CR>
 
+" Press jj to leave insert mode 
+inoremap jj <esc> 
+
 " Start the Vim-Plug section
 call plug#begin('~/.config/nvim/plugged')
 
