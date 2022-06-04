@@ -34,6 +34,8 @@ Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-commentary'
 
+Plug 'pseewald/anyfold'
+
 Plug 'scrooloose/nerdtree'
 
 Plug 'projekt0n/github-nvim-theme'
@@ -63,16 +65,14 @@ autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-" To use fzf in Vim, add the following line to your .vimrc: // not working
-" set rtp+=$(brew --prefix)/opt/fzf 
-" set rtp+=/opt/homebrew/opt/fzf/
-
-" Fix the bug that when opening the NERDTree, the vim exit at :bd
-" while it's not working
-" noremap <leader>x :bp<cr>:bd #<cr>
 
 " colorscheme
 colorscheme github_dimmed
 
 " fzf source file
 source /opt/homebrew/opt/fzf/plugin/fzf.vim
+
+" AnyFold plugin -> zo to open fold, zc to close fold.
+autocmd Filetype * AnyFoldActivate
+let g:anyfold_fold_comments=1
+set foldlevel=99
