@@ -8,7 +8,7 @@ set relativenumber
 set number 
 
 " Map Ctrl+c to a yank shortcut, it could yank it to the clipboard BTW. 
-map <C-c> "+y<CR>
+noremap <C-c> "+y<CR>
 
 " Map ctrl-p to search files. (by vim-plug fzf)
 nnoremap <C-p> :Files<Cr>
