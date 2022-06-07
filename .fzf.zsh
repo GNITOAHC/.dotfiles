@@ -23,6 +23,8 @@ _fzf_comprun() {
     cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
     rm)           fzf "$@" --preview 'bat --style=numbers --color=always --line-range :500 {}' ;;
     vim)          fzf "$@" --preview 'bat --style=numbers --color=always --line-range :500 {}' ;;
+    bat)          fzf "$@" --preview 'bat --style=numbers --color=always --line-range :500 {}' ;;
+    cat)          fzf "$@" --preview 'bat --style=numbers --color=always --line-range :500 {}' ;;
     *)            fzf "$@" ;;
   esac
 }
