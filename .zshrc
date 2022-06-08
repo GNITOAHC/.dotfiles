@@ -136,6 +136,9 @@ alias toggl='browser "https://track.toggl.com/timer"'
 # bind vim to default open neovim
 alias vim='nvim'
 
+# t for tmux
+alias t='tmux'
+
 # google search in terminal type "google [what you want to search]"
 alias chrome='{read -r arr; open -a "Google Chrome" "${arr}"} <<<'
 alias browser='{read -r arr; chrome ${arr} } <<<'
