@@ -1,11 +1,13 @@
-
 " stored at ~/.config/nvim
+
+" Setting map leader. 
+let mapleader = '\'
+
 " Make mouse available under any circumstances.
 set mouse=a
 
 " set relative numbers at the left in your vim editor but actual number on current line.
-set relativenumber
-set number 
+set relativenumber number
 
 " Map Ctrl+c to a yank shortcut, it could yank it to the clipboard BTW. 
 noremap <C-c> "+y<CR>
@@ -16,11 +18,24 @@ nnoremap <C-p> :Files<Cr>
 " Map ctrl-o to toggle NERDTree. (close when open and open when closed)
 nnoremap <C-o> :NERDTreeToggle<Cr>
 
+" Move up or down a line. 
+nnoremap - ddkkp
+nnoremap _ ddp 
+
+" Press jj to leave insert mode. 
+inoremap jj <esc>
+
+" Highlight target in visual mode and surround it by <leader> and front bracket. 
+vnoremap <leader>( <esc>`<i(<esc>`>la)
+vnoremap <leader>[ <esc>`<i[<esc>`>la]
+vnoremap <leader>{ <esc>`<i{<esc>`>la}
+
+" Turn a word into uppercase and go back to the word's end. 
+inoremap <C-u> <esc>viwUwa
+
 " Press <esc> to close terminal in vim, and manually `:bd!` to close this buffer.
 tnoremap <ESC> <C-\><C-n><CR>
 
-" Press jj to leave insert mode 
-inoremap jj <esc> 
 
 " Start the Vim-Plug section
 call plug#begin('~/.config/nvim/plugged')
