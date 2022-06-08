@@ -23,8 +23,8 @@ inoremap jj <esc>
 " Turn a word into uppercase and go back to the word's end. 
 inoremap <C-u> <esc>viwUwa
 " Clear a line and go to new line or create new line.
-inoremap <leader>d ddI
-inoremap <leader>D ddO
+inoremap <leader>d <esc>ddI
+inoremap <leader>D <esc>ddO
 
 " Highlight target in visual mode and surround it by <leader> and front bracket. 
 vnoremap <leader>( <esc>`<i(<esc>`>la)
