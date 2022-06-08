@@ -5,33 +5,31 @@ let mapleader = '\'
 
 " Make mouse available under any circumstances.
 set mouse=a
-
 " set relative numbers at the left in your vim editor but actual number on current line.
 set relativenumber number
 
 " Map Ctrl+c to a yank shortcut, it could yank it to the clipboard BTW. 
 noremap <C-c> "+y<CR>
-
 " Map ctrl-p to search files. (by vim-plug fzf)
 nnoremap <C-p> :Files<Cr>
-
 " Map ctrl-o to toggle NERDTree. (close when open and open when closed)
 nnoremap <C-o> :NERDTreeToggle<Cr>
-
 " Move up or down a line. 
 nnoremap - ddkkp
 nnoremap _ ddp 
 
 " Press jj to leave insert mode. 
 inoremap jj <esc>
+" Turn a word into uppercase and go back to the word's end. 
+inoremap <C-u> <esc>viwUwa
+" Clear a line and go to new line or create new line.
+inoremap <leader>d ddI
+inoremap <leader>D ddO
 
 " Highlight target in visual mode and surround it by <leader> and front bracket. 
 vnoremap <leader>( <esc>`<i(<esc>`>la)
 vnoremap <leader>[ <esc>`<i[<esc>`>la]
 vnoremap <leader>{ <esc>`<i{<esc>`>la}
-
-" Turn a word into uppercase and go back to the word's end. 
-inoremap <C-u> <esc>viwUwa
 
 " Press <esc> to close terminal in vim, and manually `:bd!` to close this buffer.
 tnoremap <ESC> <C-\><C-n><CR>
