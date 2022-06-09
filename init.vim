@@ -25,6 +25,8 @@ inoremap <C-u> <esc>viwUA
 " Clear a line and go to new line or create new line.
 inoremap <leader>d <esc>ddI
 inoremap <leader>D <esc>ddO
+" Comment one line through <leader>c, using only with vim-commentary plugin. 
+imap <leader>c <esc>gcc
 
 " Highlight target in visual mode and surround it by <leader> and front bracket. 
 vnoremap <leader>( <esc>`<i(<esc>`>la)
