@@ -22,9 +22,9 @@ nnoremap _ ddp
 inoremap jj <esc>
 " Turn a word into uppercase and go back to the word's end. 
 inoremap <C-u> <esc>viwUA
-" Clear a line and go to new line or create new line.
+" Delete a line or clear a line. 
 inoremap <leader>d <esc>ddI
-inoremap <leader>D <esc>ddO
+inoremap <leader>D <esc>cc
 " Comment one line through <leader>c, using only with vim-commentary plugin. 
 imap <leader>c <esc>gcc
 
