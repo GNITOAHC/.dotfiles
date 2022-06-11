@@ -25,6 +25,9 @@ inoremap <C-u> <esc>viwUA
 " Delete a line or clear a line. 
 inoremap <leader>d <esc>ddI
 inoremap <leader>D <esc>cc
+" Go to line line's first or last character. 
+inoremap <leader>> <esc>A 
+inoremap <leader>< <esc>I
 " Comment one line through <leader>c, using only with vim-commentary plugin. 
 imap <leader>c <esc>gcc
 
