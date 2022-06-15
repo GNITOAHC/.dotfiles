@@ -37,6 +37,7 @@ imap <leader>c <esc>gcc
 vnoremap <leader>( <esc>`<i(<esc>`>la)
 vnoremap <leader>[ <esc>`<i[<esc>`>la]
 vnoremap <leader>{ <esc>`<i{<esc>`>la}
+vnoremap <leader>" <esc>`<i"<esc>`>la"
 
 " Press <esc> to close terminal in vim, and manually `:bd!` to close this buffer.
 tnoremap <ESC> <C-\><C-n><CR>
@@ -62,6 +63,8 @@ Plug 'projekt0n/github-nvim-theme'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'patstockwell/vim-monokai-tasty'
+
 call plug#end()
 
 " coc
@@ -83,6 +86,16 @@ autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" Vim-monokai
+let g:vim_monokai_tasty_italic = 1
+colorscheme vim-monokai-tasty
+" Syntax overriding
+hi Include guifg=LightRed
+hi Type guifg=#80a0FF
+hi StorageClass guifg=#80a0FF
+hi Structure guifg=#80a0FF
+
 
 
 " colorscheme
