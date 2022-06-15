@@ -95,8 +95,14 @@ hi Include guifg=LightRed
 hi Type guifg=#80a0FF
 hi StorageClass guifg=#80a0FF
 hi Structure guifg=#80a0FF
-
-
+hi Function guifg=DarkYellow
+" Highlight Class and Function names
+syn match    cCustomParen    "?=(" contains=cParen,cCppParen
+autocmd BufEnter * syn match    cCustomFunc     "\w\+\ze\s*(" contains=cCustomParen
+syn match    cCustomScope    "::"
+syn match    cCustomClass    "\w\+\s*::" contains=cCustomScope
+hi def cCustomFunc  gui=bold guifg=DarkYellow
+hi def link cCustomClass Function
 
 " colorscheme
 colorscheme github_dimmed
