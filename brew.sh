@@ -16,7 +16,9 @@ brew install tmux
 # install cask
 brew install --cask iterm2
 brew install --cask alt-tab
-
+brew install --cask rectangle
+brew install --cask manila
+brew install --cask appcleaner
 
 
 # Remove outdated versions from the cellar.
