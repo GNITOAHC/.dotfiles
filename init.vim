@@ -9,7 +9,8 @@ set mouse=a
 set relativenumber number
 " cursor line 
 set cursorline
-
+" Wrapping
+set nowrap
 " Map Ctrl+c to a yank shortcut, it could yank it to the clipboard BTW. 
 noremap <C-c> "+y<CR>
 " Map ctrl-p to search files. (by vim-plug fzf)
@@ -38,6 +39,7 @@ vnoremap <leader>( <esc>`<i(<esc>`>la)
 vnoremap <leader>[ <esc>`<i[<esc>`>la]
 vnoremap <leader>{ <esc>`<i{<esc>`>la}
 vnoremap <leader>" <esc>`<i"<esc>`>la"
+vnoremap <leader>' <esc>`<i'<esc>`>la'
 
 " Press <esc> to close terminal in vim, and manually `:bd!` to close this buffer.
 tnoremap <ESC> <C-\><C-n><CR>
