@@ -133,9 +133,6 @@ alias inco='open -na "Google Chrome" --args --incognito ""'
 # open toggl website in Chrome
 alias toggl='browser "https://track.toggl.com/timer"'
 
-# bind vim to default open neovim
-alias vim='nvim'
-
 # t for tmux
 alias t='tmux'
 
