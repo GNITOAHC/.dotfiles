@@ -97,6 +97,12 @@ return packer.startup(function(use)
     -- Toggleterm
     use "akinsho/toggleterm.nvim"
 
+    -- Lualine
+    use "nvim-lualine/lualine.nvim"
+
+    -- Whichkey
+    use "folke/which-key.nvim"
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
