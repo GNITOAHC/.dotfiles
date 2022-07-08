@@ -15,4 +15,6 @@ require "user.toggleterm"
 require "user.lualine"
 require "user.whichkey"
 require "user.alpha"
+require "user.indentline"
+require "user.transparent"
 

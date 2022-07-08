@@ -113,13 +113,10 @@ local mappings = {
             D = { "", "Declaration"},
             l = { "", "Show error message"},
         },
-        p = {
-            name = "Previos",
-            d = { "", "Diagnostic"},
-        },
-        n = {
-            name = "Next",
-            d = { "", "Diagnostic"},
+        d = {
+            name = "Diagnostic",
+            p = { "", "Previos" },
+            n = { "", "Next" },
         },
         K = { "", "Hover information"},
         l = {
