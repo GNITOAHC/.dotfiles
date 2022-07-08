@@ -84,7 +84,7 @@ local mappings = {
     -- ["q"] = { ":q<cr>", "Quit" },
     ["x"] = { "<cmd>bd<cr>", "Buffer delete" },
     ["v"] = { "<cmd>vsp<cr>", "Vertical split" },
-    ["h"] = { "<cmd>noh<cr>", "No highlight" },
+    ["nh"] = { "<cmd>noh<cr>", "No highlight" },
     ["f"] = { "<cmd>Telescope find_files<cr>", "Find file" },
     ["F"] = { "<cmd>Telescope live_grep<cr>", "Live grep" },
 
@@ -104,6 +104,30 @@ local mappings = {
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
     },
+
+    h = {
+        name = "Help",
+        g = {
+            name = "Goto",
+            d = { "", "Definition"},
+            D = { "", "Declaration"},
+            l = { "", "Show error message"},
+        },
+        p = {
+            name = "Previos",
+            d = { "", "Diagnostic"},
+        },
+        n = {
+            name = "Next",
+            d = { "", "Diagnostic"},
+        },
+        K = { "", "Hover information"},
+        l = {
+            name = "leader",
+            q = { "", "Diagnostic window"}
+        },
+
+    }
 }
 
 -- local vopts = {
