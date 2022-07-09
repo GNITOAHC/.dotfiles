@@ -121,6 +121,10 @@ return packer.startup(function(use)
     use "kevinhwang91/nvim-ufo"
     use "kevinhwang91/promise-async"
 
+    -- Code runner
+    use "CRAG666/code_runner.nvim"
+    use "nvim-lua/plenary.nvim"
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
