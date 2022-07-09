@@ -80,13 +80,24 @@ local opts = {
 
 local mappings = {
     ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+    ["d"] = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnose window" },
     ["w"] = { "<cmd>w<cr>", "Write" },
-    -- ["q"] = { ":q<cr>", "Quit" },
+    ["q"] = { "<cmd>q<cr>", "Quit" },
     ["x"] = { "<cmd>bd<cr>", "Buffer delete" },
     ["v"] = { "<cmd>vsp<cr>", "Vertical split" },
     ["nh"] = { "<cmd>noh<cr>", "No highlight" },
     ["f"] = { "<cmd>Telescope find_files<cr>", "Find file" },
     ["F"] = { "<cmd>Telescope live_grep<cr>", "Live grep" },
+
+    r = {
+        name = "RunCode",
+        r = { "<cmd>RunCode<cr>", "Run code" },
+        -- c = { "<cmd>q<cr>", "Close runner window" },
+        f = { "<cmd>RunFile float<cr>", "Run in float" },
+        t = { "<cmd>RunFile tab<cr>", "Run in tab" },
+        s = { "<cmd>RunFile term<cr>", "Run in split" },
+        -- b = { "<cmd>RunFile toggle<cr>", "Run in split" }
+    },
 
     g = {
         name = "Git",
@@ -99,10 +110,11 @@ local mappings = {
     },
 
     t = {
-        name = "Terminal",
-        f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-        h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-        v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+        name = "Terminal/tabs",
+        f = { "<cmd>ToggleTerm direction=float<cr>", "Float terminal" },
+        h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal terminal" },
+        v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical terminal" },
+        e = { "<cmd>tabedit<cr>", "New tab"}
     },
 
     h = {
@@ -119,11 +131,12 @@ local mappings = {
             n = { "", "Next" },
         },
         K = { "", "Hover information"},
-        l = {
-            name = "leader",
-            q = { "", "Diagnostic window"}
+        C = {
+            name = "Ctrl",
+            n = { "", "Next closed fold" },
+            p = { "", "Previous closed fold" },
+            k = { "", "Signature help" },
         },
-
     }
 }
 
