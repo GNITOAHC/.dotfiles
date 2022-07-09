@@ -17,4 +17,6 @@ require "user.whichkey"
 require "user.alpha"
 require "user.indentline"
 require "user.transparent"
+require "user.ufo"
+-- require "user.pretty-fold"
 

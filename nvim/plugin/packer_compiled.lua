@@ -189,6 +189,11 @@ _G.packer_plugins = {
     path = "/Users/chenchaoting/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
     url = "https://github.com/p00f/nvim-ts-rainbow"
   },
+  ["nvim-ufo"] = {
+    loaded = true,
+    path = "/Users/chenchaoting/.local/share/nvim/site/pack/packer/start/nvim-ufo",
+    url = "https://github.com/kevinhwang91/nvim-ufo"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/Users/chenchaoting/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -208,6 +213,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/chenchaoting/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["promise-async"] = {
+    loaded = true,
+    path = "/Users/chenchaoting/.local/share/nvim/site/pack/packer/start/promise-async",
+    url = "https://github.com/kevinhwang91/promise-async"
   },
   ["telescope-media-files.nvim"] = {
     loaded = true,

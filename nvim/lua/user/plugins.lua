@@ -114,6 +114,13 @@ return packer.startup(function(use)
     -- Transparent
     use "xiyaowong/nvim-transparent"
 
+    -- Pretty-fold
+    -- use "anuvyklack/pretty-fold.nvim"
+
+    -- UFO 
+    use "kevinhwang91/nvim-ufo"
+    use "kevinhwang91/promise-async"
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
