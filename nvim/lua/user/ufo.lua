@@ -36,16 +36,16 @@ end)
 
 vim.keymap.set('n', '<C-n>', function()
     local nextclose = require('ufo').goNextClosedFold()
-    if not nextclose then 
+    if not nextclose then
         return
-    end 
+    end
 end)
 
 vim.keymap.set('n', '<C-p>', function()
     local previousclose = require('ufo').goPreviousClosedFold()
-    if not previousclose then 
+    if not previousclose then
         return
-    end 
+    end
 end)
 
 local handler = function(virtText, lnum, endLnum, width, truncate)
