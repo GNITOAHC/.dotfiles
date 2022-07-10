@@ -125,6 +125,9 @@ return packer.startup(function(use)
     use "CRAG666/code_runner.nvim"
     use "nvim-lua/plenary.nvim"
 
+    -- NeoScroll 
+    use "karb94/neoscroll.nvim"
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
