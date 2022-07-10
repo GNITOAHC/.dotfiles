@@ -21,4 +21,5 @@ require "user.ufo"  -- require "user.pretty-fold"
 require "user.code-runner"
 require "user.neoscroll"
 require "user.hop"
+require "user.outline"
 

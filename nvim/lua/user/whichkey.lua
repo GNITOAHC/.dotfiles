@@ -85,12 +85,14 @@ local mappings = {
     ["q"] = { "<cmd>q<cr>", "Quit" },
     ["x"] = { "<cmd>bd<cr>", "Buffer delete" },
     ["v"] = { "<cmd>vsp<cr>", "Vertical split" },
-    ["nh"] = { "<cmd>noh<cr>", "No highlight" },
     ["f"] = { "<cmd>Telescope find_files<cr>", "Find file" },
     ["F"] = { "<cmd>Telescope live_grep<cr>", "Live grep" },
+    ["s"] = { "<cmd>SymbolsOutline<cr>", "Outline toggle" },
+    ["nh"] = { "<cmd>noh<cr>", "No highlight" },
 
     r = {
-        name = "RunCode",
+        name = "RunCode/Refresh",
+        a = { "<cmd>NvimTreeRefresh<cr><cmd>Gitsigns refresh<cr>", "Refresh add [Tree & gitsigns]"},
         r = { "<cmd>RunCode<cr>", "Run code" },
         -- c = { "<cmd>q<cr>", "Close runner window" },
         f = { "<cmd>RunFile float<cr>", "Run in float" },
