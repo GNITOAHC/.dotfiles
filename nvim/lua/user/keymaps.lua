@@ -40,8 +40,8 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down 
--- keymap("n", "-", "<Esc>:m .+1<CR>==gi", opts)
--- keymap("n", "_", "<Esc>:m .-2<CR>==gi", opts)
+keymap("n", "-", "<Esc>:m .-2<CR>==", opts) -- Up
+keymap("n", "_", "<Esc>:m .+1<CR>==", opts) -- Down
 
 -- Insert --
 -- Press jj fast to enter
@@ -54,8 +54,10 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+keymap("v", "K", ":move '<-2<CR>gv-gv", opts) -- Up
+keymap("v", "J", ":move '>+1<CR>gv-gv", opts) -- Down
+-- keymap("v", "<A-j>", ":m .+1<CR>==", opts)
+-- keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Add pairs in visual mode
@@ -70,8 +72,8 @@ keymap("v", "\\\"", "<esc>`<i\"<esc>`>la\"", opts)
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+-- keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
+-- keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 
 -- Terminal --

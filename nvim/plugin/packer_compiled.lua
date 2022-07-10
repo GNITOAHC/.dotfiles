@@ -149,6 +149,11 @@ _G.packer_plugins = {
     path = "/Users/chenchaoting/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["neoscroll.nvim"] = {
+    loaded = true,
+    path = "/Users/chenchaoting/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
+    url = "https://github.com/karb94/neoscroll.nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/Users/chenchaoting/.local/share/nvim/site/pack/packer/start/nvim-autopairs",

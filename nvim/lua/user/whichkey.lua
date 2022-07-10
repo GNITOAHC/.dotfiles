@@ -103,6 +103,7 @@ local mappings = {
         name = "Git",
         r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
         R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+        p = { "<cmd>Gitsigns preview_hunk", "Preview changes" },
         s = { "<cmd>Telescope git_status<cr>", "Git status" },
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
@@ -110,7 +111,8 @@ local mappings = {
     },
 
     t = {
-        name = "Terminal/tabs",
+        name = "Tabs/Terminal/Transparent",
+        t = { "<cmd>TransparentToggle<cr>", "Toggle transparent" },
         f = { "<cmd>ToggleTerm direction=float<cr>", "Float terminal" },
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal terminal" },
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical terminal" },
@@ -121,9 +123,10 @@ local mappings = {
         name = "Help",
         g = {
             name = "Goto",
-            d = { "", "Definition"},
-            D = { "", "Declaration"},
-            l = { "", "Show error message"},
+            d = { "", "Definition" },
+            D = { "", "Declaration" },
+            l = { "", "Show error message" },
+            i = { "", "Inplementation" },
         },
         d = {
             name = "Diagnostic",
@@ -133,10 +136,21 @@ local mappings = {
         K = { "", "Hover information"},
         C = {
             name = "Ctrl",
+            e = { "", "Scroll down" },
+            y = { "", "Scroll up" },
+            u = { "", "Up without moving cursor" },
+            d = { "", "Down without moving cursor" },
+            f = { "", "Page down" },
+            b = { "", "Page up" },
             n = { "", "Next closed fold" },
             p = { "", "Previous closed fold" },
             k = { "", "Signature help" },
         },
+        q = {
+            name = "Quick",
+            f = { "", "Fix"},
+            h = { "", "Hover information" },
+        }
     }
 }
 
