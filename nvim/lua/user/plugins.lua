@@ -123,10 +123,12 @@ return packer.startup(function(use)
 
     -- Code runner
     use "CRAG666/code_runner.nvim"
-    use "nvim-lua/plenary.nvim"
 
     -- NeoScroll 
     use "karb94/neoscroll.nvim"
+
+    -- Hop
+    use { "phaazon/hop.nvim", branch = 'v2' }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
