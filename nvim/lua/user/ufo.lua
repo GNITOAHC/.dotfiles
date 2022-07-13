@@ -5,23 +5,31 @@ end
 
 vim.o.foldcolumn = '1'
 
-ufo.setup {
-    preview = {
-        win_config = {
-            border = 'rounded',
-            winblend = 1,
-            -- winhighlight = 'Normal:Normal',
-        },
-        mappings = {
-            close = '<tab>',
-            switch = '<CR>',
-            trace = '',
-        }
-    },
-    provider_selector = function(bufnr, filetype)
-        return {'treesitter', 'indent'}
-    end,
-}
+-- ufo.setup {
+--     preview = {
+--         win_config = {
+--             border = 'rounded',
+--             winblend = 1,
+--             -- winhighlight = 'Normal:Normal',
+--         },
+--         mappings = {
+--             close = '<tab>',
+--             switch = '<CR>',
+--             trace = '',
+--         }
+--     },
+--     provider_selector = function(bufnr, filetype)
+--         return {'treesitter', 'indent'}
+--     end,
+-- }
+local language_servers = {'clangd', 'sumneko_lua', 'pyright'} -- like {'gopls', 'clangd'}
+for _, ls in ipairs(language_servers) do
+    require('lspconfig')[ls].setup({
+        -- capabilities = capabilities,
+        -- other_fields = ...
+    })
+end
+require('ufo').setup()
 
 vim.keymap.set('n', '<tab>', function()
     local winid = require('ufo').peekFoldedLinesUnderCursor()
