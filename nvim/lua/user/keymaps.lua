@@ -44,9 +44,9 @@ keymap("n", "-", "<Esc>:m .-2<CR>==", opts) -- Up
 keymap("n", "_", "<Esc>:m .+1<CR>==", opts) -- Down
 
 -- Hopping 
-keymap("n", "Hp", "<cmd>HopPattern<cr>", opts)
-keymap("n", "Hv", "<cmd>HopVerticalAC<cr>", opts) -- Vertical UP
-keymap("n", "HV", "<cmd>HopVerticalBC<cr>", opts) -- Vertical DOWN
+keymap("n", "Jp", "<cmd>HopPattern<cr>", opts)
+keymap("n", "Jv", "<cmd>HopVerticalAC<cr>", opts) -- Vertical UP
+keymap("n", "JV", "<cmd>HopVerticalBC<cr>", opts) -- Vertical DOWN
 
 
 -- Insert --
