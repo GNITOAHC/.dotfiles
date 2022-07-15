@@ -97,7 +97,7 @@ return packer.startup(function(use)
     use "akinsho/bufferline.nvim"
 
     -- Toggleterm
-    use "akinsho/toggleterm.nvim"
+    use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
 
     -- Lualine
     use "nvim-lualine/lualine.nvim"
