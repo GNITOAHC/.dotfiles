@@ -66,9 +66,7 @@ local function lsp_keymaps(bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(
-        bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts
-    )
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 
     vim.api.nvim_buf_set_keymap(bufnr, "n", "qf", "<cmd>lua vim.lsp.buf.code_action(quickfix)<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "qh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
