@@ -22,12 +22,12 @@ end
 
 null_ls.setup {
     debug = false,
-    on_init = function(new_client, _)
-        new_client.offset_encoding = 'utf-8'
-    end,
+    -- on_init = function(new_client, _)
+    --     -- new_client.offset_encoding = 'utf-8'
+    -- end,
     sources = {
-        -- formatting.prettier.with { extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } },
-        -- formatting.black.with { extra_args = { "--fast" } },
+        formatting.prettier.with { extra_args = {} },
+        formatting.black.with { extra_args = { "--fast" } },
         -- formatting.yapf,
         -- formatting.stylua,
         -- diagnostics.flake8,
@@ -38,8 +38,10 @@ null_ls.setup {
         }
     },
     on_attach = function(client, bufnr)
+        local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+        if filetype == 'cpp' then
+            client.offset_encoding = 'utf-8'
+        end
         formatting_callback(client, bufnr)
     end
 }
-
-
