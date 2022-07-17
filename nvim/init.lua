@@ -22,4 +22,5 @@ require "user.code-runner"
 require "user.neoscroll"
 require "user.hop"
 require "user.outline"
+require "user.autocmd"
 
