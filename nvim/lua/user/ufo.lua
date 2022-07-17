@@ -22,7 +22,7 @@ vim.o.foldcolumn = '1'
 --         return {'treesitter', 'indent'}
 --     end,
 -- }
-local language_servers = {'clangd', 'sumneko_lua', 'pyright'} -- like {'gopls', 'clangd'}
+local language_servers = {'clangd', 'sumneko_lua', 'pyright', 'tsserver'} -- like {'gopls', 'clangd'}
 for _, ls in ipairs(language_servers) do
     require('lspconfig')[ls].setup({
         -- capabilities = capabilities,
