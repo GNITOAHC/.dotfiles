@@ -114,6 +114,13 @@ local mappings = {
         d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
     },
 
+    b = {
+        name = "Buffer",
+        l = { "<cmd>BufferLineCloseLeft<cr>", "Close left" },
+        r = { "<cmd>BufferLineCloseRight<cr>", "Close right" },
+        a = { "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>", "Close except current" },
+    },
+
     t = {
         name = "Tabs/Terminal/Transparent",
         t = { "<cmd>TransparentToggle<cr>", "Toggle transparent" },
