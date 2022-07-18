@@ -26,6 +26,7 @@ alias google='{read -r arr; browser "https://google.com/search?q=${arr}";} <<<'
 alias FSync='killall bird'
 
 # Git
+alias g="git"
 alias gs="git status"
 alias gc="git commit -m"
 alias ga="git add"
