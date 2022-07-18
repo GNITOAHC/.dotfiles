@@ -34,6 +34,8 @@ local options = {
     sidescrolloff = 8,
     guifont = "monospace:h17",               -- the font used in graphical neovim applications
     foldlevel = 99,                          -- prevent pre-fold or fold on save
+    foldcolumn = '1',                        -- foldcolumn = 1 on the left side 
+    foldmethod = "indent",                   -- fold method
     -- foldlevelstart = 99,
 }
 

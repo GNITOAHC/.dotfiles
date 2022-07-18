@@ -116,11 +116,11 @@ return packer.startup(function(use)
     use "xiyaowong/nvim-transparent"
 
     -- Pretty-fold
-    -- use "anuvyklack/pretty-fold.nvim"
+    use "anuvyklack/pretty-fold.nvim"
 
     -- UFO 
-    use "kevinhwang91/nvim-ufo"
-    use "kevinhwang91/promise-async"
+    -- use "kevinhwang91/nvim-ufo"
+    -- use "kevinhwang91/promise-async"
 
     -- Code runner
     use "CRAG666/code_runner.nvim"
