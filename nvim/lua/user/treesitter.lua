@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 configs.setup {
-    ensure_installed = { "c", "cpp", "lua", "python", "c_sharp", "typescript", "javascript", "markdown" },
+    ensure_installed = { "c", "cpp", "lua", "python", "c_sharp", "typescript", "javascript", "markdown", "scss" },
     sync_install = false,
     ignore_install = { "" }, -- List of parsers to ignore installing
     autopairs = {
