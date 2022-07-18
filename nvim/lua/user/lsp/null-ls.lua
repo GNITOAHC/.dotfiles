@@ -26,7 +26,7 @@ null_ls.setup {
     --     -- new_client.offset_encoding = 'utf-8'
     -- end,
     sources = {
-        formatting.prettier.with { extra_args = {} },
+        formatting.prettier.with { extra_args = { vim.fn.expand "--config $HOME/.prettierrc" } },
         formatting.black.with { extra_args = { "--fast" } },
         -- formatting.yapf,
         -- formatting.stylua,
