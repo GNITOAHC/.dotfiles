@@ -132,6 +132,13 @@ local mappings = {
 
     h = {
         name = "Help",
+        J = { "", "Make curLine after prevLine" },
+        m = {
+            name = "Move/Hop",
+            p = { "", "Pattern" },
+            v = { "", "Up" },
+            V = { "", "Down" },
+        },
         g = {
             name = "Goto",
             d = { "", "Definition" },
