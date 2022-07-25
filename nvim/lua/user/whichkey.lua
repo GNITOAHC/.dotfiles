@@ -125,6 +125,7 @@ local mappings = {
         name = "Tabs/Terminal/Transparent",
         t = { "<cmd>TransparentToggle<cr>", "Toggle transparent" },
         f = { "<cmd>ToggleTerm direction=float<cr>", "Float terminal" },
+        b = { "<cmd>ToggleTerm direction=tab<cr>", "Tab terminal" },
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal terminal" },
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical terminal" },
         e = { "<cmd>tabedit<cr>", "New tab"}
