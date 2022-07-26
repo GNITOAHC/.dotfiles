@@ -132,7 +132,7 @@ PenaltyReturnTypeOnItsOwnLine: 60
 PenaltyIndentedWhitespace: 0
 PointerAlignment: Right
 PPIndentWidth:   -1
-ReferenceAlignment: Pointer
+ReferenceAlignment: Left
 ReflowComments:  true
 RemoveBracesLLVM: false
 SeparateDefinitionBlocks: Leave
@@ -148,11 +148,11 @@ SpaceBeforeCaseColon: false
 SpaceBeforeCpp11BracedList: false
 SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
-SpaceBeforeParens: ControlStatements
+SpaceBeforeParens: Custom
 SpaceBeforeParensOptions:
   AfterControlStatements: true
   AfterForeachMacros: true
-  AfterFunctionDefinitionName: false
+  AfterFunctionDefinitionName: true
   AfterFunctionDeclarationName: false
   AfterIfMacros:   true
   AfterOverloadedOperator: false
@@ -173,7 +173,7 @@ SpacesInParentheses: false
 SpacesInSquareBrackets: false
 SpaceBeforeSquareBrackets: false
 BitFieldColonSpacing: Both
-Standard:        Latest
+Standard:        c++03
 StatementAttributeLikeMacros:
   - Q_EMIT
 StatementMacros:
