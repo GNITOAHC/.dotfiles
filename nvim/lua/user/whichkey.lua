@@ -134,6 +134,20 @@ local mappings = {
     h = {
         name = "Help",
         J = { "", "Make curLine after prevLine" },
+        n = {
+            name = "Nvim Tree",
+            m = { "", "Bookmakrs, \'bmv\' to move"},
+            r = { "", "Rename file" },
+            a = { "", "Add file, leave / behind for dir" },
+            d = { "", "Delete file" },
+            C = {
+                name = "Ctrl",
+                v = { "", "Open in vertical" },
+                x = { "", "Open in horivontal" },
+                t = { "", "Open in tab" },
+            }
+
+        },
         m = {
             name = "Move/Hop",
             p = { "", "Pattern" },
