@@ -24,4 +24,5 @@ require "user.neoscroll"
 require "user.hop"
 require "user.outline"
 require "user.autocmd"
+require "user.friendly-snip"
 
