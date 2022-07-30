@@ -3,6 +3,14 @@ if not status_ok then
     return
 end
 
+local autotag_filetypes = {
+    'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
+    'xml',
+    'php',
+    'markdown',
+    'glimmer','handlebars','hbs'
+}
+
 configs.setup {
     ensure_installed = { "c", "cpp", "lua", "python", "c_sharp", "typescript", "javascript", "markdown", "scss" },
     sync_install = false,
@@ -12,6 +20,7 @@ configs.setup {
     },
     autotag = {
         enable = true,
+        filetypes = autotag_filetypes,
     },
     highlight = {
         enable = true, -- false will disable the whole extension
