@@ -5,3 +5,4 @@ end
 
 luasnip.filetype_extend("javascript", { "javascriptreact" })
 luasnip.filetype_extend("javascript", { "html" })
+luasnip.filetype_extend("html", { "html" })
