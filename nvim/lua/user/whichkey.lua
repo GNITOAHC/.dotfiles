@@ -119,6 +119,8 @@ local mappings = {
         l = { "<cmd>BufferLineCloseLeft<cr>", "Close left" },
         r = { "<cmd>BufferLineCloseRight<cr>", "Close right" },
         a = { "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>", "Close except current" },
+        n = { "<cmd>BufferLineMoveNext<cr>", "Move next" },
+        p = { "<cmd>BufferLineMovePrev<cr>", "Move prev" },
     },
 
     t = {
