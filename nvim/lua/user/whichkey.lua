@@ -85,6 +85,7 @@ local mappings = {
     ["q"] = { "<cmd>q<cr>", "Quit" },
     ["x"] = { "<cmd>bd<cr>", "Buffer delete" },
     ["v"] = { "<cmd>vsp<cr>", "Vertical split" },
+    ["V"] = { "<cmd>sp<cr>", "Horizontal split" },
     ["f"] = { "<cmd>Telescope find_files<cr>", "Find file" },
     ["F"] = { "<cmd>Telescope live_grep<cr>", "Live grep" },
     ["s"] = { "<cmd>SymbolsOutline<cr>", "Outline toggle" },
