@@ -94,7 +94,11 @@ telescope.setup {
         -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
         filetypes = {"png", "webp", "jpg", "jpeg"},
         find_cmd = "rg" -- find command (defaults to `fd`)
-      }
+    },
+    file_browser = {
+        theme = "ivy",
+        hijack_netrw = true,
+    }
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,
@@ -102,3 +106,7 @@ telescope.setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
+
+-- To get telescope-file-browser loaded and working with telescope,
+-- you need to call load_extension, somewhere after setup function:
+require("telescope").load_extension "file_browser"
