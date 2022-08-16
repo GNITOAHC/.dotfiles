@@ -14,6 +14,12 @@ alias toggl='browser "https://track.toggl.com/timer"'
 # t for tmux
 alias t='tmux'
 alias tn='tmux new -s'
+alias ta='tmux attach -t'
+alias tl='tmux list-sessions'
+
+# dot to move cur directory
+alias ..='cd ..'
+alias ...='cd ../..'
 
 # google search in terminal type "google [what you want to search]"
 alias chrome='{read -r arr; open -a "Google Chrome" "${arr}"} <<<'
