@@ -39,7 +39,7 @@ null_ls.setup {
     },
     on_attach = function(client, bufnr)
         local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-        if filetype == 'cpp' then
+        if filetype == 'cpp' or 'c' then
             client.offset_encoding = 'utf-8'
         end
         formatting_callback(client, bufnr)
