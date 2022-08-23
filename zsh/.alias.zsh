@@ -37,3 +37,18 @@ alias g="git"
 alias gs="git status"
 alias gc="git commit -m"
 alias ga="git add"
+
+# brew install exa before using these aliases
+alias l="exa"
+alias la="exa --all"
+alias li="exa --all --icons"
+alias ll="exa --long"
+alias ld="exa --only-dirs"
+lt() {
+    if [ "$1" != "" ] # or better, if [ -n "$1" ]
+    then
+        exa --tree --level=$1
+    else
+        exa --tree --level=2
+    fi
+}
