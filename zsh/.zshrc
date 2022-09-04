@@ -19,6 +19,10 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export TERM=xterm-256color
 
-source ~/.dotfiles/zsh/.alias.zsh
-[ -f ~/.fzf.zsh ] && source ~/.dotfiles/zsh/.fzf.zsh
+# Make auto completion case insensitive
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
+source ~/.dotfiles/zsh/.alias.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

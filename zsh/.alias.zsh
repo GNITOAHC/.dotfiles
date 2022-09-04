@@ -37,6 +37,7 @@ alias g="git"
 alias gs="git status"
 alias gc="git commit -m"
 alias ga="git add"
+alias gp="git push"
 
 # brew install exa before using these aliases
 alias l="exa"
