@@ -20,6 +20,7 @@ alias tl='tmux list-sessions'
 # dot to move cur directory
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
 
 # google search in terminal type "google [what you want to search]"
 alias chrome='{read -r arr; open -a "Google Chrome" "${arr}"} <<<'
