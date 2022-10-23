@@ -178,8 +178,9 @@ local mappings = {
             d = { "", "Down without moving cursor" },
             f = { "", "Page down" },
             b = { "", "Page up" },
-            n = { "", "Next closed fold" },
-            p = { "", "Previous closed fold" },
+            -- For ufo.lua 
+            --[[ n = { "", "Next closed fold" }, ]]
+            --[[ p = { "", "Previous closed fold" }, ]]
             k = { "", "Signature help" },
         },
         q = {
