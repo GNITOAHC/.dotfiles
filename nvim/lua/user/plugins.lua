@@ -122,6 +122,9 @@ return packer.startup(function(use)
     -- UFO 
     -- use "kevinhwang91/nvim-ufo"
     -- use "kevinhwang91/promise-async"
+    
+    -- VimTex 
+    use "lervag/vimtex"
 
     -- Code runner
     use "CRAG666/code_runner.nvim"
