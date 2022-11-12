@@ -131,7 +131,9 @@ local mappings = {
         b = { "<cmd>ToggleTerm direction=tab<cr>", "Tab terminal" },
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal terminal" },
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical terminal" },
-        e = { "<cmd>tabedit<cr>", "New tab"}
+        e = { "<cmd>tabedit<cr>", "New tab" },
+        n = { "<cmd>tabnext<cr>", "Next tab" },
+        p = { "<cmd>tabprevious<cr>", "Previous tab" }
     },
 
     h = {
