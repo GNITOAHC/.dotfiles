@@ -122,7 +122,10 @@ return packer.startup(function(use)
     -- UFO 
     -- use "kevinhwang91/nvim-ufo"
     -- use "kevinhwang91/promise-async"
-    
+
+    --[[ Silicon ]]
+    --[[ use {'krivahtoo/silicon.nvim', run = './install.sh'} ]]
+
     -- VimTex 
     use "lervag/vimtex"
 
