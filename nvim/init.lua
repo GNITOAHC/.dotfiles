@@ -28,6 +28,7 @@ require "user.friendly-snip"
 require "user.colorizer"
 require "user.vimtex"
 --[[ require "user.silicon" ]]
+require "user.barbecue"
 
 -- Set notermguicolors cause mac default terminal.app only support 256 colors
 vim.cmd([[ 
