@@ -49,7 +49,7 @@ return packer.startup(function(use)
     use "kyazdani42/nvim-web-devicons"
     use "windwp/nvim-ts-autotag" --Auto tags, integrate with treesitter 
 
-    -- Colorschemes 
+    -- Colorschemes
     -- use "lunarvim/colorschemes"
     -- use "lunarvim/darkplus.nvim"
     use 'folke/tokyonight.nvim'
@@ -62,18 +62,18 @@ return packer.startup(function(use)
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-nvim-lua"
-    use {'tzachar/cmp-tabnine', run='./install.sh'} -- nvim-cmp plugin
+    use { 'tzachar/cmp-tabnine', run = './install.sh' } -- nvim-cmp plugin
 
     -- Snippets
     use "L3MON4D3/LuaSnip" --snippet engine
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
-    -- LSP 
+    -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/nvim-lsp-installer" -- simple to use language server installer
     use "jose-elias-alvarez/null-ls.nvim"
 
-    -- Telescope 
+    -- Telescope
     use "nvim-telescope/telescope.nvim"
     use "nvim-telescope/telescope-media-files.nvim"
     use "nvim-telescope/telescope-file-browser.nvim"
@@ -89,10 +89,10 @@ return packer.startup(function(use)
     --Comment
     use "numToStr/Comment.nvim" -- Easily comment stuff
 
-    -- Git 
+    -- Git
     use "lewis6991/gitsigns.nvim"
 
-    --Nvim-tree 
+    --Nvim-tree
     use "kyazdani42/nvim-tree.lua"
 
     --Bufferline
@@ -119,20 +119,20 @@ return packer.startup(function(use)
     -- Pretty-fold
     use "anuvyklack/pretty-fold.nvim"
 
-    -- UFO 
+    -- UFO
     -- use "kevinhwang91/nvim-ufo"
     -- use "kevinhwang91/promise-async"
 
     --[[ Silicon ]]
     --[[ use {'krivahtoo/silicon.nvim', run = './install.sh'} ]]
 
-    -- VimTex 
+    -- VimTex
     use "lervag/vimtex"
 
     -- Code runner
     use "CRAG666/code_runner.nvim"
 
-    -- NeoScroll 
+    -- NeoScroll
     use "karb94/neoscroll.nvim"
 
     -- Hop
@@ -141,10 +141,10 @@ return packer.startup(function(use)
     -- Outline
     use "simrat39/symbols-outline.nvim"
 
-    -- Colorizer 
+    -- Colorizer
     use "norcalli/nvim-colorizer.lua"
 
-    -- Illuminate 
+    -- Illuminate
     use "RRethy/vim-illuminate"
 
     -- Automatically set up your configuration after cloning packer.nvim
