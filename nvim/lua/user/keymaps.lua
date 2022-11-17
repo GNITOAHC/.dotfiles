@@ -71,6 +71,7 @@ keymap("v", "\\(", "<esc>`<i(<esc>`>la)", opts)
 keymap("v", "\\[", "<esc>`<i[<esc>`>la]", opts)
 keymap("v", "\\{", "<esc>`<i{<esc>`>la}", opts)
 keymap("v", "\\'", "<esc>`<i'<esc>`>la'", opts)
+keymap("v", "\\<", "<esc>`<i<<esc>`>la>", opts)
 keymap("v", "\\\"", "<esc>`<i\"<esc>`>la\"", opts)
 
 
