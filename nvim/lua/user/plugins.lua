@@ -41,20 +41,10 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
 
-    -- My plugins here
+    --[[ Packer ]]
     use "wbthomason/packer.nvim" -- Have packer manage itself
-    use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-    use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-    use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter 
-    use "kyazdani42/nvim-web-devicons"
-    use "windwp/nvim-ts-autotag" --Auto tags, integrate with treesitter 
 
-    -- Colorschemes
-    -- use "lunarvim/colorschemes"
-    -- use "lunarvim/darkplus.nvim"
-    use 'folke/tokyonight.nvim'
-
-    -- cmp plugins
+    --[[ CMP Plugins ]]
     use "hrsh7th/nvim-cmp" -- The completion plugin
     use "hrsh7th/cmp-buffer" -- buffer completions
     use "hrsh7th/cmp-path" -- path completions
@@ -64,21 +54,21 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-nvim-lua"
     use { 'tzachar/cmp-tabnine', run = './install.sh' } -- nvim-cmp plugin
 
-    -- Snippets
+    --[[ Snippets ]]
     use "L3MON4D3/LuaSnip" --snippet engine
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
-    -- LSP
+    --[[ LSP ]]
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/nvim-lsp-installer" -- simple to use language server installer
     use "jose-elias-alvarez/null-ls.nvim"
 
-    -- Telescope
+    --[[ Telescope ]]
     use "nvim-telescope/telescope.nvim"
     use "nvim-telescope/telescope-media-files.nvim"
     use "nvim-telescope/telescope-file-browser.nvim"
 
-    -- Treesitter
+    --[[ Treesitter ]]
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
@@ -86,71 +76,63 @@ return packer.startup(function(use)
     use "p00f/nvim-ts-rainbow"
     use 'JoosepAlviste/nvim-ts-context-commentstring'
 
-    --Comment
+    --[[ Pairs & Comment ]]
+    use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter 
+    use "windwp/nvim-ts-autotag" --Auto tags, integrate with treesitter 
     use "numToStr/Comment.nvim" -- Easily comment stuff
 
-    -- Git
+    --[[ Git ]]
     use "lewis6991/gitsigns.nvim"
 
-    --Nvim-tree
+    --[[ Nvim-tree ]]
     use "kyazdani42/nvim-tree.lua"
 
-    --Bufferline
+    --[[ BufferLine & Lualine & Winbar ]]
     use "akinsho/bufferline.nvim"
-
-    -- Toggleterm
-    use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
-
-    -- Lualine
     use "nvim-lualine/lualine.nvim"
-
-    -- Whichkey
-    use "folke/which-key.nvim"
-
-    -- Alpha
-    use "goolord/alpha-nvim"
-
-    -- IndentBlankline
-    use "lukas-reineke/indent-blankline.nvim"
-
-    -- Transparent
-    use "xiyaowong/nvim-transparent"
-
-    -- Pretty-fold
-    use "anuvyklack/pretty-fold.nvim"
-
-    -- UFO
-    -- use "kevinhwang91/nvim-ufo"
-    -- use "kevinhwang91/promise-async"
-
-    --[[ Silicon ]]
-    --[[ use {'krivahtoo/silicon.nvim', run = './install.sh'} ]]
-
-    -- VimTex
-    use "lervag/vimtex"
-
-    -- Code runner
-    use "CRAG666/code_runner.nvim"
-
-    -- NeoScroll
-    use "karb94/neoscroll.nvim"
-
-    -- Hop
-    use { "phaazon/hop.nvim", branch = 'v2' }
-
-    -- Outline
-    use "simrat39/symbols-outline.nvim"
-
-    -- Colorizer
-    use "norcalli/nvim-colorizer.lua"
-
-    -- Illuminate
-    use "RRethy/vim-illuminate"
-
-    -- Barbecue
     use { "utilyre/barbecue.nvim",
         requires = { "neovim/nvim-lspconfig", "smiteshp/nvim-navic", "kyazdani42/nvim-web-devicons" },
     }
+
+    --[[ Toggleterm ]]
+    use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
+
+    --[[ Whichkey ]]
+    use "folke/which-key.nvim"
+
+    --[[ Alpha ]]
+    use "goolord/alpha-nvim"
+
+    --[[ Typesetting ]]
+    use "lukas-reineke/indent-blankline.nvim"
+    use "anuvyklack/pretty-fold.nvim"
+
+    --[[ Transparent ]]
+    use "xiyaowong/nvim-transparent"
+
+    --[[ VimTex ]]
+    use "lervag/vimtex"
+
+    --[[ Code runner ]]
+    use "CRAG666/code_runner.nvim"
+
+    --[[ Moving ]]
+    use "karb94/neoscroll.nvim"
+    use { "phaazon/hop.nvim", branch = 'v2' }
+    use "simrat39/symbols-outline.nvim"
+
+    --[[ Color or Highlighting ]]
+    use 'folke/tokyonight.nvim' -- Colorscheme
+    use "norcalli/nvim-colorizer.lua" -- Colorizer
+    use "RRethy/vim-illuminate" -- Illuminate
+    use "kyazdani42/nvim-web-devicons"
+
+    --[[ Functions or API ]]
+    use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+    use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+
+    --[[ Silicon ]]
+    --[[ use {'krivahtoo/silicon.nvim', run = './install.sh'} ]]
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
