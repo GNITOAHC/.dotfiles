@@ -12,7 +12,7 @@ local autotag_filetypes = {
 }
 
 configs.setup {
-    ensure_installed = { "c", "cpp", "lua", "python", "c_sharp", "typescript", "javascript", "markdown", "scss" },
+    ensure_installed = { "c", "cpp", "lua", "python", "c_sharp", "typescript", "javascript", "markdown", "scss", "fish" },
     sync_install = false,
     ignore_install = { "" }, -- List of parsers to ignore installing
     autopairs = {
