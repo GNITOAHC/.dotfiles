@@ -38,17 +38,15 @@ null_ls.setup {
         }
     },
     on_attach = function(client, bufnr)
+        --[[ Set to utf-16 to prevent multiple client offset_encodings ]]
         local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-        if filetype == 'cpp' then
-            client.offset_encoding = 'utf-8'
-        end
-        if filetype == 'c' then
-            client.offset_encoding = 'utf-8'
-        end
         if filetype == 'css' then
             client.offset_encoding = 'utf-16'
         end
         if filetype == 'javascriptreact' then
+            client.offset_encoding = 'utf-16'
+        end
+        if filetype == 'python' then
             client.offset_encoding = 'utf-16'
         end
         formatting_callback(client, bufnr)
