@@ -10,7 +10,8 @@ end
 
 mason_lspconf.setup({
     ensure_installed = {
-        "sumneko_lua", "clangd", "cssls", "marksman", "pyright", "tsserver", "csharp_ls", -- LSP
+        "sumneko_lua", "clangd", "cssls", "marksman", "pyright", "tsserver", -- LSP
+        --[[ "omnisharp_mono", -- For UnityEngine ]]
     }
 })
 
