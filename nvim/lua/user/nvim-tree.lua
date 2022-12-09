@@ -6,13 +6,14 @@ if not status_ok then
     return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-    return
-end
+--[[ local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config") ]]
+--[[ if not config_status_ok then ]]
+--[[     return ]]
+--[[ end ]]
 
-local tree_cb = nvim_tree_config.nvim_tree_callback
+--[[ local tree_cb = nvim_tree_config.nvim_tree_callback ]]
 
+--[[ [Naive Solution](https://github.com/nvim-tree/nvim-tree.lua/wiki/Auto-Close) ]]
 nvim_tree.setup {
     disable_netrw = true,
     hijack_netrw = true,
@@ -57,9 +58,12 @@ nvim_tree.setup {
         mappings = {
             custom_only = false,
             list = {
-                { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-                { key = "h", cb = tree_cb "close_node" },
-                { key = "v", cb = tree_cb "vsplit" },
+                --[[ { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" }, ]]
+                --[[ { key = "h", cb = tree_cb "close_node" }, ]]
+                --[[ { key = "v", cb = tree_cb "vsplit" }, ]]
+                { key = { "l", "<CR>", "o" }, action = "edit", mode = "n" },
+                { key = "h", action = "close_node", mode = "n" },
+                { key = "v", action = "vsplit", mode = "n" },
             },
         },
         number = false,
@@ -70,7 +74,6 @@ nvim_tree.setup {
             quit_on_open = true,
         }
     },
-    -- quit_on_open = 0,
     -- git_hl = 1,
     -- disable_window_picker = 0,
     -- root_folder_modifier = ":t",
