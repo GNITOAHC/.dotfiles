@@ -13,7 +13,6 @@ end
 
 --[[ local tree_cb = nvim_tree_config.nvim_tree_callback ]]
 
---[[ [Naive Solution](https://github.com/nvim-tree/nvim-tree.lua/wiki/Auto-Close) ]]
 nvim_tree.setup {
     disable_netrw = true,
     hijack_netrw = true,
