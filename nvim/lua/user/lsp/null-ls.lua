@@ -16,7 +16,7 @@ local formatting = null_ls.builtins.formatting
 local formatting_callback = function(client, bufnr)
   vim.keymap.set('n', '<leader>m', function()
     local params = util.make_formatting_params({})
-    client.request('textDocument/formatting', params, nil, bufnr)
+    client.request('textDocument/formatting', params, nil, bufnr) -- lsp-method
   end, {buffer = bufnr})
 end
 
