@@ -5,7 +5,7 @@ end
 
 # Add homebrew path 
 # Install homebrew first [homebrew](brew.sh)
-set -gx PATH $(brew --prefix)/bin/ $(brew --prefix)/sbin $PATH
+set -gx PATH /opt/homebrew/bin/ /opt/homebrew/sbin $PATH
 
 # Add C++ headers files installed from homebrew
 # brew install boost
