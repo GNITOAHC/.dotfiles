@@ -1,3 +1,12 @@
+-- Detect OS
+if not vim.g.os then
+    if vim.fn.has('mac') then
+        vim.g.os = 'mac'
+    elseif vim.fn.has('win32') then
+        vim.g.os = 'win'
+    end
+end
+
 require "user.options"
 require "user.keymaps"
 require "user.plugins"

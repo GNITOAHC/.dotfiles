@@ -1,4 +1,5 @@
 local fn = vim.fn
+local os = vim.g.os
 
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
@@ -52,7 +53,11 @@ return packer.startup(function(use)
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-nvim-lua"
-    use { 'tzachar/cmp-tabnine', run = './install.sh' } -- nvim-cmp plugin
+    if os == 'mac' then
+        use { 'tzachar/cmp-tabnine', run = './install.sh' } -- nvim-cmp plugin
+    elseif os == 'win' then
+        use {'tzachar/cmp-tabnine', after = "nvim-cmp", run='powershell ./install.ps1', requires = 'hrsh7th/nvim-cmp'}
+    end
 
     --[[ Snippets ]]
     use "L3MON4D3/LuaSnip" --snippet engine
@@ -92,7 +97,9 @@ return packer.startup(function(use)
     use "lewis6991/gitsigns.nvim"
 
     --[[ Nvim-tree ]]
-    use "kyazdani42/nvim-tree.lua"
+    use { "nvim-tree/nvim-tree.lua",
+        requires = { "nvim-tree/nvim-web-devicons" },
+    }
 
     --[[ BufferLine & Lualine & Winbar ]]
     use "akinsho/bufferline.nvim"
