@@ -11,10 +11,10 @@ syntax enable
 
 " Viewer options: One may configure the viewer either by specifying a built-in
 " viewer method:
-let g:vimtex_view_method = 'skim'
-let g:vimtex_view_skim_activate = 1
-let g:vimtex_view_skim_sync = 1
-let g:vimtex_view_skim_reading_bar = 1
+" let g:vimtex_view_method = 'skim'
+" let g:vimtex_view_skim_activate = 1
+" let g:vimtex_view_skim_sync = 1
+" let g:vimtex_view_skim_reading_bar = 1
 " let g:vimtex_view_method = 'zathura'
 " let g:vimtex_view_method = 'open'
 
@@ -22,8 +22,11 @@ let g:vimtex_view_skim_reading_bar = 1
 " let g:vimtex_view_general_viewer = 'okular'
 " let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 
+" let g:vimtex_view_general_viewer = 'open'
+
+" Default to open pdf with google chrome
 let g:vimtex_view_general_viewer = 'open'
-" let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+let g:vimtex_view_general_options = '-a /Applications/Google\ Chrome.app/ @pdf'
 
 " VimTeX uses latexmk as the default compiler backend. If you use it, which is
 " strongly recommended, you probably don't need to configure anything. If you
