@@ -1,8 +1,8 @@
 -- Detect OS
 if not vim.g.os then
-    if vim.fn.has('mac') then
+    if (vim.fn.has('mac') == 1) then
         vim.g.os = 'mac'
-    elseif vim.fn.has('win32') then
+    elseif (vim.fn.has('win32') == 1) then
         vim.g.os = 'win'
     end
 end
