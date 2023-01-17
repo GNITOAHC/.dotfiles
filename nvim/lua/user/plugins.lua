@@ -53,9 +53,9 @@ return packer.startup(function(use)
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-nvim-lua"
-    if os == 'mac' then
+    if (os == 'mac') then
         use { 'tzachar/cmp-tabnine', run = './install.sh' } -- nvim-cmp plugin
-    elseif os == 'win' then
+    elseif (os == 'win') then
         use {'tzachar/cmp-tabnine', after = "nvim-cmp", run='powershell ./install.ps1', requires = 'hrsh7th/nvim-cmp'}
     end
 
