@@ -3,6 +3,10 @@ if not status_ok then
     return
 end
 
+if (vim.g.os == 'win') then
+    require 'nvim-treesitter.install'.compilers = { "clang" }
+end
+
 local autotag_filetypes = {
     'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
     'xml',
@@ -12,7 +16,7 @@ local autotag_filetypes = {
 }
 
 configs.setup {
-    ensure_installed = { "c", "cpp", "lua", "python", "c_sharp", "typescript", "javascript", "markdown", "scss", "fish" },
+    ensure_installed = { "c", "cpp", "lua", "python", "c_sharp", "typescript", "javascript", "markdown", "scss", "fish", "vim" },
     sync_install = false,
     ignore_install = { "" }, -- List of parsers to ignore installing
     autopairs = {
