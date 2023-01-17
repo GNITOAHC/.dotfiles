@@ -56,7 +56,7 @@ return packer.startup(function(use)
     if (os == 'mac') then
         use { 'tzachar/cmp-tabnine', run = './install.sh' } -- nvim-cmp plugin
     elseif (os == 'win') then
-        use {'tzachar/cmp-tabnine', after = "nvim-cmp", run='powershell ./install.ps1', requires = 'hrsh7th/nvim-cmp'}
+        use {'tzachar/cmp-tabnine', run='powershell ./install.ps1', requires = 'hrsh7th/nvim-cmp'}
     end
 
     --[[ Snippets ]]
