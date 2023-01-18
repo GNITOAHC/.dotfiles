@@ -3,6 +3,7 @@ local colorscheme = "tokyonight"
 local tokyo_status, tokyonight = pcall(require, "tokyonight")
 if not tokyo_status then
     vim.notify("colorscheme " .. colorscheme .. " not found!")
+    return
 end
 
 tokyonight.setup({
