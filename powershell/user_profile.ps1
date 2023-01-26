@@ -1,6 +1,8 @@
-Import-Module posh-git
-$omp_config = Join-Path $PSScriptRoot ".\negligible.omp.json"
-oh-my-posh init pwsh --config $omp_config | Invoke-Expression
+# Import-Module posh-git
+# $omp_config = Join-Path $PSScriptRoot ".\negligible.omp.json"
+# oh-my-posh init pwsh --config $omp_config | Invoke-Expression
+$ENV:STARSHIP_CONFIG = "$HOME\.dotfiles\starship\starship.toml"
+Invoke-Expression (&starship init powershell)
 
 # Aliases
 Set-Alias l ls
