@@ -29,7 +29,7 @@ null_ls.setup {
         formatting.prettier.with { extra_args = { vim.fn.expand "--config $HOME/.prettierrc" } },
         formatting.black.with { extra_args = { "--fast" } },
         -- formatting.yapf,
-        -- formatting.stylua,
+        formatting.stylua,
         -- diagnostics.flake8,
         formatting.clang_format.with {
             extra_args = {
