@@ -213,3 +213,9 @@ fisher install jorgebucaran/autopair.fish
 
 fzf.fish requires fd -> `brew install fd`
 aliases.fish requires tmux, git, exa
+
+## PowerShell 
+
+### QuickStart 
+
+Put `. $HOME\.dotfiles\powershell\user_profile.ps1` inside `$PROFILE` of windows powershell. ### Dependencies `winget install --id Starship.Starship`
