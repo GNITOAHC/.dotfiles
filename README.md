@@ -38,18 +38,36 @@ Link config files to config path
    ```
 
 3. Fish shell
+
    ```sh
    sudo sh -c 'echo /opt/homebrew/bin/fish >> /etc/shells' # Add fish to known shells
    ```
+
    Restart terminal
+
    ```sh
    chsh -s /opt/homebrew/bin/fish # Change default shell to fish
    ```
+
    Restart terminal and check if it launch with fish
 
 ### Windows
 
 Toolsets: Neovim, PowerShell
+
+1. Neovim
+
+   ```sh
+   mklink /D "$HOME\AppData\Local\nvim" "$HOME\.dotfiles\nvim" # Link nvim dir to default config path
+   ```
+
+2. PowerShell
+
+   We need to execute `user_profile.ps1` every time we open a new shell. Put the following in `$PROFILE`.
+
+   ```
+   . $HOME\.dotfiles\powershell\user_profile.ps1
+   ```
 
 ## NVIM
 
