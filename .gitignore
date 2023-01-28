@@ -1,2 +1,2 @@
-# Ignore all files in the 'packer_compiled.lua' subfolder.
-packer_compiled.lua
+# Ignore file `packer_compiled.lua`. 
+nvim/plugin/packer_compiled.lua
