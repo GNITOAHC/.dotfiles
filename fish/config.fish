@@ -18,6 +18,12 @@ if cat $__fish_config_dir/fish_plugins | grep fzf.fish > /dev/null
     set -gx fzf_preview_dir_cmd exa --all --icons --color=always
 end
 
+# Check if starship exist
+if type -q starship 
+    set -gx STARSHIP_CONFIG ~/.dotfiles/starship/starship.toml
+    starship init fish | source
+end
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 eval /opt/homebrew/anaconda3/bin/conda "shell.fish" "hook" $argv | source
