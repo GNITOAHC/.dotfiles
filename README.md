@@ -5,13 +5,15 @@
 Fork it or simply clone it to your local.
 
 ```
-cd
+cd $HOME
 git clone git@github.com:GNITOAHC/.dotfiles.git
 ```
 
 After cloning to your machine, link the files to the default configuration path.
 
 ## Quickstart
+
+### MacOS
 
 Toolsets: Neovim, Tmux, Fish shell
 Using homebrew:
@@ -26,11 +28,14 @@ Link config files to config path
 
    ```sh
    cd ~/.config
-   ln -s ~.dotfiles/nvim .
+   ln -s ~/.dotfiles/nvim .
    ```
 
 2. Tmux
-   `cd ~ && ln -s ~.dotfiles/tmux/.tmux.conf .`
+
+   ```sh
+   cd ~ && ln -s ~/.dotfiles/tmux/.tmux.conf .
+   ```
 
 3. Fish shell
    ```sh
@@ -41,6 +46,10 @@ Link config files to config path
    chsh -s /opt/homebrew/bin/fish # Change default shell to fish
    ```
    Restart terminal and check if it launch with fish
+
+### Windows
+
+Toolsets: Neovim, PowerShell
 
 ## NVIM
 
@@ -154,7 +163,8 @@ Plugins using [packer.nvim](https://github.com/wbthomason/packer.nvim).
 
 ### Dependencies
 
-- vimtex: `mactex` or `mactex-no-gui`
+- nvim-treesitter: node, gcc, clang
+- vimtex: latexmk
 
 ## TMUX
 
@@ -204,7 +214,7 @@ Install fish and plugin manager for fish.
 ### PLUGINS
 
 ```shell
-fisher install matchai/spacefish
+fisher install matchai/spacefish # Could be replaced by Starship if it's installed.
 fisher install PatrickF1/fzf.fish
 fisher install jorgebucaran/autopair.fish
 ```
@@ -213,9 +223,14 @@ fisher install jorgebucaran/autopair.fish
 
 fzf.fish requires fd -> `brew install fd`
 aliases.fish requires tmux, git, exa
+`brew install starship` for [Starship](https://starship.rs/)
 
-## PowerShell 
+## PowerShell
 
-### QuickStart 
+### QuickStart
 
-Put `. $HOME\.dotfiles\powershell\user_profile.ps1` inside `$PROFILE` of windows powershell. ### Dependencies `winget install --id Starship.Starship`
+Put `. $HOME\.dotfiles\powershell\user_profile.ps1` inside `$PROFILE` of windows powershell.
+
+### Dependencies
+
+`winget install --id Starship.Starship`
