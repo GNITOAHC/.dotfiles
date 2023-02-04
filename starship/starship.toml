@@ -7,6 +7,7 @@ $git_branch\
 $git_state\
 $git_status\
 $cmd_duration\
+$nodejs\
 $line_break\
 $python\
 $character"""
@@ -45,3 +46,6 @@ disabled = false
 format = '[\[ $time \]]($style) '
 time_format = '%T'
 utc_time_offset = '+8'
+
+[nodejs]
+disabled = false
