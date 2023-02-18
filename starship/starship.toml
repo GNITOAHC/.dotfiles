@@ -10,7 +10,8 @@ $cmd_duration\
 $nodejs\
 $line_break\
 $python\
-$character"""
+$shell
+"""
 
 [directory]
 style = "blue"
@@ -19,6 +20,11 @@ style = "blue"
 success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](green)"
+
+[shell]
+fish_indicator = "fsh "
+powershell_indicator = "psh >_"
+disabled = false
 
 [git_branch]
 format = "[$branch]($style)"
