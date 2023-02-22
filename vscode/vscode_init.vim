@@ -1,7 +1,8 @@
 " stored at ~/.config/nvim
 
 " Setting map leader. 
-let mapleader = '\'
+let mapleader = ' '
+nnoremap <leader>nh <cmd>noh<cr>
 
 " Make mouse available under any circumstances.
 set mouse=a
@@ -9,11 +10,27 @@ set mouse=a
 set relativenumber number
 
 " Highlight target in visual mode and surround it by <leader> and front bracket. 
-vnoremap <leader>( <esc>`<i(<esc>`>la)
-vnoremap <leader>[ <esc>`<i[<esc>`>la]
-vnoremap <leader>{ <esc>`<i{<esc>`>la}
-vnoremap <leader>" <esc>`<i"<esc>`>la"
-vnoremap <leader>' <esc>`<i'<esc>`>la'
+vnoremap \( <esc>`<i(<esc>`>la)
+vnoremap \[ <esc>`<i[<esc>`>la]
+vnoremap \{ <esc>`<i{<esc>`>la}
+vnoremap \" <esc>`<i"<esc>`>la"
+vnoremap \' <esc>`<i'<esc>`>la'
+
+" Mapping <C-/> to Comment in vscode. 
+xnoremap <C-/> <Plug>VSCodeCommentarygv
+nnoremap <C-/> <Plug>VSCodeCommentaryLinegv
+
+lua << EOF
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+keymap("n", "-", "<Esc>:m .-2<CR>==", opts) -- Up
+keymap("n", "_", "<Esc>:m .+1<CR>==", opts) -- Down
+
+--[[ require('packer').startup(function(use) ]]
+--[[     use "numToStr/Comment.nvim" -- Easily comment stuff ]]
+--[[ end) ]]
+
+EOF
 
 " call plug#begin('~/.config/nvim/plugged')
 "
