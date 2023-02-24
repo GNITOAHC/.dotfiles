@@ -13,7 +13,7 @@ M.get_clangd_opts = function ()
     return opt
 end
 
-M.get_sumneko_opts = function ()
+M.get_luals_opts = function ()
     local local_opts = {
         settings = {
             Lua = {
