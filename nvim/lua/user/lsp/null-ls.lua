@@ -33,7 +33,7 @@ null_ls.setup {
         -- diagnostics.flake8,
         formatting.clang_format.with {
             extra_args = {
-                vim.fn.expand "--style=file:$HOME/.clang_format",
+                vim.fn.expand "--style=file:$HOME/.dotfiles/format/.clang_format",
             },
         }
     },
