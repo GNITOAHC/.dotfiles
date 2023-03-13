@@ -8,6 +8,7 @@ nnoremap <leader>nh <cmd>noh<cr>
 set mouse=a
 " set relative numbers at the left in your vim editor but actual number on current line.
 set relativenumber number
+set clipboard=unnamedplus " Allow vscode-neovim to access the system clipboard. 
 
 " Highlight target in visual mode and surround it by <leader> and front bracket. 
 vnoremap \( <esc>`<i(<esc>`>la)
