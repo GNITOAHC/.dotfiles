@@ -7,6 +7,11 @@ end
 # Install homebrew first [homebrew](brew.sh)
 set -gx PATH /opt/homebrew/bin/ /opt/homebrew/sbin $PATH
 
+# If ~/.cargo/bin exists, add it to path
+if test -d ~/.cargo/bin/ 
+    set -gx PATH ~/.cargo/bin $PATH
+end
+
 # Add C++ headers files installed from homebrew
 # brew install boost
 if ls $(brew --prefix) | grep "include" > /dev/null
