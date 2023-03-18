@@ -39,6 +39,10 @@ local options = {
     -- foldlevelstart = 99,
 }
 
+if (vim.g.os == 'win') then
+    vim.cmd "set shell=pwsh"
+end
+
 vim.opt.shortmess:append "c"
 
 for k, v in pairs(options) do
