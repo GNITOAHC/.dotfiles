@@ -182,6 +182,7 @@ Plugins using [packer.nvim](https://github.com/wbthomason/packer.nvim).
 ### Dependencies
 
 - nvim-treesitter: node, gcc, clang
+- Telescope: ripgrep(rg) for telescope live_grep
 - vimtex: latexmk
 
 ## TMUX
