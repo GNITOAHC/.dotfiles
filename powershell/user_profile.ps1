@@ -35,3 +35,8 @@ function which ($command) {
 function touch ($filename) {
   New-Item -Path $filename -ItemType File
 }
+
+# Tips for windows
+
+# List all services
+# services.msc
