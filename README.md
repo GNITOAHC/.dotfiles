@@ -189,15 +189,15 @@ Plugins using [packer.nvim](https://github.com/wbthomason/packer.nvim).
 
 ### TMUX Setup
 
-1. Set prefix to <C-a>.
+1. Set prefix to \<C-a>.
 
 2. Some key-bindings
 
-   - <prefix>X Kill-session
-   - <prefix><C-c> New-session
-   - <prefix><C-h> Previous-window
-   - <prefix><C-l> Next-window
-   - <prefix>{h,j,k,l} Pane-navigation
+   - \<prefix>X Kill-session
+   - \<prefix>\<C-c> New-session
+   - \<prefix>\<C-h> Previous-window
+   - \<prefix>\<C-l> Next-window
+   - \<prefix>{h,j,k,l} Pane-navigation
 
 3. Default shell: fish shell
 
