@@ -45,6 +45,9 @@ return packer.startup(function(use)
     --[[ Packer ]]
     use "wbthomason/packer.nvim" -- Have packer manage itself
 
+    --[[ Copilot ]]
+    use "github/copilot.vim"
+
     --[[ CMP Plugins ]]
     use "hrsh7th/nvim-cmp" -- The completion plugin
     use "hrsh7th/cmp-buffer" -- buffer completions
