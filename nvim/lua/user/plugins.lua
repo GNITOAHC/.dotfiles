@@ -145,8 +145,7 @@ return packer.startup(function(use)
     use "kyazdani42/nvim-web-devicons"
 
     --[[ Functions or API ]]
-    use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-    use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+    use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
 
     --[[ Silicon ]]
     --[[ use {'krivahtoo/silicon.nvim', run = './install.sh'} ]]
