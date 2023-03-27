@@ -151,14 +151,6 @@ Plugins using [packer.nvim](https://github.com/wbthomason/packer.nvim).
 
     - [✓] nvim-transparent
 
-15. LaTex
-
-    - [✓] vimtex
-
-16. code-runner
-
-    - [✓] code_runner.nvim
-
 17. Moving
 
     - [✓] neoscroll.nvim
@@ -175,15 +167,10 @@ Plugins using [packer.nvim](https://github.com/wbthomason/packer.nvim).
 
     - [✓] vim-illuminate
 
-20. Functions or API
-    - [✓] plenary.nvim
-    - [✓] popup.nvim
-
 ### Dependencies
 
 - nvim-treesitter: node, gcc, clang
 - Telescope: ripgrep(rg) for telescope live_grep
-- vimtex: latexmk
 
 ## TMUX
 
