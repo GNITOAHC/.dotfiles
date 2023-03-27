@@ -1,6 +1,9 @@
 # StarShip config
-$ENV:STARSHIP_CONFIG = "$HOME\.dotfiles\starship\starship.toml"
-Invoke-Expression (&starship init powershell)
+# $ENV:STARSHIP_CONFIG = "$HOME\.dotfiles\starship\starship.toml"
+# Invoke-Expression (&starship init powershell)
+
+# Oh-my-posh config
+oh-my-posh init pwsh --config ~/.dotfiles/oh-my-posh/bubblesextra.omp.json | Invoke-Expression
 
 # Import-Module
 Import-Module -Name Terminal-Icons
