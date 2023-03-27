@@ -34,7 +34,7 @@ require "user.outline"
 require "user.autocmd"
 require "user.friendly-snip"
 require "user.colorizer"
-require "user.vimtex"
+--[[ require "user.vimtex" ]]
 --[[ require "user.silicon" ]]
 require "user.barbecue"
 

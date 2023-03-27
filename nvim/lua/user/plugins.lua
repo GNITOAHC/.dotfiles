@@ -127,9 +127,6 @@ return packer.startup(function(use)
     --[[ Transparent ]]
     use "xiyaowong/nvim-transparent"
 
-    --[[ VimTex ]]
-    use "lervag/vimtex"
-
     --[[ Moving ]]
     use "karb94/neoscroll.nvim"
     use { "phaazon/hop.nvim", branch = 'v2' }
@@ -141,11 +138,11 @@ return packer.startup(function(use)
     use "RRethy/vim-illuminate" -- Illuminate
     use "kyazdani42/nvim-web-devicons"
 
-    --[[ Functions or API ]]
-    use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
-
     --[[ Silicon ]]
     --[[ use {'krivahtoo/silicon.nvim', run = './install.sh'} ]]
+
+    --[[ VimTex ]]
+    --[[ use "lervag/vimtex" ]]
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
