@@ -130,9 +130,6 @@ return packer.startup(function(use)
     --[[ VimTex ]]
     use "lervag/vimtex"
 
-    --[[ Code runner ]]
-    use "CRAG666/code_runner.nvim"
-
     --[[ Moving ]]
     use "karb94/neoscroll.nvim"
     use { "phaazon/hop.nvim", branch = 'v2' }

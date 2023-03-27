@@ -91,17 +91,6 @@ local mappings = {
     ["s"] = { "<cmd>SymbolsOutline<cr>", "Outline toggle" },
     ["nh"] = { "<cmd>noh<cr>", "No highlight" },
 
-    r = {
-        name = "RunCode/Refresh",
-        a = { "<cmd>NvimTreeRefresh<cr><cmd>Gitsigns refresh<cr>", "Refresh add [Tree & gitsigns]"},
-        r = { "<cmd>RunCode<cr>", "Run code" },
-        -- c = { "<cmd>q<cr>", "Close runner window" },
-        f = { "<cmd>RunFile float<cr>", "Run in float" },
-        t = { "<cmd>RunFile tab<cr>", "Run in tab" },
-        s = { "<cmd>RunFile term<cr>", "Run in split" },
-        -- b = { "<cmd>RunFile toggle<cr>", "Run in split" }
-    },
-
     g = {
         name = "Git",
         r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
