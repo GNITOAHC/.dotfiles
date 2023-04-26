@@ -15,12 +15,14 @@ alias gp="git push"
 alias l='exa'
 alias la='exa --all'
 alias ll="exa --long"
-function lt --description 'alias lt=exa --tree --level $argv'
+function lt --description 'alias lt=exa --tree --level $level $dir'
     # if not set -q $argv
-    if [ "$argv" = "" ]
+    if [ "$argv[1]" = "" ]
         exa --tree --level 2
-    else
-        exa --tree --level $argv
+    else if [ "$argv[2]" = "" ]
+        exa --tree --level $argv[1] .
+    else 
+        exa --tree --level $argv[1] $argv[2]
     end
 end
 
