@@ -30,7 +30,7 @@ null_ls.setup {
         formatting.black.with { extra_args = { "--fast" } },
         -- formatting.yapf,
         formatting.stylua,
-        formatting.rustfmt,
+        formatting.rustfmt.with { extra_args = { "--edition=2021" } },
         -- diagnostics.flake8,
         formatting.clang_format.with {
             extra_args = {
