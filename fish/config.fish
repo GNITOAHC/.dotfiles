@@ -7,6 +7,9 @@ end
 # Install homebrew first [homebrew](brew.sh)
 set -gx PATH /opt/homebrew/bin/ /opt/homebrew/sbin $PATH
 
+# Set nvim as default editor
+set -gx EDITOR nvim
+
 # If ~/.cargo/bin exists, add it to path
 if test -d ~/.cargo/bin/ 
     set -gx PATH ~/.cargo/bin $PATH
@@ -24,13 +27,13 @@ if cat $__fish_config_dir/fish_plugins | grep fzf.fish > /dev/null
 end
 
 # Check if starship exist
-if type -q starship 
-    set -gx STARSHIP_CONFIG ~/.dotfiles/starship/starship.toml
-    starship init fish | source
+# if type -q starship 
+#     set -gx STARSHIP_CONFIG ~/.dotfiles/starship/starship.toml
+#     starship init fish | source
+# end
+
+
+# If oh-my-posh exists, use it as shell prompt. 
+if type -q oh-my-posh
+    oh-my-posh init fish --config ~/.dotfiles/oh-my-posh/bubblesextra.omp.json | source
 end
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval /opt/homebrew/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-# <<< conda initialize <<<
-
