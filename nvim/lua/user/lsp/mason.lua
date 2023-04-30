@@ -5,7 +5,7 @@ local mason_null_ls_ok, mason_null_ls = pcall(require, "mason-null-ls")
 local nulll_ls_ok, null_ls = pcall(require, "null-ls")
 
 if not mason_ok or not mason_null_ls_ok or not mason_lspconfig_ok or not lspconfig_ok or not nulll_ls_ok then
-    vim.notify("Mason: Failed to load dependencies", vim.log.levels.ERROR)
+	vim.notify("Mason: Failed to load dependencies", vim.log.levels.ERROR)
 	return
 end
 
@@ -73,7 +73,11 @@ end
 
 null_ls.setup({
 	sources = {
-		formatting.prettier.with({ extra_args = { vim.fn.expand("--config $HOME/.prettierrc") } }),
+		formatting.prettier.with({
+			-- Always use the mason prettier (Instead of the project one)
+			command = vim.fn.stdpath("data") .. "/mason/bin/prettier",
+			extra_args = { vim.fn.expand("--config $HOME/.prettierrc") },
+		}),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
 		formatting.rustfmt.with({ extra_args = { "--edition=2021" } }),
