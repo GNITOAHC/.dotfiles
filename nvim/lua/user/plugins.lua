@@ -14,6 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+local tabnine_build = "./install.sh"
+if vim.g.os == "win" then
+	tabnine_build = "./install.ps1"
+end
+
 require("lazy").setup({
 
 	--[[ GitHub copilot ]]
@@ -29,7 +34,7 @@ require("lazy").setup({
 	"hrsh7th/cmp-nvim-lua",
 	{
 		"tzachar/cmp-tabnine",
-		build = "./install.sh",
+		build = tabnine_build,
 		dependencies = "hrsh7th/nvim-cmp",
 	},
 
