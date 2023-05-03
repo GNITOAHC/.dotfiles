@@ -64,7 +64,6 @@ require("lazy").setup({
 		version = "0.1.0",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-	"nvim-telescope/telescope-media-files.nvim",
 	"nvim-telescope/telescope-file-browser.nvim",
 
 	--[[ Treesitter ]]
