@@ -10,7 +10,6 @@ end
 require "user.options"
 require "user.keymaps"
 require "user.plugins"
-require "user.colorscheme"  -- vim.cmd "colorscheme tokyonight"
 require "user.cmp"
 require "user.lsp"
 require "user.telescope"
@@ -33,7 +32,6 @@ require "user.hop"
 require "user.outline"
 require "user.autocmd"
 require "user.friendly-snip"
-require "user.colorizer"
 --[[ require "user.vimtex" ]]
 --[[ require "user.silicon" ]]
 require "user.barbecue"

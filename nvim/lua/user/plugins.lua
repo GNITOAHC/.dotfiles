@@ -133,10 +133,22 @@ require("lazy").setup({
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
-			-- load the colorscheme here
+			require("tokyonight").setup({
+				--[[ style = "moon", ]]
+				styles = {
+					comments = { italic = true },
+					keywords = { italic = true },
+				},
+				sidebars = { "qf", "vista_kind", "terminal", "packer" },
+			})
 			vim.cmd([[colorscheme tokyonight]])
 		end,
 	},
-	"norcalli/nvim-colorizer.lua",
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	},
 	"RRethy/vim-illuminate",
 })
