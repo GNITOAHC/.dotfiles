@@ -150,4 +150,35 @@ require("lazy").setup({
 		end,
 	},
 	"RRethy/vim-illuminate",
+
+	--[[ Noice ]]
+	{
+		"folke/noice.nvim",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+		config = function()
+			require("noice").setup({
+				views = {
+					hover = { relative = "editor", position = { row = -1, col = "100%" } },
+				},
+				routes = { -- show macro recording
+					{
+						view = "hover",
+						filter = {
+							any = {
+								{ event = require("noice.ui.msg").events.showcmd },
+								{ event = require("noice.ui.msg").events.showmode },
+							},
+						},
+					},
+				},
+				messages = { enabled = true },
+			})
+			require("notify").setup({
+				background_colour = "#000000",
+			})
+		end,
+	},
 })
