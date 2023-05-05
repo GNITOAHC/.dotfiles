@@ -160,12 +160,9 @@ require("lazy").setup({
 		},
 		config = function()
 			require("noice").setup({
-				views = {
-					hover = { relative = "editor", position = { row = -1, col = "100%" } },
-				},
 				routes = { -- show macro recording
 					{
-						view = "hover",
+						view = "mini",
 						filter = {
 							any = {
 								{ event = require("noice.ui.msg").events.showcmd },
