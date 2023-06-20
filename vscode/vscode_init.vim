@@ -16,6 +16,7 @@ vnoremap \[ <esc>`<i[<esc>`>la]
 vnoremap \{ <esc>`<i{<esc>`>la}
 vnoremap \" <esc>`<i"<esc>`>la"
 vnoremap \' <esc>`<i'<esc>`>la'
+vnoremap \` <esc>`<i`<esc>`>la`
 
 " Mapping <C-/> to Comment in vscode. 
 xnoremap <C-/> <Plug>VSCodeCommentarygv
