@@ -102,7 +102,7 @@ require("lazy").setup({
 	--[[ Toggleterm ]]
 	{
 		"akinsho/toggleterm.nvim",
-		version = "v2.*",
+		version = "*",
 	},
 
 	--[[ Whichkey ]]
