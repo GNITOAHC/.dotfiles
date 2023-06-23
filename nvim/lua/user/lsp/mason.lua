@@ -25,7 +25,7 @@ mason_lspconfig.setup({
 	ensure_installed = {
 		"lua_ls",
 		"clangd",
-		"cssls",
+		--[[ "cssls", -- Conflicts with tailwindcss ]]
 		"marksman",
 		"pyright",
 		"tsserver", -- LSP
