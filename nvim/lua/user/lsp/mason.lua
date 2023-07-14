@@ -2,9 +2,9 @@ local mason_ok, mason = pcall(require, "mason")
 local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
 local mason_null_ls_ok, mason_null_ls = pcall(require, "mason-null-ls")
-local nulll_ls_ok, null_ls = pcall(require, "null-ls")
+local null_ls_ok, null_ls = pcall(require, "null-ls")
 
-if not mason_ok or not mason_null_ls_ok or not mason_lspconfig_ok or not lspconfig_ok or not nulll_ls_ok then
+if not mason_ok or not mason_null_ls_ok or not mason_lspconfig_ok or not lspconfig_ok or not null_ls_ok then
 	vim.notify("Mason: Failed to load dependencies", vim.log.levels.ERROR)
 	return
 end
