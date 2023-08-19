@@ -49,14 +49,7 @@ require("lazy").setup({
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
 	},
-	{
-		"jay-babu/mason-null-ls.nvim",
-		dependencies = {
-			"williamboman/mason.nvim",
-			"jose-elias-alvarez/null-ls.nvim",
-		},
-	},
-	"jose-elias-alvarez/null-ls.nvim",
+    "mhartington/formatter.nvim",
 
 	--[[ Telescope ]]
 	{
