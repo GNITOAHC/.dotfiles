@@ -89,6 +89,7 @@ local mappings = {
     ["f"] = { "<cmd>Telescope file_browser<cr>", "Find file" },
     ["F"] = { "<cmd>Telescope live_grep<cr>", "Live grep" },
     ["s"] = { "<cmd>SymbolsOutline<cr>", "Outline toggle" },
+    ["m"] = { "<cmd>Format<cr>", "Format" },
     ["nh"] = { "<cmd>noh<cr>", "No highlight" },
 
     g = {
