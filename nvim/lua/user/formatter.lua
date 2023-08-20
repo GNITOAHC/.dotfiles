@@ -5,17 +5,25 @@ if not formatter_ok then
 	return
 end
 
+local function clang_format()
+	return {
+		exe = "clang-format",
+		args = { "--style=file:$HOME/.dotfiles/format/.clang_format" },
+		stdin = true,
+	}
+end
+
 formatter.setup({
 	filetype = {
 		lua = { require("formatter.filetypes.lua").stylua },
-        cpp = { require("formatter.filetypes.cpp").clangformat },
-        c = { require("formatter.filetypes.c").clangformat },
-        go = { require("formatter.filetypes.go").gofmt },
-        python = { require("formatter.filetypes.python").black },
-        rust = { require("formatter.filetypes.rust").rustfmt },
-        javascript = { require("formatter.filetypes.javascript").prettier },
-        javascriptreact = { require("formatter.filetypes.javascriptreact").prettier },
-        typescript = { require("formatter.filetypes.typescript").prettier },
-        typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
+		cpp = { clang_format() },
+		c = { clang_format() },
+		go = { require("formatter.filetypes.go").gofmt },
+		python = { require("formatter.filetypes.python").black },
+		rust = { require("formatter.filetypes.rust").rustfmt },
+		javascript = { require("formatter.filetypes.javascript").prettier },
+		javascriptreact = { require("formatter.filetypes.javascriptreact").prettier },
+		typescript = { require("formatter.filetypes.typescript").prettier },
+		typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
 	},
 })
