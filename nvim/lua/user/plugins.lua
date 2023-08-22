@@ -64,7 +64,6 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = { ":TSUpdate" },
 	},
-	"p00f/nvim-ts-rainbow",
 	"JoosepAlviste/nvim-ts-context-commentstring",
 
 	--[[ Pairs & Comment ]]
