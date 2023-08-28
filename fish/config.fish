@@ -32,7 +32,6 @@ end
 #     starship init fish | source
 # end
 
-
 # If oh-my-posh exists, use it as shell prompt. 
 if type -q oh-my-posh
     oh-my-posh init fish --config ~/.dotfiles/oh-my-posh/bubblesextra.omp.json | source

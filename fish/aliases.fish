@@ -36,6 +36,12 @@ alias ....='cd ../../..'
 # Open VSCode 
 alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code -r'
 
-# Open incognito pages in Chrome
-alias inco='open -na "Google Chrome" --args --incognito ""'
-
+# Chrome
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome -open'
+function chrome --description 'alias chrome=/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome -open $file'
+    if [ "$argv[1]" != "" ]
+        /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome -open (realpath $argv[1])
+    else
+        /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome -open (realpath .)
+    end
+end
