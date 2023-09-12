@@ -42,6 +42,9 @@ require("lazy").setup({
 	"L3MON4D3/LuaSnip", --snippet engine
 	"rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
+	--[[ Git-conflict ]]
+	{ "akinsho/git-conflict.nvim", version = "*", config = true },
+
 	-- [[ LSP ]]
 	"neovim/nvim-lspconfig",
 	"williamboman/mason.nvim",
@@ -49,7 +52,7 @@ require("lazy").setup({
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
 	},
-    "mhartington/formatter.nvim",
+	"mhartington/formatter.nvim",
 
 	--[[ Telescope ]]
 	{
