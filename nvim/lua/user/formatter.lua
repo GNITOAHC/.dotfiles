@@ -26,5 +26,6 @@ formatter.setup({
 		javascriptreact = { require("formatter.filetypes.javascriptreact").prettier },
 		typescript = { require("formatter.filetypes.typescript").prettier },
 		typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
+		html = { require("formatter.filetypes.html").prettier },
 	},
 })
