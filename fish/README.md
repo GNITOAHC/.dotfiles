@@ -42,7 +42,7 @@ fisher install jorgebucaran/autopair.fish
 
 > For more key-bindings, see the [docs](https://github.com/PatrickF1/fzf.fish)
 
-## Some Setups
+## Other Setups
 
 1. [nvim](https://neovim.io/)
 
@@ -50,9 +50,9 @@ fisher install jorgebucaran/autopair.fish
    set -gx EDITOR nvim # Set default editor to nvim
    ```
 
-2. exa
+2. eza
 
-   Auto remap `l`, `lt` and `ll` ... to use [`exa`](https://github.com/ogham/exa)
+   Auto remap `l`, `lt` and `ll` ... to use [`eza`](https://github.com/eza-community/eza)
 
 3. alias `code` to vscode and `chrome` to google chrome
 
