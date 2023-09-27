@@ -1,8 +1,8 @@
 # TMUX
-alias t='tmux'
-alias ta='tmux attach -t'
-alias tl='tmux list-sessions'
-alias tn='tmux new -s'
+alias t="tmux"
+alias ta="tmux attach -t"
+alias tl="tmux list-sessions"
+alias tn="tmux new -s"
 
 # Git
 alias g="git"
@@ -11,33 +11,38 @@ alias gc="git commit -m"
 alias ga="git add"
 alias gp="git push"
 
-# exa
-alias l='exa'
-alias la='exa --all'
-alias ll="exa --long"
-function lt --description 'alias lt=exa --tree --level $level $dir'
+# eza
+alias l="eza"
+alias la="eza --all"
+alias ll="eza --long --icons"
+alias lg="eza --long --icons --git"
+function lt --description 'alias lt=eza --tree --level $level $dir'
     # if not set -q $argv
     if [ "$argv[1]" = "" ]
-        exa --tree --level 2
+        eza --tree --level 2
     else if [ "$argv[2]" = "" ]
-        exa --tree --level $argv[1] .
+        if test -d $argv[1]
+            eza --tree --level 2 $argv[1]
+        else
+            eza --tree --level $argv[1] .
+        end
     else 
-        exa --tree --level $argv[1] $argv[2]
+        eza --tree --level $argv[1] $argv[2]
     end
 end
 
 # Force iCloud sync
-alias FSync='killall bird'
+alias FSync="killall bird"
 
 # Navigator
-alias ...='cd ../..'
-alias ....='cd ../../..'
+alias ...="cd ../.."
+alias ....="cd ../../.."
 
 # Open VSCode 
-alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code -r'
+alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code -r"
 
 # Chrome
-alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome -open'
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome -open"
 function chrome --description 'alias chrome=/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome -open $file'
     if [ "$argv[1]" != "" ]
         /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome -open (realpath $argv[1])
