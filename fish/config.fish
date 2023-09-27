@@ -15,6 +15,15 @@ if test -d ~/.cargo/bin/
     set -gx PATH ~/.cargo/bin $PATH
 end
 
+# If ~/go exists, add it to path
+if test -d ~/go
+    set -gx GOPATH ~/go
+    # If ~/go/bin exists, add it to path
+    if test -d ~/go/bin
+        set -gx PATH ~/go/bin/ $PATH
+    end
+end
+
 # Add C++ headers files installed from homebrew
 # brew install boost
 if ls $(brew --prefix) | grep "include" > /dev/null
