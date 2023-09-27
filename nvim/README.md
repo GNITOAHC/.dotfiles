@@ -41,3 +41,4 @@ Plugins using [lazy.nvim](https://github.com/folke/lazy.nvim), for full list of 
 | [lazy.nvim](https://github.com/folke/lazy.nvim)                       | git                                                                      |
 | [treesitter.nvim](https://github.com/nvim-treesitter/nvim-treesitter) | (cc, gcc or clang), git, (tree-sitter and node for TSInstallFromGrammar) |
 | [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)    | (rg i.e. ripgrep), fd                                                    |
+| [tabnine-nvim](https://github.com/codota/tabnine-nvim)                | curl                                                                     |
