@@ -32,7 +32,7 @@ end
 
 # fisher install PatrickF1/fzf.fish
 if cat $__fish_config_dir/fish_plugins | grep fzf.fish > /dev/null
-    set -gx fzf_preview_dir_cmd exa --all --icons --color=always
+    set -gx fzf_preview_dir_cmd eza --all --color=always
 end
 
 # Check if starship exist
