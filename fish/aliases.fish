@@ -38,9 +38,6 @@ alias FSync="killall bird"
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-# Open VSCode 
-alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code -r"
-
 # Chrome
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome -open"
 function chrome --description 'alias chrome=/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome -open $file'
