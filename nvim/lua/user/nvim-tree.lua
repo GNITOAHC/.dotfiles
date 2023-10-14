@@ -34,7 +34,6 @@ nvim_tree.setup({
 	on_attach = on_attach,
 	view = {
 		width = 30,
-		hide_root_folder = false,
 		side = "left",
 		number = false,
 		relativenumber = false,
@@ -44,4 +43,7 @@ nvim_tree.setup({
 			quit_on_open = true,
 		},
 	},
+    renderer = {
+        root_folder_label = ":t"
+    }
 })

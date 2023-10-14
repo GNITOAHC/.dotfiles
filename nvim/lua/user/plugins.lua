@@ -57,10 +57,13 @@ require("lazy").setup({
 	--[[ Telescope ]]
 	{
 		"nvim-telescope/telescope.nvim",
-		version = "0.1.0",
+		branch = "0.1.x",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-	"nvim-telescope/telescope-file-browser.nvim",
+	{
+		"nvim-telescope/telescope-file-browser.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+	},
 
 	--[[ Treesitter ]]
 	{
@@ -107,7 +110,14 @@ require("lazy").setup({
 	"goolord/alpha-nvim",
 
 	--[[ Typesetting ]]
-	"lukas-reineke/indent-blankline.nvim",
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {},
+		config = function()
+			require("ibl").setup()
+		end,
+	},
 	"anuvyklack/pretty-fold.nvim",
 
 	--[[ Transparent ]]
