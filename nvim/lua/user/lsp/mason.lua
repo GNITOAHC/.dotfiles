@@ -22,7 +22,7 @@ local server = require("user.lsp.sever_settings")
 mason_lspconfig.setup({
 	ensure_installed = {
 		"lua_ls",
-		"clangd",
+		--[[ "clangd", ]]
 		--[[ "cssls", -- Conflicts with tailwindcss ]]
 		"marksman",
 		"pyright",
@@ -31,18 +31,28 @@ mason_lspconfig.setup({
 	},
 })
 
+--[[ Default handlers settings ]]
 mason_lspconfig.setup_handlers({
 	function(server_name) -- default handler (optional)
 		require("lspconfig")[server_name].setup(opts)
-		--[[ server_name:setup(opts) ]]
-	end,
-	["clangd"] = function()
-		lspconfig.clangd.setup(server.get_clangd_opts())
-	end,
-	["lua_ls"] = function()
-		lspconfig.lua_ls.setup(server.get_luals_opts())
 	end,
 })
+
+--[[ Custom handlers settings ]]
+lspconfig.lua_ls.setup(server.get_luals_opts())
+lspconfig.clangd.setup(server.get_clangd_opts())
+
+--[[ mason_lspconfig.setup_handlers({ ]]
+--[[ 	function(server_name) -- default handler (optional) ]]
+--[[ 		require("lspconfig")[server_name].setup(opts) ]]
+--[[ 	end, ]]
+--[[ 	["clangd"] = function() ]]
+--[[ 		lspconfig.clangd.setup(server.get_clangd_opts()) ]]
+--[[ 	end, ]]
+--[[ 	["lua_ls"] = function() ]]
+--[[ 		lspconfig.lua_ls.setup(server.get_luals_opts()) ]]
+--[[ 	end, ]]
+--[[ }) ]]
 
 --[[ Keymaps ]]
 --[[ toggle_package_expand = "<CR>", ]]
