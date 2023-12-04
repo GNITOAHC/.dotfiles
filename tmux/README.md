@@ -1,9 +1,5 @@
 # Tmux
 
-## Setup
-
-Default shell is set to fish shell, to change the default shell, modify line 8 in `.tmux.conf`.
-
 ## Tmux Cheatcheet
 
 1. Prefix: `<C-a>`
@@ -11,6 +7,7 @@ Default shell is set to fish shell, to change the default shell, modify line 8 i
 2. Some key-bindings
 
    - \<prefix>X Kill-session
+   - \<Prefix>P Set current path as default path of new panes
    - \<prefix>\<C-c> New-session
    - \<prefix>\<C-h> Previous-window
    - \<prefix>\<C-l> Next-window
