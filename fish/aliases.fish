@@ -10,11 +10,13 @@ alias gs="git status"
 alias gc="git commit -m"
 alias ga="git add"
 alias gp="git push"
+alias gb="git branch"
 
 # eza
 alias l="eza"
 alias la="eza --all"
 alias ll="eza --long --icons"
+alias lla="eza --long --icons --all"
 alias lg="eza --long --icons --git"
 function lt --description 'alias lt=eza --tree --level $level $dir'
     # if not set -q $argv
@@ -39,7 +41,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 # Chrome
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome -open"
+# alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome -open"
 function chrome --description 'alias chrome=/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome -open $file'
     if [ "$argv[1]" != "" ]
         /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome -open (realpath $argv[1])

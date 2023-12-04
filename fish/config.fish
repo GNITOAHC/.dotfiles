@@ -24,6 +24,16 @@ if test -d ~/go
     end
 end
 
+# If llvm exists, add it to path
+if test -d /opt/homebrew/opt/llvm/bin/
+    set -gx PATH /opt/homebrew/opt/llvm/bin/ $PATH
+end
+
+# Link mason lsp server and share with helix
+if test -d ~/.local/share/nvim/mason/bin
+    set -gx PATH ~/.local/share/nvim/mason/bin $PATH
+end
+
 # Add C++ headers files installed from homebrew
 # brew install boost
 if ls $(brew --prefix) | grep "include" > /dev/null
