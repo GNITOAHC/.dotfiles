@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 if (vim.g.os == 'win') then
-    require 'nvim-treesitter.install'.compilers = { "clang" }
+    require 'nvim-treesitter.install'.compilers = { "zig" }
 end
 
 local autotag_filetypes = {
