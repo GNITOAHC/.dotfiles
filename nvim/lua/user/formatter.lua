@@ -13,6 +13,14 @@ local function clang_format()
 	}
 end
 
+local function prettier()
+    return {
+        exe = "prettier",
+        args = { "--config $HOME/.dotfiles/format/.prettierrc", "--parser", "typescript" },
+        stdin = true,
+    }
+end
+
 formatter.setup({
 	filetype = {
 		lua = { require("formatter.filetypes.lua").stylua },
@@ -22,10 +30,10 @@ formatter.setup({
 		python = { require("formatter.filetypes.python").black },
 		markdown = { require("formatter.filetypes.markdown").prettier },
 		rust = { require("formatter.filetypes.rust").rustfmt },
-		javascript = { require("formatter.filetypes.javascript").prettier },
-		javascriptreact = { require("formatter.filetypes.javascriptreact").prettier },
-		typescript = { require("formatter.filetypes.typescript").prettier },
-		typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
+		javascript = { prettier() },
+		javascriptreact = { prettier() },
+		typescript = { prettier() },
+		typescriptreact = { prettier() },
 		html = { require("formatter.filetypes.html").prettier },
 	},
 })
