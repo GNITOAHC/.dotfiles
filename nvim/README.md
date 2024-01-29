@@ -36,9 +36,9 @@ Plugins using [lazy.nvim](https://github.com/folke/lazy.nvim), for full list of 
 
 ## Dependencies
 
-| Plugin                                                                | Dependencies                                                             |
-| --------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| [lazy.nvim](https://github.com/folke/lazy.nvim)                       | git                                                                      |
-| [treesitter.nvim](https://github.com/nvim-treesitter/nvim-treesitter) | (cc, gcc or clang), git, (tree-sitter and node for TSInstallFromGrammar) |
-| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)    | (rg i.e. ripgrep), fd                                                    |
-| [tabnine-nvim](https://github.com/codota/tabnine-nvim)                | curl                                                                     |
+| Plugin                                                                | Dependencies                                                                                    |
+| --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| [lazy.nvim](https://github.com/folke/lazy.nvim)                       | git                                                                                             |
+| [treesitter.nvim](https://github.com/nvim-treesitter/nvim-treesitter) | (gcc for mac & zig for windows), git, (tree-sitter for TSInstallFromGrammar), node(npm)         |
+| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)    | (rg i.e. [ripgrep](https://github.com/BurntSushi/ripgrep)), [fd](https://github.com/sharkdp/fd) |
+| [tabnine-nvim](https://github.com/codota/tabnine-nvim)                | curl                                                                                            |
