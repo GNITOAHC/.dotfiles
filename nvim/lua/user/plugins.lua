@@ -22,7 +22,22 @@ end
 require("lazy").setup({
 
 	--[[ GitHub copilot ]]
-	"github/copilot.vim",
+	{
+		"zbirenbaum/copilot.lua",
+		config = function()
+			require("copilot").setup()
+		end,
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+		config = function()
+			require("copilot_cmp").setup({
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			})
+		end,
+		dependencies = { "hrsh7th/nvim-cmp", "zbirenbaum/copilot.lua" },
+	},
 
 	--[[ CMP Plugins ]]
 	"hrsh7th/nvim-cmp", -- The completion plugin
