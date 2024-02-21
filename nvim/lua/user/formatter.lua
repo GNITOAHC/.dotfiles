@@ -14,11 +14,11 @@ local function clang_format()
 end
 
 local function prettier()
-    return {
-        exe = "prettier",
-        args = { "--config $HOME/.dotfiles/format/.prettierrc", "--parser", "typescript" },
-        stdin = true,
-    }
+	return {
+		exe = "prettier",
+		args = { "--config $HOME/.dotfiles/format/.prettierrc", "--parser", "typescript" },
+		stdin = true,
+	}
 end
 
 formatter.setup({
@@ -35,5 +35,6 @@ formatter.setup({
 		typescript = { prettier() },
 		typescriptreact = { prettier() },
 		html = { require("formatter.filetypes.html").prettier },
+		css = { require("formatter.filetypes.css").prettier },
 	},
 })
