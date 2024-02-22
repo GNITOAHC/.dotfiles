@@ -1,8 +1,14 @@
 # TMUX
 alias t="tmux"
-alias ta="tmux attach -t"
 alias tl="tmux list-sessions"
 alias tn="tmux new -s"
+function ta --description 'alias ta=tmux attach $session'
+    if [ "$argv[1]" = "" ]
+        tmux attach-session
+    else
+        tmux attach-session -t $argv[1] # Attach to a specific session
+    end
+end
 
 # Git
 alias g="git"
