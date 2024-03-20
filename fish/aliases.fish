@@ -17,6 +17,7 @@ alias gc="git commit -m"
 alias ga="git add"
 alias gp="git push"
 alias gb="git branch"
+alias gl="git log --oneline -n 5"
 
 # eza
 alias l="eza"
