@@ -85,7 +85,6 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = { ":TSUpdate" },
 	},
-	"JoosepAlviste/nvim-ts-context-commentstring",
 
 	--[[ Pairs & Comment ]]
 	"windwp/nvim-autopairs",
@@ -93,8 +92,11 @@ require("lazy").setup({
 	{
 		"numToStr/Comment.nvim",
 		config = function()
-			require("Comment").setup()
+			require("Comment").setup({
+				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+			})
 		end,
+		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
 	},
 
 	--[[ Git ]]
