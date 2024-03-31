@@ -90,7 +90,12 @@ local mappings = {
 	["F"] = { "<cmd>Telescope live_grep<cr>", "Live grep" },
 	["s"] = { "<cmd>SymbolsOutline<cr>", "Outline toggle" },
 	["m"] = { "<cmd>Format<cr>", "Format" },
-	["nh"] = { "<cmd>noh<cr>", "No highlight" },
+
+	n = {
+		name = "Noice",
+		h = { "<cmd>NoiceHistory<cr>", "Noice History" },
+		d = { "<cmd>NoiceDismiss<cr>", "Noice Dismiss" },
+	},
 
 	g = {
 		name = "Git",
@@ -99,8 +104,8 @@ local mappings = {
 		p = { "<cmd>Gitsigns preview_hunk<cr>", "Preview changes" },
 		n = { "<cmd>Gitsigns next_hunk<cr>", "Next Hunk" },
 		N = { "<cmd>Gitsigns prev_hunk<cr>", "Prev Hunk" },
-		H = { "<cmd>Gitsigns stage_hunk<cr>", "Git stage hunk" },
-		B = { "<cmd>Gitsigns stage_buffer<cr>", "Git stage buffer" },
+		a = { "<cmd>Gitsigns stage_hunk<cr>", "Git stage hunk" },
+		A = { "<cmd>Gitsigns stage_buffer<cr>", "Git stage buffer" },
 		s = { "<cmd>Telescope git_status<cr>", "Git status" },
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
