@@ -30,6 +30,9 @@
    New-Item -ItemType SymbolicLink -Path "$HOME\AppData\Local\nvim" -Target "$HOME\.dotfiles\nvim"
    ```
 
+> [!NOTE]  
+> Setting up C/C++ on Windows -> Install Visual Studio, check 'Desktop dev with C++' then add the optional tool 'C++ Clang'.
+
 ## Plugins
 
 Plugins using [lazy.nvim](https://github.com/folke/lazy.nvim), for full list of plugins, see [plugins.lua](./lua/user/plugins.lua)
