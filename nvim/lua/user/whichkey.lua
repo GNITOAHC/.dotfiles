@@ -88,8 +88,9 @@ local mappings = {
 	["V"] = { "<cmd>sp<cr>", "Horizontal split" },
 	["f"] = { "<cmd>Telescope file_browser<cr>", "Find file" },
 	["F"] = { "<cmd>Telescope live_grep<cr>", "Live grep" },
-	["s"] = { "<cmd>SymbolsOutline<cr>", "Outline toggle" },
+	["o"] = { "<cmd>SymbolsOutline<cr>", "Outline toggle" },
 	["m"] = { "<cmd>Format<cr>", "Format" },
+	-- ["s"] = Preserve for iron.nvim
 
 	n = {
 		name = "Noice",

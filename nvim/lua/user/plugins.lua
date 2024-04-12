@@ -124,6 +124,23 @@ require("lazy").setup({
 		"akinsho/toggleterm.nvim",
 		version = "*",
 	},
+	{
+		"Vigemus/iron.nvim",
+		config = function()
+			require("iron.core").setup({
+				config = {
+					repl_open_cmd = require("iron.view").bottom(25),
+				},
+				keymaps = {
+					send_line = "<space>sl",
+					visual_send = "<space>sv",
+					send_file = "<space>sf",
+					exit = "<space>sq",
+					clear = "<space>sc",
+				},
+			})
+		end,
+	},
 
 	--[[ Whichkey ]]
 	"folke/which-key.nvim",
@@ -154,22 +171,22 @@ require("lazy").setup({
 	"simrat39/symbols-outline.nvim",
 
 	--[[ Color or Highlighting ]]
-	{
-		"folke/tokyonight.nvim",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-		priority = 1000, -- make sure to load this before all the other start plugins
-		config = function()
-			require("tokyonight").setup({
-				--[[ style = "moon", ]]
-				styles = {
-					comments = { italic = true },
-					keywords = { italic = true },
-				},
-				sidebars = { "qf", "vista_kind", "terminal", "packer" },
-			})
-			vim.cmd([[colorscheme tokyonight]])
-		end,
-	},
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = false, -- make sure we load this during startup if it is your main colorscheme
+	-- 	priority = 1000, -- make sure to load this before all the other start plugins
+	-- 	config = function()
+	-- 		require("tokyonight").setup({
+	-- 			--[[ style = "moon", ]]
+	-- 			styles = {
+	-- 				comments = { italic = true },
+	-- 				keywords = { italic = true },
+	-- 			},
+	-- 			sidebars = { "qf", "vista_kind", "terminal", "packer" },
+	-- 		})
+	-- 		vim.cmd([[colorscheme tokyonight]])
+	-- 	end,
+	-- },
 	{
 		"NvChad/nvim-colorizer.lua",
 		config = function()
@@ -186,6 +203,25 @@ require("lazy").setup({
 		end,
 	},
 	"RRethy/vim-illuminate",
+	{
+		"projekt0n/github-nvim-theme",
+		config = function()
+			require("github-theme").setup({
+				palettes = {
+					all = {
+						red = "#ff0000",
+					},
+					github_dark_dimmed = {
+						bg1 = "#444c56",
+						sel0 = "#adbac7", -- Popup bg, visual selection bg
+						sel1 = "#22272e", -- Popup sel bg, search bg
+						comment = "#636e7b",
+					},
+				},
+				vim.cmd([[colorscheme github_dark_dimmed]]),
+			})
+		end,
+	},
 
 	--[[ Noice ]]
 	{
