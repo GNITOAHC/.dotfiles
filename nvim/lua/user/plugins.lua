@@ -124,23 +124,6 @@ require("lazy").setup({
 		"akinsho/toggleterm.nvim",
 		version = "*",
 	},
-	{
-		"Vigemus/iron.nvim",
-		config = function()
-			require("iron.core").setup({
-				config = {
-					repl_open_cmd = require("iron.view").bottom(25),
-				},
-				keymaps = {
-					send_line = "<space>sl",
-					visual_send = "<space>sv",
-					send_file = "<space>sf",
-					exit = "<space>sq",
-					clear = "<space>sc",
-				},
-			})
-		end,
-	},
 
 	--[[ Whichkey ]]
 	"folke/which-key.nvim",

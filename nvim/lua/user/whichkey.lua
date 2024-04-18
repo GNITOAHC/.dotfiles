@@ -78,9 +78,12 @@ local opts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
+local send_line =
+	'<cmd>lua require("toggleterm").send_lines_to_terminal("single_line", false, { args = vim.v.count })<cr>'
+
 local mappings = {
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["d"] = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnose window" },
+	["d"] = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Diagnose window" },
 	["w"] = { "<cmd>w<cr>", "Write" },
 	["q"] = { "<cmd>q<cr>", "Quit" },
 	["x"] = { "<cmd>bd<cr>", "Buffer delete" },
@@ -90,7 +93,7 @@ local mappings = {
 	["F"] = { "<cmd>Telescope live_grep<cr>", "Live grep" },
 	["o"] = { "<cmd>SymbolsOutline<cr>", "Outline toggle" },
 	["m"] = { "<cmd>Format<cr>", "Format" },
-	-- ["s"] = Preserve for iron.nvim
+	["s"] = { send_line, "Send line" },
 
 	n = {
 		name = "Noice",
@@ -190,6 +193,21 @@ local mappings = {
 	},
 }
 
+local vopts = {
+	mode = "v", -- VISUAL mode
+	prefix = "<leader>",
+	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+	silent = true, -- use `silent` when creating keymaps
+	noremap = true, -- use `noremap` when creating keymaps
+	nowait = true, -- use `nowait` when creating keymaps
+}
+
+local send_visual =
+	'<cmd>lua require("toggleterm").send_lines_to_terminal("visual_lines", false, { args = vim.v.count })<cr>'
+local vmappings = {
+	["s"] = { send_visual, "Send visual" },
+}
+
 -- local vopts = {
 --     mode = "v", -- VISUAL mode
 --     prefix = "<leader>",
@@ -204,4 +222,4 @@ local mappings = {
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
--- which_key.register(vmappings, vopts)
+which_key.register(vmappings, vopts)
