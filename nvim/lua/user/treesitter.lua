@@ -17,6 +17,14 @@ local autotag_filetypes = {
 }
 -- stylua: ignore end
 
+-- Add mdx support
+vim.filetype.add({
+	extension = {
+		mdx = "mdx",
+	},
+})
+vim.treesitter.language.register("markdown", "mdx")
+
 configs.setup({
     -- stylua: ignore start
     ensure_installed = { "c", "cpp", "lua", "python", "c_sharp", "typescript", "javascript", "markdown", "scss", "fish", "vim" },
