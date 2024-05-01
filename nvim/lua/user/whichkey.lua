@@ -203,7 +203,7 @@ local vopts = {
 }
 
 local send_visual =
-	'<cmd>lua require("toggleterm").send_lines_to_terminal("visual_lines", false, { args = vim.v.count })<cr>'
+	'<cmd>lua require("toggleterm").send_lines_to_terminal("visual_selection", false, { args = vim.v.count })<cr>'
 local vmappings = {
 	["s"] = { send_visual, "Send visual" },
 }
