@@ -29,6 +29,7 @@ formatter.setup({
 		go = { require("formatter.filetypes.go").gofmt },
 		python = { require("formatter.filetypes.python").black },
 		markdown = { require("formatter.filetypes.markdown").prettier },
+		mdx = { require("formatter.filetypes.markdown").prettier },
 		rust = { require("formatter.filetypes.rust").rustfmt },
 		javascript = { prettier() },
 		javascriptreact = { prettier() },
