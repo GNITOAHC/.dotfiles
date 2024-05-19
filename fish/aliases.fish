@@ -51,6 +51,11 @@ alias FSync="killall bird"
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
+# Some useful functions
+function show --description 'show section of the file, usage: show $file $start $end'
+    head -n $argv[3] $argv[1] | tail -n (math $argv[3] - $argv[2] + 1)
+end
+
 # Chrome
 # alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome -open"
 function chrome --description 'alias chrome=/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome -open $file'
