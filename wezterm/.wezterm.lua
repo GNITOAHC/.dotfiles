@@ -6,6 +6,9 @@ local config = wezterm.config_builder()
 
 -- config.disable_default_key_bindings = true
 
+-- Color scheme
+config.color_scheme = 'Github Dark (Gogh)'
+
 -- font
 config.font = wezterm.font("TerminessTTF Nerd Font Mono")
 config.font_size = 16.0
