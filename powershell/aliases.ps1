@@ -8,6 +8,7 @@ function gs () { git status }
 function gc () { git commit -m }
 function ga () { git add }
 function gp () { git push }
+function gb () { git branch }
 
 Set-Alias .. cd..
 function ... () { cd ..\.. }
