@@ -43,7 +43,7 @@ config.keys = {
 	{ key = "p", mods = "CMD", action = wezterm.action.ActivateCommandPalette },
 	-- Enter CopyMode
 	{ key = "v", mods = "ALT", action = wezterm.action.ActivateCopyMode },
-    { key = 't', mods = 'SHIFT|ALT', action = wezterm.action.SpawnTab("DefaultDomain") }
+	{ key = "t", mods = "SHIFT|ALT", action = wezterm.action.SpawnTab("DefaultDomain") }
 }
 
 -- CopyMode
