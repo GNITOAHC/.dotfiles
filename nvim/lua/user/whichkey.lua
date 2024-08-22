@@ -69,74 +69,7 @@ local setup = {
 	},
 }
 
-local opts = {
-	mode = "n", -- NORMAL mode
-	prefix = "<leader>",
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-	silent = true, -- use `silent` when creating keymaps
-	noremap = true, -- use `noremap` when creating keymaps
-	nowait = true, -- use `nowait` when creating keymaps
-}
-
-local send_line =
-	'<cmd>lua require("toggleterm").send_lines_to_terminal("single_line", false, { args = vim.v.count })<cr>'
-
 local mappings = {
-	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["d"] = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Diagnose window" },
-	["w"] = { "<cmd>w<cr>", "Write" },
-	["q"] = { "<cmd>q<cr>", "Quit" },
-	["x"] = { "<cmd>bd<cr>", "Buffer delete" },
-	["v"] = { "<cmd>vsp<cr>", "Vertical split" },
-	["V"] = { "<cmd>sp<cr>", "Horizontal split" },
-	["f"] = { "<cmd>Telescope file_browser<cr>", "Find file" },
-	["F"] = { "<cmd>Telescope live_grep<cr>", "Live grep" },
-	["o"] = { "<cmd>SymbolsOutline<cr>", "Outline toggle" },
-	["m"] = { "<cmd>Format<cr>", "Format" },
-	["s"] = { send_line, "Send line" },
-
-	n = {
-		name = "Noice",
-		h = { "<cmd>NoiceHistory<cr>", "Noice History" },
-		d = { "<cmd>NoiceDismiss<cr>", "Noice Dismiss" },
-	},
-
-	g = {
-		name = "Git",
-		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-		p = { "<cmd>Gitsigns preview_hunk<cr>", "Preview changes" },
-		n = { "<cmd>Gitsigns next_hunk<cr>", "Next Hunk" },
-		N = { "<cmd>Gitsigns prev_hunk<cr>", "Prev Hunk" },
-		a = { "<cmd>Gitsigns stage_hunk<cr>", "Git stage hunk" },
-		A = { "<cmd>Gitsigns stage_buffer<cr>", "Git stage buffer" },
-		s = { "<cmd>Telescope git_status<cr>", "Git status" },
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-		d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
-	},
-
-	b = {
-		name = "Buffer",
-		l = { "<cmd>BufferLineCloseLeft<cr>", "Close left" },
-		r = { "<cmd>BufferLineCloseRight<cr>", "Close right" },
-		a = { "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>", "Close except current" },
-		n = { "<cmd>BufferLineMoveNext<cr>", "Move next" },
-		p = { "<cmd>BufferLineMovePrev<cr>", "Move prev" },
-	},
-
-	t = {
-		name = "Tabs/Terminal/Transparent",
-		t = { "<cmd>TransparentToggle<cr>", "Toggle transparent" },
-		f = { "<cmd>ToggleTerm direction=float<cr>", "Float terminal" },
-		b = { "<cmd>ToggleTerm direction=tab<cr>", "Tab terminal" },
-		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal terminal" },
-		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical terminal" },
-		e = { "<cmd>tabedit<cr>", "New tab" },
-		n = { "<cmd>tabnext<cr>", "Next tab" },
-		p = { "<cmd>tabprevious<cr>", "Previous tab" },
-	},
-
 	h = {
 		name = "Help",
 		J = { "", "Make curLine after prevLine" },
@@ -193,33 +126,69 @@ local mappings = {
 	},
 }
 
-local vopts = {
-	mode = "v", -- VISUAL mode
-	prefix = "<leader>",
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-	silent = true, -- use `silent` when creating keymaps
-	noremap = true, -- use `noremap` when creating keymaps
-	nowait = true, -- use `nowait` when creating keymaps
-}
-
+local send_line =
+	'<cmd>lua require("toggleterm").send_lines_to_terminal("single_line", false, { args = vim.v.count })<cr>'
 local send_visual =
 	'<cmd>lua require("toggleterm").send_lines_to_terminal("visual_selection", false, { args = vim.v.count })<cr>'
-local vmappings = {
-	["s"] = { send_visual, "Send visual" },
-}
 
--- local vopts = {
---     mode = "v", -- VISUAL mode
---     prefix = "<leader>",
---     buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
---     silent = true, -- use `silent` when creating keymaps
---     noremap = true, -- use `noremap` when creating keymaps
---     nowait = true, -- use `nowait` when creating keymaps
--- }
--- local vmappings = {
---     ["/"] = { "<ESC><CMD>lua require(\"Comment.api\").toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
--- }
+which_key.add({
+	{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer", hidden = true },
+	{ "<leader>w", "<cmd>w<cr>", desc = "Write", hidden = true },
+	{ "<leader>q", "<cmd>q<cr>", desc = "Quit", hidden = true },
+	{ "<leader>m", "<cmd>Format<cr>", desc = "Format" },
+	{ "<leader>x", "<cmd>bd<cr>", desc = "Buffer delete", hidden = true },
+	{ "<leader>v", "<cmd>vsp<cr>", desc = "Vertical split", hidden = true },
+	{ "<leader>V", "<cmd>sp<cr>", desc = "Horizontal split", hidden = true },
+	{ "<leader>f", "<cmd>Telescope file_browser<cr>", desc = "Find file", hidden = true },
+	{ "<leader>F", "<cmd>Telescope live_grep<cr>", desc = "Live grep", hidden = true },
+	{ "<leader>o", "<cmd>SymbolsOutline<cr>", desc = "Outline toggle", hidden = true },
+	{ "<leader>s", send_line, desc = "Send line", hidden = true },
+	{ "<leader>d", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Diagnose window", hidden = true },
 
-which_key.setup(setup)
-which_key.register(mappings, opts)
-which_key.register(vmappings, vopts)
+	-- Git
+	{ "<leader>g", group = "git" },
+	{ "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", desc = "Reset Hunk" },
+	{ "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", desc = "Reset Buffer" },
+	{ "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", desc = "Preview changes" },
+	{ "<leader>gn", "<cmd>Gitsigns next_hunk<cr>", desc = "Next Hunk" },
+	{ "<leader>gN", "<cmd>Gitsigns prev_hunk<cr>", desc = "Prev Hunk" },
+	{ "<leader>ga", "<cmd>Gitsigns stage_hunk<cr>", desc = "Git stage hunk" },
+	{ "<leader>gA", "<cmd>Gitsigns stage_buffer<cr>", desc = "Git stage buffer" },
+	{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Git status" },
+	{ "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
+	{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Checkout commit" },
+	{ "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", desc = "Diff" },
+
+	-- Noice
+	{ "<leader>n", group = "Noice" },
+	{ "<leader>nd", "<cmd>NoiceDismiss<cr>", desc = "Noice Dismiss" },
+	{ "<leader>nh", "<cmd>NoiceHistory<cr>", desc = "Noice History" },
+
+	-- Buffer
+	{ "<leader>b", group = "buffer" },
+	{ "<leader>bl", "<cmd>BufferLineCloseLeft<cr>", desc = "Close left" },
+	{ "<leader>br", "<cmd>BufferLineCloseRight<cr>", desc = "Close right" },
+	{ "<leader>ba", "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>", desc = "Close except current" },
+	{ "<leader>bn", "<cmd>BufferLineMoveNext<cr>", desc = "Move next" },
+	{ "<leader>bp", "<cmd>BufferLineMovePrev<cr>", desc = "Move prev" },
+
+	-- Terminal
+	{ "<leader>t", group = "Tabs/Term/Transparent" },
+	{ "<leader>tt", "<cmd>TransparentToggle<cr>", desc = "Toggle transparent" },
+	{ "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Float terminal" },
+	{ "<leader>tb", "<cmd>ToggleTerm direction=tab<cr>", desc = "Tab terminal" },
+	{ "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Horizontal terminal" },
+	{ "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Vertical terminal" },
+	{ "<leader>te", "<cmd>tabedit<cr>", desc = "New tab" },
+	{ "<leader>tn", "<cmd>tabnext<cr>", desc = "Next tab" },
+	{ "<leader>tp", "<cmd>tabprevious<cr>", desc = "Previous tab" },
+
+	{
+		mode = "v",
+		{ "<leader>s", send_visual, desc = "Send visual" },
+	},
+})
+
+-- which_key.setup(setup)
+-- which_key.register(mappings, opts)
+-- which_key.register(vmappings, vopts)
