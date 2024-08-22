@@ -2,6 +2,8 @@
 
 ## Setup
 
+> Currently using nvim v0.10.1
+
 ### MacOS
 
 1. Install `nvim` via [homebrew](https://brew.sh)
