@@ -7,16 +7,6 @@ if vim.g.os == "win" then
 	require("nvim-treesitter.install").compilers = { "zig" }
 end
 
--- stylua: ignore start
-local autotag_filetypes = {
-    'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
-    'xml',
-    'php',
-    'markdown',
-    'glimmer','handlebars','hbs'
-}
--- stylua: ignore end
-
 -- Add mdx support
 vim.filetype.add({
 	extension = {
@@ -33,10 +23,6 @@ configs.setup({
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	autopairs = {
 		enable = true,
-	},
-	autotag = {
-		enable = true,
-		filetypes = autotag_filetypes,
 	},
 	highlight = {
 		enable = true, -- false will disable the whole extension

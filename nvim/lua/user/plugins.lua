@@ -87,7 +87,12 @@ require("lazy").setup({
 
 	--[[ Pairs & Comment ]]
 	"windwp/nvim-autopairs",
-	"windwp/nvim-ts-autotag",
+	{
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+	},
 	{
 		"numToStr/Comment.nvim",
 		config = function()
