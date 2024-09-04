@@ -17,7 +17,7 @@ vim.treesitter.language.register("markdown", "mdx")
 
 configs.setup({
     -- stylua: ignore start
-    ensure_installed = { "c", "cpp", "lua", "python", "c_sharp", "typescript", "javascript", "markdown", "scss", "fish", "vim" },
+    ensure_installed = { "c", "cpp", "lua", "python", "typescript", "javascript", "markdown", "scss" },
 	-- stylua: ignore end
 	sync_install = false,
 	ignore_install = { "" }, -- List of parsers to ignore installing

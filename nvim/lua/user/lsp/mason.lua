@@ -25,7 +25,7 @@ mason_lspconfig.setup({
 		--[[ "clangd", ]]
 		--[[ "cssls", -- Conflicts with tailwindcss ]]
 		"marksman",
-		"pyright",
+		-- "pyright",
 		"tsserver", -- LSP
 		--[[ "omnisharp_mono", -- For UnityEngine ]]
 	},
