@@ -144,7 +144,7 @@ require("lazy").setup({
 			require("ibl").setup()
 		end,
 	},
-	"anuvyklack/pretty-fold.nvim",
+	-- "anuvyklack/pretty-fold.nvim",
 
 	--[[ Transparent ]]
 	"xiyaowong/nvim-transparent",
