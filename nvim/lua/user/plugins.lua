@@ -47,11 +47,11 @@ require("lazy").setup({
 		-- if you want to download pre-built binary, then pass source=false. Make sure to follow instruction above.
 		-- Also note that downloading prebuilt binary is a lot faster comparing to compiling from source.
 		build = ":AvanteBuild source=false",
-        config = function()
-            require("avante").setup({
-                provider = "copilot",
-            })
-        end,
+		config = function()
+			require("avante").setup({
+				provider = "copilot",
+			})
+		end,
 		dependencies = {
 			"stevearc/dressing.nvim",
 			"nvim-lua/plenary.nvim",
@@ -199,7 +199,12 @@ require("lazy").setup({
 	"xiyaowong/nvim-transparent",
 
 	--[[ Moving ]]
-	"karb94/neoscroll.nvim",
+	{
+		"karb94/neoscroll.nvim",
+		config = function()
+			require("neoscroll").setup()
+		end,
+	},
 	{
 		"phaazon/hop.nvim",
 		branch = "v2",
