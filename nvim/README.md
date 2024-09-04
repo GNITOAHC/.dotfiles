@@ -32,12 +32,18 @@
    New-Item -ItemType SymbolicLink -Path "$HOME\AppData\Local\nvim" -Target "$HOME\.dotfiles\nvim"
    ```
 
-> [!NOTE]  
-> Setting up C/C++ on Windows -> Install Visual Studio, check 'Desktop dev with C++' then add the optional tool 'C++ Clang'.
+**NOTE**
+
+1. To setup language server support for C/C++ on Windows, Visual Studio and LLVM is required.
+   1. Install Visual Studio, check 'Desktop dev with C++' then add the optional tool 'C++ Clang'.
+   2. `winget install -e --id LLVM.LLVM` then add binaries to Environment Variable. Binaries are generally installed at `C:\Program Files\LLVM\bin`.
+2. Zig and GCC are required but not built-in.
+   1. Use `winget install -e --id zig.zig` to install Zig (recommended).
+   2. Use [MinGW](https://sourceforge.net/projects/mingw/) to install GCC then add to Environment Variable. Binaries are generally installed at `C:\MinGW\bin`.
 
 ## Plugins
 
-Plugins using [lazy.nvim](https://github.com/folke/lazy.nvim), for full list of plugins, see [plugins.lua](./lua/user/plugins.lua)
+Plugins are installed via [lazy.nvim](https://github.com/folke/lazy.nvim), for full list of plugins, see [plugins.lua](./lua/user/plugins.lua)
 
 ## Dependencies
 
