@@ -14,9 +14,18 @@ local function clang_format()
 end
 
 local function prettier()
+	local dir = vim.fn.getcwd()
+	-- Check if a .prettierrc or .prettierrc.json file exists in the current directory
+	local path = "$HOME/.dotfiles/format/.prettierrc"
+	if vim.fn.filereadable(dir .. "/.prettierrc") == 1 then
+		path = dir .. "/.prettierrc"
+	end
+	if vim.fn.filereadable(dir .. "/.prettierrc.json") == 1 then
+		path = dir .. "/.prettierrc.json"
+	end
 	return {
 		exe = "prettier",
-		args = { "--config $HOME/.dotfiles/format/.prettierrc", "--parser", "typescript" },
+		args = { "--config", path, "--parser", "typescript" },
 		stdin = true,
 	}
 end
