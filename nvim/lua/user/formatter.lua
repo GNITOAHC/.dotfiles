@@ -30,6 +30,14 @@ local function prettier()
 	}
 end
 
+local function prettier_tabfour()
+	return {
+		exe = "prettier",
+		args = { "--tab-width", "4", "--parser", "markdown" },
+		stdin = true,
+	}
+end
+
 formatter.setup({
 	filetype = {
 		lua = { require("formatter.filetypes.lua").stylua },
@@ -37,7 +45,7 @@ formatter.setup({
 		c = { clang_format() },
 		go = { require("formatter.filetypes.go").gofmt },
 		python = { require("formatter.filetypes.python").black },
-		markdown = { require("formatter.filetypes.markdown").prettier },
+		markdown = { prettier_tabfour() },
 		mdx = { require("formatter.filetypes.markdown").prettier },
 		rust = { require("formatter.filetypes.rust").rustfmt },
 		javascript = { prettier() },
