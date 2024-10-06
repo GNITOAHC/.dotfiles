@@ -10,6 +10,9 @@ function ta --description 'alias ta=tmux attach $session'
     end
 end
 
+# Fish
+alias fp="fish --private"
+
 # Git
 alias g="git"
 alias gs="git status"
