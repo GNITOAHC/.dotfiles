@@ -54,5 +54,6 @@ formatter.setup({
 		typescriptreact = { prettier() },
 		html = { require("formatter.filetypes.html").prettier },
 		css = { require("formatter.filetypes.css").prettier },
+		json = { require("formatter.filetypes.json").prettier },
 	},
 })
