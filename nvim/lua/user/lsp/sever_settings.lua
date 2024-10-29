@@ -34,4 +34,21 @@ M.get_luals_opts = function()
 	return opt
 end
 
+M.get_ts_ls_opts = function()
+	local local_opts = {
+		root_dir = require("lspconfig").util.root_pattern("package.json"),
+		single_file_support = false,
+	}
+	local opt = vim.tbl_deep_extend("force", local_opts, opts)
+	return opt
+end
+
+M.get_denols_opts = function()
+	local local_opts = {
+		root_dir = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc"),
+	}
+    local opt vim.tbl_deep_extend("force", local_opts, opts)
+    return opt
+end
+
 return M

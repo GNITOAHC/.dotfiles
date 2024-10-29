@@ -26,7 +26,7 @@ mason_lspconfig.setup({
 		--[[ "cssls", -- Conflicts with tailwindcss ]]
 		"marksman",
 		-- "pyright",
-		"tsserver", -- LSP
+		"ts_ls", -- 0d072b5 fix: rename tsserver to ts_ls
 		--[[ "omnisharp_mono", -- For UnityEngine ]]
 	},
 })
@@ -41,6 +41,8 @@ mason_lspconfig.setup_handlers({
 --[[ Custom handlers settings ]]
 lspconfig.lua_ls.setup(server.get_luals_opts())
 lspconfig.clangd.setup(server.get_clangd_opts())
+lspconfig.ts_ls.setup(server.get_ts_ls_opts())
+lspconfig.denols.setup(server.get_luals_opts())
 
 --[[ mason_lspconfig.setup_handlers({ ]]
 --[[ 	function(server_name) -- default handler (optional) ]]
