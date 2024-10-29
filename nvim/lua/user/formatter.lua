@@ -46,7 +46,7 @@ formatter.setup({
 		go = { require("formatter.filetypes.go").gofmt },
 		python = { require("formatter.filetypes.python").black },
 		markdown = { prettier_tabfour() },
-		mdx = { require("formatter.filetypes.markdown").prettier },
+		mdx = { prettier_tabfour() },
 		rust = { require("formatter.filetypes.rust").rustfmt },
 		javascript = { prettier() },
 		javascriptreact = { prettier() },
