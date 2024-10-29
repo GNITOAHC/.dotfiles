@@ -25,8 +25,10 @@ if test -d ~/go
 end
 
 # If llvm exists, add it to path
-if test -d /opt/homebrew/opt/llvm/bin/
+if test -d /opt/homebrew/opt/llvm/
     set -gx PATH /opt/homebrew/opt/llvm/bin/ $PATH
+    set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
+    set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
 end
 
 # Link mason lsp server and share with helix
