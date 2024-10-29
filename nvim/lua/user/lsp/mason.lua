@@ -42,7 +42,7 @@ mason_lspconfig.setup_handlers({
 lspconfig.lua_ls.setup(server.get_luals_opts())
 lspconfig.clangd.setup(server.get_clangd_opts())
 lspconfig.ts_ls.setup(server.get_ts_ls_opts())
-lspconfig.denols.setup(server.get_luals_opts())
+lspconfig.denols.setup(server.get_denols_opts())
 
 --[[ mason_lspconfig.setup_handlers({ ]]
 --[[ 	function(server_name) -- default handler (optional) ]]
