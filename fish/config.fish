@@ -36,8 +36,7 @@ if test -d ~/.local/share/nvim/mason/bin
     set -gx PATH ~/.local/share/nvim/mason/bin $PATH
 end
 
-# Add C++ headers files installed from homebrew
-# brew install boost
+# Add C++ headers files installed from homebrew, e.g. boost, glew, glfw...
 if ls $(brew --prefix) | grep "include" > /dev/null
     set -gx CPATH $(brew --prefix)/include
 end
