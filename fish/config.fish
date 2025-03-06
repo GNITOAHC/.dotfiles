@@ -29,6 +29,7 @@ if test -d /opt/homebrew/opt/llvm/
     set -gx PATH /opt/homebrew/opt/llvm/bin/ $PATH
     set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
     set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
+    set -gx CPATH "/opt/homebrew/opt/llvm/include" $CPATH
 end
 
 # Link mason lsp server and share with helix
@@ -38,7 +39,7 @@ end
 
 # Add C++ headers files installed from homebrew, e.g. boost, glew, glfw...
 if ls $(brew --prefix) | grep "include" > /dev/null
-    set -gx CPATH $(brew --prefix)/include
+    set -gx CPATH $(brew --prefix)/include $CPATH
 end
 
 # fisher install PatrickF1/fzf.fish
