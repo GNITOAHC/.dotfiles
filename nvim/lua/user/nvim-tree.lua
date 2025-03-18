@@ -42,8 +42,11 @@ nvim_tree.setup({
 		open_file = {
 			quit_on_open = true,
 		},
+		change_dir = {
+			enable = false,
+		},
 	},
-    renderer = {
-        root_folder_label = ":t"
-    }
+	renderer = {
+		root_folder_label = ":t",
+	},
 })
