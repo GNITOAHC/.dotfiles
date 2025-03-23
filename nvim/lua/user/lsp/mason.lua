@@ -17,7 +17,7 @@ local opts = {
 	on_attach = require("user.lsp.handlers").on_attach,
 	capabilities = require("user.lsp.handlers").capabilities,
 }
-local server = require("user.lsp.sever_settings")
+local server = require("user.lsp.server_settings")
 
 mason_lspconfig.setup({
 	ensure_installed = {
