@@ -8,17 +8,17 @@ if not snip_status_ok then
 	return
 end
 
-local tabnine_status_ok, tabnine = pcall(require, "cmp_tabnine.config")
-if not tabnine_status_ok then
-	return
-end
+-- local tabnine_status_ok, tabnine = pcall(require, "cmp_tabnine.config")
+-- if not tabnine_status_ok then
+-- 	return
+-- end
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
-local check_backspace = function()
-	local col = vim.fn.col(".") - 1
-	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
-end
+-- local check_backspace = function()
+-- 	local col = vim.fn.col(".") - 1
+-- 	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
+-- end
 
 --   פּ ﯟ   some other good icons
 local kind_icons = {
@@ -110,7 +110,7 @@ cmp.setup({
 				nvim_lsp = "[LSP]",
 				path = "[Path]",
 				copilot = "[Copilot]",
-				cmp_tabnine = "[TN]",
+				-- cmp_tabnine = "[TN]",
 				nvim_lua = "[NVIM_LUA]",
 				luasnip = "[Snippet]",
 				buffer = "[Buffer]",
@@ -120,7 +120,7 @@ cmp.setup({
 		end,
 	},
 	sources = {
-		{ name = "cmp_tabnine" },
+		-- { name = "cmp_tabnine" },
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
@@ -155,9 +155,7 @@ cmp.setup.cmdline(":", {
 	sources = cmp.config.sources({
 		{ name = "path" },
 	}, {
-		{
-			name = "cmdline",
-		},
+		{ name = "cmdline" },
 	}),
 })
 
@@ -173,15 +171,15 @@ cmp.setup.cmdline("/", {
 	}),
 })
 
-tabnine:setup({
-	max_lines = 1000,
-	max_num_results = 20,
-	sort = true,
-	run_on_every_keystroke = true,
-	snippet_placeholder = "..",
-	ignored_file_types = { -- default is not to ignore
-		-- uncomment to ignore in lua:
-		-- lua = true
-	},
-	show_prediction_strength = false,
-})
+-- tabnine:setup({
+-- 	max_lines = 1000,
+-- 	max_num_results = 20,
+-- 	sort = true,
+-- 	run_on_every_keystroke = true,
+-- 	snippet_placeholder = "..",
+-- 	ignored_file_types = { -- default is not to ignore
+-- 		-- uncomment to ignore in lua:
+-- 		-- lua = true
+-- 	},
+-- 	show_prediction_strength = false,
+-- })

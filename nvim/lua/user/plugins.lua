@@ -95,11 +95,11 @@ require("lazy").setup({
 	"saadparwaiz1/cmp_luasnip", -- snippet completions
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-nvim-lua",
-	{
-		"tzachar/cmp-tabnine",
-		build = tabnine_build,
-		dependencies = "hrsh7th/nvim-cmp",
-	},
+	-- {
+	-- 	"tzachar/cmp-tabnine",
+	-- 	build = tabnine_build,
+	-- 	dependencies = "hrsh7th/nvim-cmp",
+	-- },
 
 	--[[ Snippets ]]
 	"L3MON4D3/LuaSnip", --snippet engine
