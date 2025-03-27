@@ -47,6 +47,16 @@ if cat $__fish_config_dir/fish_plugins | grep fzf.fish > /dev/null
     set -gx fzf_preview_dir_cmd eza --all --color=always
 end
 
+# Export variables setted at ~/.local/var.txt
+# Should be formatted as KEY="val"
+if test -f ~/.local/var.txt
+    for line in (cat ~/.local/var.txt)
+        set key (echo $line | cut -d'=' -f1)
+        set value (echo $line | cut -d'=' -f2- | sed 's/^"//' | sed 's/"$//')
+        set -x $key $value
+    end
+end
+
 # Check if starship exist
 # if type -q starship 
 #     set -gx STARSHIP_CONFIG ~/.dotfiles/starship/starship.toml
