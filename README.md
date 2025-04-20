@@ -18,5 +18,6 @@ After cloning, read the corresponding doc to add new tools.
 | fish       | [README.md](./fish/README.md)       |
 | powershell | [README.md](./powershell/README.md) |
 | nvim       | [README.md](./nvim/README.md)       |
+| vim        | [README.md](./vim/README.md)        |
 | fish       | [README.md](./fish/README.md)       |
 | tmux       | [README.md](./tmux/README.md)       |
