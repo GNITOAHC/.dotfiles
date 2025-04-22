@@ -141,7 +141,7 @@ which_key.add({
 	{ "<leader>V", "<cmd>sp<cr>", desc = "Horizontal split", hidden = true },
 	{ "<leader>f", "<cmd>Telescope file_browser<cr>", desc = "Find file", hidden = true },
 	{ "<leader>F", "<cmd>Telescope live_grep<cr>", desc = "Live grep", hidden = true },
-	{ "<leader>o", "<cmd>SymbolsOutline<cr>", desc = "Outline toggle", hidden = true },
+	{ "<leader>o", "<cmd>Outline<cr>", desc = "Outline toggle", hidden = true },
 	{ "<leader>s", send_line, desc = "Send line", hidden = true },
 	{ "<leader>d", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Diagnose window", hidden = true },
 

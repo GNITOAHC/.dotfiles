@@ -26,7 +26,6 @@ require("user.transparent")
 -- require("user.ufo")
 -- require("user.pretty-fold")
 require("user.hop")
-require("user.outline")
 require("user.autocmd")
 require("user.friendly-snip")
 --[[ require "user.vimtex" ]]
