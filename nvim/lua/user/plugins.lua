@@ -204,7 +204,12 @@ require("lazy").setup({
 		"phaazon/hop.nvim",
 		branch = "v2",
 	},
-	"simrat39/symbols-outline.nvim",
+	{
+		"hedyhli/outline.nvim",
+		config = function()
+			require("outline").setup({})
+		end,
+	},
 
 	--[[ Color or Highlighting ]]
 	-- {
