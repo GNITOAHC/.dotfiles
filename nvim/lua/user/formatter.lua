@@ -65,3 +65,7 @@ formatter.setup({
 		json = { require("formatter.filetypes.json").prettier },
 	},
 })
+
+vim.cmd([[
+    nnoremap <silent> <leader>m :Format<CR>
+]])
