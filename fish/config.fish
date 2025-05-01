@@ -47,13 +47,15 @@ if cat $__fish_config_dir/fish_plugins | grep fzf.fish > /dev/null
     set -gx fzf_preview_dir_cmd eza --all --color=always
 end
 
-# Export variables setted at ~/.local/var.txt
+# Export variables setted at specific files
 # Should be formatted as KEY="val"
-if test -f ~/.local/var.txt
-    for line in (cat ~/.local/var.txt)
-        set key (echo $line | cut -d'=' -f1)
-        set value (echo $line | cut -d'=' -f2- | sed 's/^"//' | sed 's/"$//')
-        set -x $key $value
+for file in ~/.local/var.* ~/.local/env.* ~/.local/env
+    if test -f $file
+        for line in (cat $file)
+            set key (echo $line | cut -d'=' -f1)
+            set value (echo $line | cut -d'=' -f2- | sed 's/^"//' | sed 's/"$//')
+            set -x $key $value
+        end
     end
 end
 
