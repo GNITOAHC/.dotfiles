@@ -22,12 +22,8 @@ local server = require("user.lsp.server_settings")
 mason_lspconfig.setup({
 	ensure_installed = {
 		"lua_ls",
-		--[[ "clangd", ]]
-		--[[ "cssls", -- Conflicts with tailwindcss ]]
 		"marksman",
-		-- "pyright",
 		"ts_ls", -- 0d072b5 fix: rename tsserver to ts_ls
-		--[[ "omnisharp_mono", -- For UnityEngine ]]
 	},
 })
 
@@ -43,25 +39,3 @@ lspconfig.lua_ls.setup(server.get_luals_opts())
 lspconfig.clangd.setup(server.get_clangd_opts())
 lspconfig.ts_ls.setup(server.get_ts_ls_opts())
 lspconfig.denols.setup(server.get_denols_opts())
-
---[[ mason_lspconfig.setup_handlers({ ]]
---[[ 	function(server_name) -- default handler (optional) ]]
---[[ 		require("lspconfig")[server_name].setup(opts) ]]
---[[ 	end, ]]
---[[ 	["clangd"] = function() ]]
---[[ 		lspconfig.clangd.setup(server.get_clangd_opts()) ]]
---[[ 	end, ]]
---[[ 	["lua_ls"] = function() ]]
---[[ 		lspconfig.lua_ls.setup(server.get_luals_opts()) ]]
---[[ 	end, ]]
---[[ }) ]]
-
---[[ Keymaps ]]
---[[ toggle_package_expand = "<CR>", ]]
---[[ install_package = "i", ]]
---[[ update_package = "u", ]]
---[[ check_package_version = "c", ]]
---[[ update_all_packages = "U", ]]
---[[ check_outdated_packages = "C", ]]
---[[ uninstall_package = "X", ]]
---[[ cancel_installation = "<C-c>", ]]
