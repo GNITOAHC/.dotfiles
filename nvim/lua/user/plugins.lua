@@ -44,7 +44,33 @@ require("lazy").setup({
 		build = ":AvanteBuild source=false",
 		config = function()
 			require("avante").setup({
-				provider = "copilot",
+				-- provider = "copilot",
+				provider = "openai",
+				-- openai = {
+				-- 	endpoint = "https://api.openai.com/v1",
+				-- 	model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+				-- 	timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+				-- 	temperature = 0,
+				-- 	max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+				-- 	--reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+				-- },
+				-- provider = "groq",
+				-- vendors = {
+				-- 	groq = {
+				-- 		__inherited_from = "openai",
+				-- 		api_key_name = "GROQ_API_KEY",
+				-- 		endpoint = "https://api.groq.com/openai/v1/",
+				-- 		model = "llama-3.3-70b-versatile",
+				-- 	},
+				-- },
+				-- provider = "galaxyai",
+				-- vendors = {
+				-- 	galaxyai = {
+				-- 		__inherited_from = "openai",
+				-- 		endpoint = "https://galaxyapi.onrender.com/v1",
+				-- 		model = "claude-3-haiku-20240307", -- your desired model (or use gpt-4o, etc.)
+				-- 	},
+				-- },
 			})
 		end,
 		dependencies = {
@@ -265,30 +291,30 @@ require("lazy").setup({
 	},
 
 	--[[ Noice ]]
-	{
-		"folke/noice.nvim",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-		config = function()
-			require("noice").setup({
-				routes = { -- show macro recording
-					{
-						view = "mini",
-						filter = {
-							any = {
-								{ event = require("noice.ui.msg").events.showcmd },
-								{ event = require("noice.ui.msg").events.showmode },
-							},
-						},
-					},
-				},
-				messages = { enabled = true },
-			})
-			require("notify").setup({
-				background_colour = "#000000",
-			})
-		end,
-	},
+	-- {
+	-- 	"folke/noice.nvim",
+	-- 	dependencies = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		"rcarriga/nvim-notify",
+	-- 	},
+	-- 	config = function()
+	-- 		require("noice").setup({
+	-- 			routes = { -- show macro recording
+	-- 				{
+	-- 					view = "mini",
+	-- 					filter = {
+	-- 						any = {
+	-- 							{ event = require("noice.ui.msg").events.showcmd },
+	-- 							{ event = require("noice.ui.msg").events.showmode },
+	-- 						},
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 			messages = { enabled = true },
+	-- 		})
+	-- 		require("notify").setup({
+	-- 			background_colour = "#000000",
+	-- 		})
+	-- 	end,
+	-- },
 })
