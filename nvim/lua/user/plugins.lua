@@ -19,7 +19,7 @@ require("lazy").setup({
 	{
 		"zbirenbaum/copilot.lua",
 		config = function()
-			require("copilot").setup()
+			-- require("copilot").setup()
 		end,
 	},
 	{
@@ -41,8 +41,8 @@ require("lazy").setup({
 		config = function()
 			require("codeium").setup({
 				virtual_text = {
-                    enabled = true,
-                }
+					enabled = true,
+				},
 			})
 		end,
 	},
