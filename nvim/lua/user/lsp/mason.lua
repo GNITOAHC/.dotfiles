@@ -1,8 +1,7 @@
 local mason_ok, mason = pcall(require, "mason")
 local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
 
-if not mason_ok or not mason_lspconfig_ok or not lspconfig_ok then
+if not mason_ok or not mason_lspconfig_ok then
 	vim.notify("Mason: Failed to load dependencies", vim.log.levels.ERROR)
 	return
 end
@@ -27,15 +26,14 @@ mason_lspconfig.setup({
 	},
 })
 
---[[ Default handlers settings ]]
-mason_lspconfig.setup_handlers({
-	function(server_name) -- default handler (optional)
-		require("lspconfig")[server_name].setup(opts)
-	end,
-})
+for _, s in pairs(mason_lspconfig.get_installed_servers()) do
+	vim.lsp.config(s, opts)
+end
 
---[[ Custom handlers settings ]]
-lspconfig.lua_ls.setup(server.get_luals_opts())
-lspconfig.clangd.setup(server.get_clangd_opts())
-lspconfig.ts_ls.setup(server.get_ts_ls_opts())
-lspconfig.denols.setup(server.get_denols_opts())
+-- Manual setup
+vim.lsp.enable("clangd")
+vim.lsp.config("clangd", server.get_clangd_opts())
+
+vim.lsp.config("lua_ls", server.get_luals_opts())
+vim.lsp.config("ts_ls", server.get_ts_ls_opts())
+vim.lsp.config("denols", server.get_denols_opts())
