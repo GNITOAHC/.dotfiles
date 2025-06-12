@@ -22,7 +22,7 @@ mason_lspconfig.setup({
 	ensure_installed = {
 		"lua_ls",
 		"marksman",
-		"ts_ls", -- 0d072b5 fix: rename tsserver to ts_ls
+		-- "ts_ls", -- 0d072b5 fix: rename tsserver to ts_ls
 	},
 })
 
