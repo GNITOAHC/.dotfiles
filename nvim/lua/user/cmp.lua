@@ -110,6 +110,7 @@ cmp.setup({
 				nvim_lsp = "[LSP]",
 				path = "[Path]",
 				copilot = "[Copilot]",
+                codeium = "[Codeium]",
 				-- cmp_tabnine = "[TN]",
 				nvim_lua = "[NVIM_LUA]",
 				luasnip = "[Snippet]",
@@ -127,6 +128,7 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "copilot" },
+        { name = "codeium" }
 		--[[ { name = "cmdline" }, ]]
 	},
 	confirm_opts = {

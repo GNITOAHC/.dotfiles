@@ -33,6 +33,20 @@ require("lazy").setup({
 		dependencies = { "hrsh7th/nvim-cmp", "zbirenbaum/copilot.lua" },
 	},
 	{
+		"Exafunction/windsurf.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+		},
+		config = function()
+			require("codeium").setup({
+				virtual_text = {
+                    enabled = true,
+                }
+			})
+		end,
+	},
+	{
 		"yetone/avante.nvim",
 		event = "VeryLazy",
 		lazy = false,
