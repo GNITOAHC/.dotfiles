@@ -30,10 +30,47 @@ for _, s in pairs(mason_lspconfig.get_installed_servers()) do
 	vim.lsp.config(s, opts)
 end
 
+-- For vim diagnostics, see `get_luals_opts`
+vim.lsp.config("lua_ls", server.get_luals_opts())
+
 -- Manual setup
 vim.lsp.enable("clangd")
 vim.lsp.config("clangd", server.get_clangd_opts())
 
-vim.lsp.config("lua_ls", server.get_luals_opts())
-vim.lsp.config("ts_ls", server.get_ts_ls_opts())
-vim.lsp.config("denols", server.get_denols_opts())
+-- denols and ts_ls setup
+-- https://github.com/neovim/neovim/issues/32037
+-- https://github.com/neovim/neovim/issues/32037#issuecomment-2774451000
+
+vim.lsp.config.denols = {
+	cmd = { "deno", "lsp" },
+	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+	root_dir = function(_, callback)
+		local root_dir = vim.fs.root(0, { "deno.json", "deno.jsonc" })
+
+		if root_dir then
+			callback(root_dir)
+		end
+	end,
+	-- Extend opts to this table
+	on_attach = require("user.lsp.handlers").on_attach,
+	capabilities = require("user.lsp.handlers").capabilities,
+}
+
+vim.lsp.enable("denols")
+
+vim.lsp.config.ts_ls = {
+	cmd = { "typescript-language-server", "--stdio" },
+	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+	root_dir = function(_, callback)
+		local deno_dir = vim.fs.root(0, { "deno.json", "deno.jsonc" })
+		local root_dir = vim.fs.root(0, { "tsconfig.json", "jsconfig.json", "package.json" })
+
+		if root_dir and deno_dir == nil then
+			callback(root_dir)
+		end
+	end,
+	on_attach = require("user.lsp.handlers").on_attach,
+	capabilities = require("user.lsp.handlers").capabilities,
+}
+
+vim.lsp.enable("ts_ls")

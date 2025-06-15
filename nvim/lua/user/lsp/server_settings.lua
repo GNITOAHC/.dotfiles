@@ -39,6 +39,8 @@ M.get_luals_opts = function()
 	return opt
 end
 
+-- Deprecated
+
 M.get_ts_ls_opts = function()
 	local local_opts = {
 		root_dir = require("lspconfig").util.root_pattern("package.json"),
