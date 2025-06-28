@@ -1,7 +1,10 @@
 syntax on
 
+set expandtab
+set softtabstop=4
 set tabstop=4
 set shiftwidth=4
+
 set foldmethod=indent
 set foldlevelstart=99
 set autoindent
