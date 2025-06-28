@@ -35,11 +35,6 @@ which_key.add({
 	{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Checkout commit" },
 	{ "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", desc = "Diff" },
 
-	-- Noice
-	{ "<leader>n", group = "Noice" },
-	{ "<leader>nd", "<cmd>NoiceDismiss<cr>", desc = "Noice Dismiss" },
-	{ "<leader>nh", "<cmd>NoiceHistory<cr>", desc = "Noice History" },
-
 	-- Buffer
 	{ "<leader>b", group = "buffer" },
 	{ "<leader>bl", "<cmd>BufferLineCloseLeft<cr>", desc = "Close left" },
@@ -48,7 +43,7 @@ which_key.add({
 	{ "<leader>bn", "<cmd>BufferLineMoveNext<cr>", desc = "Move next" },
 	{ "<leader>bp", "<cmd>BufferLineMovePrev<cr>", desc = "Move prev" },
 
-	-- Terminal
+	-- Terminal & Tabs
 	{ "<leader>t", group = "Tabs/Term/Transparent" },
 	{ "<leader>tt", "<cmd>TransparentToggle<cr>", desc = "Toggle transparent" },
 	{ "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Float terminal" },

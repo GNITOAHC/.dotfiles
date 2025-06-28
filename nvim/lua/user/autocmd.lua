@@ -14,7 +14,7 @@ api.nvim_create_autocmd("FileType", {
 		"json",
 		"markdown",
 	},
-	command = "setlocal shiftwidth=2 softtabstop=2 expandtab",
+	command = "setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab",
 	group = jsGrp,
 })
 
