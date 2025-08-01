@@ -241,10 +241,6 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"phaazon/hop.nvim",
-		branch = "v2",
-	},
-	{
 		"hedyhli/outline.nvim",
 		config = function()
 			require("outline").setup({})
