@@ -37,6 +37,22 @@ vim.lsp.config("lua_ls", server.get_luals_opts())
 vim.lsp.enable("clangd")
 vim.lsp.config("clangd", server.get_clangd_opts())
 
+-- For sourcekit (Xcode)
+-- https://github.com/SolaWing/xcode-build-server
+-- https://wojciechkulik.pl/ios/the-complete-guide-to-ios-macos-development-in-neovim
+vim.lsp.config.sourcekit = {
+	cmd = { "xcrun", "sourcekit-lsp" },
+	workspace = {
+		didChangeWatchedFiles = {
+			dynamicRegistration = true,
+		},
+	},
+
+	on_attach = require("user.lsp.handlers").on_attach,
+	capabilities = require("user.lsp.handlers").capabilities,
+}
+vim.lsp.enable("sourcekit")
+
 -- denols and ts_ls setup
 -- https://github.com/neovim/neovim/issues/32037
 -- https://github.com/neovim/neovim/issues/32037#issuecomment-2774451000

@@ -63,6 +63,27 @@ formatter.setup({
 		html = { require("formatter.filetypes.html").prettier },
 		css = { require("formatter.filetypes.css").prettier },
 		json = { require("formatter.filetypes.json").prettier },
+
+		swift = {
+			function()
+				local function swift_conf()
+					if vim.fn.filereadable(vim.fn.getcwd() .. "/.swift-format") == 1 then
+						return vim.fn.getcwd() .. "/.swift-format"
+					end
+					return nil
+				end
+				local args = { "swift-format", "format" }
+				if swift_conf() ~= nil then
+					table.insert(args, "--configuration")
+					table.insert(args, swift_conf())
+				end
+				return {
+					exe = "xcrun",
+					args = args,
+					stdin = true,
+				}
+			end,
+		},
 	},
 })
 
