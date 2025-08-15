@@ -37,6 +37,13 @@ vim.lsp.config("lua_ls", server.get_luals_opts())
 vim.lsp.enable("clangd")
 vim.lsp.config("clangd", server.get_clangd_opts())
 
+-- Use `rustup component add rust-analyzer`
+vim.lsp.config.rust_analyzer = {
+	on_attach = require("user.lsp.handlers").on_attach,
+	capabilities = require("user.lsp.handlers").capabilities,
+}
+vim.lsp.enable("rust_analyzer")
+
 -- For sourcekit (Xcode)
 -- https://github.com/SolaWing/xcode-build-server
 -- https://wojciechkulik.pl/ios/the-complete-guide-to-ios-macos-development-in-neovim
@@ -71,7 +78,6 @@ vim.lsp.config.denols = {
 	on_attach = require("user.lsp.handlers").on_attach,
 	capabilities = require("user.lsp.handlers").capabilities,
 }
-
 vim.lsp.enable("denols")
 
 vim.lsp.config.ts_ls = {
@@ -88,5 +94,4 @@ vim.lsp.config.ts_ls = {
 	on_attach = require("user.lsp.handlers").on_attach,
 	capabilities = require("user.lsp.handlers").capabilities,
 }
-
 vim.lsp.enable("ts_ls")
