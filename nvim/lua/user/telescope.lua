@@ -8,6 +8,17 @@ telescope.load_extension('file_browser')
 local actions = require "telescope.actions"
 
 telescope.setup {
+    pickers = {
+    live_grep = {
+      additional_args = function(_)
+        return { "--hidden", "--glob", "!.git/*" }
+      end
+    },
+    find_files = {
+      hidden = true,
+      find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" }
+    }
+  },
   defaults = {
 
     prompt_prefix = "SRCH: ",
