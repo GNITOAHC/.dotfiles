@@ -19,7 +19,9 @@ which_key.add({
 	{ "<leader>F", "<cmd>Telescope live_grep<cr>", desc = "Live grep", hidden = true },
 	{ "<leader>o", "<cmd>Outline<cr>", desc = "Outline toggle", hidden = true },
 	{ "<leader>s", send_line, desc = "Send line", hidden = true },
-	{ "<leader>d", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Diagnose window", hidden = true },
+
+	-- Diagnostics -> move back to lua/user/lsp/handlers.lua
+	-- { "<leader>d", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Diagnose window", hidden = true },
 
 	-- Git
 	{ "<leader>g", group = "git" },

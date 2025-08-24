@@ -66,6 +66,19 @@ local function lsp_keymaps(bufnr)
 	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>d", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
 
+-- Should attach to every buffer instead of buffer with language server, so setup outside of lsp_keymaps and set the function globally.
+function Toggle_setloclist()
+	local loclist_winid = vim.fn.getloclist(0, { winid = 0 }).winid
+	if loclist_winid ~= 0 then
+		-- Location list is open, close it
+		vim.cmd("lclose")
+	else
+		-- Location list is not open, populate and open it with diagnostics
+		vim.diagnostic.setloclist({ open = true })
+	end
+end
+vim.api.nvim_set_keymap("n", "<leader>d", "<cmd>lua Toggle_setloclist()<CR>", { noremap = true, silent = true })
+
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
