@@ -13,6 +13,9 @@ end
 # Fish
 alias fp="fish --private"
 
+# Remap `vim` to use `nvim` with minimal configuration
+alias vim="nvim --clean -u ~/.dotfiles/nvim-clean/init.lua"
+
 # Git
 alias g="git"
 alias gs="git status"
@@ -21,6 +24,7 @@ alias ga="git add"
 alias gp="git push"
 alias gb="git branch"
 alias gl="git log --oneline -n 5"
+alias gt="git tag"
 
 # eza
 alias l="eza"
@@ -28,6 +32,7 @@ alias la="eza --all"
 alias ll="eza --long --icons"
 alias lla="eza --long --icons --all"
 alias lg="eza --long --icons --git"
+alias lta="eza --long --icons --all --tree"
 function lt --description 'alias lt=eza --tree --level $level $dir'
     # if not set -q $argv
     if [ "$argv[1]" = "" ]
