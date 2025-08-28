@@ -15,6 +15,12 @@ if test -d ~/.cargo/bin/
     set -gx PATH ~/.cargo/bin $PATH
 end
 
+# If Install Java with homebrew
+if test -d /opt/homebrew/opt/openjdk/bin
+    set -gx PATH /opt/homebrew/opt/openjdk/bin $PATH
+    # set -gx CPPFLAGS "-I/opt/homebrew/opt/openjdk/include"
+end
+
 # If ~/go exists, add it to path
 if test -d ~/go
     set -gx GOPATH ~/go
