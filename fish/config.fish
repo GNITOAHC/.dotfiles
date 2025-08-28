@@ -5,7 +5,7 @@ end
 
 # Add homebrew path 
 # Install homebrew first [homebrew](brew.sh)
-set -gx PATH /opt/homebrew/bin/ /opt/homebrew/sbin $PATH
+set -gx PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
 
 # Set nvim as default editor
 set -gx EDITOR nvim
@@ -49,7 +49,7 @@ end
 
 # Export variables setted at specific files
 # Should be formatted as KEY="val"
-for file in ~/.local/var.* ~/.local/env.* ~/.local/env
+for file in ~/.env ~/.local/.env ~/.config/.env
     if test -f $file
         for line in (cat $file)
             set key (echo $line | cut -d'=' -f1)
