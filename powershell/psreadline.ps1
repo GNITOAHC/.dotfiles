@@ -10,8 +10,18 @@ Set-PSReadLineKeyHandler -Key Ctrl+j -Function HistorySearchForward
 # History is stored at `(Get-PSReadlineOption).HistorySavePath`.
 
 # List history 
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -PredictionViewStyle ListView
+# Set-PSReadLineOption -PredictionSource History
+# Set-PSReadLineOption -PredictionViewStyle ListView
+if (Get-Command Set-PSReadLineOption -ErrorAction SilentlyContinue) {
+    $params = (Get-Command Set-PSReadLineOption).Parameters.Keys
+    if ($params -contains 'PredictionViewStyle') {
+        Set-PSReadLineOption -PredictionViewStyle ListView
+    }
+    if ($params -contains 'PredictionSource') {
+        Set-PSReadLineOption -PredictionSource History
+    }
+}
+
 
 # Smart Insert/delete.
 Set-PSReadLineKeyHandler -Key '(','{','[' `
