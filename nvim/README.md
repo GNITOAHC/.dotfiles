@@ -37,9 +37,12 @@
 1. To setup language server support for C/C++ on Windows, Visual Studio and LLVM is required.
    1. Install Visual Studio, check 'Desktop dev with C++' then add the optional tool 'C++ Clang'.
    2. `winget install -e --id LLVM.LLVM` then add binaries to Environment Variable. Binaries are generally installed at `C:\Program Files\LLVM\bin`.
-2. Zig and GCC are required but not built-in.
+2. Zig or GCC are required (for tree-sitter) but not built-in.
    1. Use `winget install -e --id zig.zig` to install Zig (recommended).
    2. Use [MinGW](https://sourceforge.net/projects/mingw/) to install GCC then add to Environment Variable. Binaries are generally installed at `C:\MinGW\bin`.
+3. `gzip` is required by Codium ([windsurf.nvim](https://github.com/Exafunction/windsurf.nvim)), but not built-in on Windows.
+   1. Use `winget install -e --id GnuWin32.Gzip` to install gzip (recommended).
+   2. Add it to Environment Variable. Binaries are generally installed at `C:\Program Files\GnuWin32\bin`.
 
 ## Plugins
 
