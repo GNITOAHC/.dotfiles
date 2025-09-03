@@ -16,3 +16,11 @@ For module Terminal-Icons, find it with `Find-Module` and install it.
 ```pwsh
 Find-Module -Name Terminal-Icons | Install-Module
 ```
+
+## Debugging
+
+If encountering error like this: "<file> cannot be loaded because running scripts is disabled on this system.", try following command to change the execution policy.
+
+```pwsh
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
