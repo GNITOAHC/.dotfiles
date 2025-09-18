@@ -7,6 +7,9 @@ end
 # Install homebrew first [homebrew](brew.sh)
 set -gx PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
 
+# Add binaries installed to ~/.local/bin
+set -gx PATH ~/.local/bin $PATH
+
 # Set nvim as default editor
 set -gx EDITOR nvim
 
@@ -58,6 +61,10 @@ end
 for file in ~/.env ~/.local/.env ~/.config/.env
     if test -f $file
         for line in (cat $file)
+            # Continue if the line is empty
+            if test -z "$line"
+                continue
+            end
             set key (echo $line | cut -d'=' -f1)
             set value (echo $line | cut -d'=' -f2- | sed 's/^"//' | sed 's/"$//')
             set -x $key $value
