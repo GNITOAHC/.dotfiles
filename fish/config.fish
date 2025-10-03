@@ -3,25 +3,51 @@ if status is-interactive
     source ~/.config/fish/aliases.fish  # Source aliases 
 end
 
-# Add homebrew path 
-# Install homebrew first [homebrew](brew.sh)
-set -gx PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
-
 # Add binaries installed to ~/.local/bin
 set -gx PATH ~/.local/bin $PATH
 
-# Set nvim as default editor
-set -gx EDITOR nvim
+##########################
+# Homebrew section start #
+##########################
+# [Homebrew](https://brew.sh) binary path
+set -gx PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
+
+# If install sqlite3 with homebrew
+if test -d /opt/homebrew/opt/sqlite/bin
+    set -gx PATH /opt/homebrew/opt/sqlite/bin $PATH
+end
+
+# If install Java with homebrew
+if test -d /opt/homebrew/opt/openjdk/bin
+    set -gx PATH /opt/homebrew/opt/openjdk/bin $PATH
+    # set -gx CPPFLAGS "-I/opt/homebrew/opt/openjdk/include"
+end
+
+# If install llvm with homebrew
+if test -d /opt/homebrew/opt/llvm/
+    set -gx PATH /opt/homebrew/opt/llvm/bin/ $PATH
+    set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
+    set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
+    set -gx CPATH "/opt/homebrew/opt/llvm/include" $CPATH
+end
+
+# Add C++ headers files installed from homebrew, e.g. boost, glew, glfw...
+if ls $(brew --prefix) | grep "include" > /dev/null
+    set -gx CPATH $(brew --prefix)/include $CPATH
+end
+
+########################
+# Homebrew section end #
+########################
+
+# Set nvim as default editor (if exists)
+if type -q nvim
+    set -gx EDITOR nvim
+end
 
 # If ~/.cargo/bin exists, add it to path
 if test -d ~/.cargo/bin/ 
     set -gx PATH ~/.cargo/bin $PATH
-end
-
-# If Install Java with homebrew
-if test -d /opt/homebrew/opt/openjdk/bin
-    set -gx PATH /opt/homebrew/opt/openjdk/bin $PATH
-    # set -gx CPPFLAGS "-I/opt/homebrew/opt/openjdk/include"
 end
 
 # If ~/go exists, add it to path
@@ -33,22 +59,9 @@ if test -d ~/go
     end
 end
 
-# If llvm exists, add it to path
-if test -d /opt/homebrew/opt/llvm/
-    set -gx PATH /opt/homebrew/opt/llvm/bin/ $PATH
-    set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
-    set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
-    set -gx CPATH "/opt/homebrew/opt/llvm/include" $CPATH
-end
-
 # Link mason lsp server and share with helix
 if test -d ~/.local/share/nvim/mason/bin
     set -gx PATH ~/.local/share/nvim/mason/bin $PATH
-end
-
-# Add C++ headers files installed from homebrew, e.g. boost, glew, glfw...
-if ls $(brew --prefix) | grep "include" > /dev/null
-    set -gx CPATH $(brew --prefix)/include $CPATH
 end
 
 # fisher install PatrickF1/fzf.fish
