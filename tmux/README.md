@@ -47,3 +47,9 @@ tmux source ~/.tmux.conf
      - [✓] tmux-prefix-highlight
    - Restore
      - [✓] tmux-resurrect, tmux-continuum
+
+## Tmux Clean Fast Setup
+
+```bash
+curl -LsSf https://raw.githubusercontent.com/GNITOAHC/.dotfiles/main/tmux/clean.setup.sh | bash
+```
