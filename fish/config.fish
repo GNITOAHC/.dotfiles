@@ -1,6 +1,6 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    source ~/.config/fish/aliases.fish  # Source aliases 
+    source ~/.config/fish/aliases.fish  # Source aliases
 end
 
 # Add binaries installed to ~/.local/bin
@@ -46,7 +46,7 @@ if type -q nvim
 end
 
 # If ~/.cargo/bin exists, add it to path
-if test -d ~/.cargo/bin/ 
+if test -d ~/.cargo/bin/
     set -gx PATH ~/.cargo/bin $PATH
 end
 
@@ -78,6 +78,9 @@ for file in ~/.env ~/.local/.env ~/.config/.env
             if test -z "$line"
                 continue
             end
+            if test (string sub -s 1 -l 1 $line) = '#'
+                continue
+            end
             set key (echo $line | cut -d'=' -f1)
             set value (echo $line | cut -d'=' -f2- | sed 's/^"//' | sed 's/"$//')
             set -x $key $value
@@ -86,12 +89,12 @@ for file in ~/.env ~/.local/.env ~/.config/.env
 end
 
 # Check if starship exist
-# if type -q starship 
+# if type -q starship
 #     set -gx STARSHIP_CONFIG ~/.dotfiles/starship/starship.toml
 #     starship init fish | source
 # end
 
-# If oh-my-posh exists, use it as shell prompt. 
+# If oh-my-posh exists, use it as shell prompt.
 if type -q oh-my-posh
     oh-my-posh init fish --config ~/.dotfiles/oh-my-posh/bubblesextra.omp.json | source
 end
