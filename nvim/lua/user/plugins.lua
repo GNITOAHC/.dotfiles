@@ -19,7 +19,7 @@ require("lazy").setup({
 	{
 		"zbirenbaum/copilot.lua",
 		config = function()
-			-- require("copilot").setup()
+			require("copilot").setup()
 		end,
 	},
 	{
@@ -46,20 +46,27 @@ require("lazy").setup({
 			})
 		end,
 	},
+	-- {
+	-- 	"yetone/avante.nvim",
+	-- 	event = "VeryLazy",
+	-- 	opts = {
+	-- 		provider = "openai",
+	-- 	},
+	-- 	-- if you want to download pre-built binary, then pass source=false. Make sure to follow instruction above.
+	-- 	-- Also note that downloading prebuilt binary is a lot faster comparing to compiling from source.
+	-- 	build = ":AvanteBuild source=false",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		--- The below dependencies are optional,
+	-- 		"zbirenbaum/copilot.lua", -- for providers='copilot'
+	-- 	},
+	-- },
 	{
-		"yetone/avante.nvim",
-		event = "VeryLazy",
-		opts = {
-			provider = "openai",
-		},
-		-- if you want to download pre-built binary, then pass source=false. Make sure to follow instruction above.
-		-- Also note that downloading prebuilt binary is a lot faster comparing to compiling from source.
-		build = ":AvanteBuild source=false",
+		"olimorris/codecompanion.nvim",
+		opts = {},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-			--- The below dependencies are optional,
-			"zbirenbaum/copilot.lua", -- for providers='copilot'
 		},
 	},
 
@@ -71,11 +78,6 @@ require("lazy").setup({
 	"saadparwaiz1/cmp_luasnip", -- snippet completions
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-nvim-lua",
-	-- {
-	-- 	"tzachar/cmp-tabnine",
-	-- 	build = tabnine_build,
-	-- 	dependencies = "hrsh7th/nvim-cmp",
-	-- },
 
 	--[[ Snippets ]]
 	"L3MON4D3/LuaSnip", --snippet engine
