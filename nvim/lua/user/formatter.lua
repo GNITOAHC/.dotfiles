@@ -87,6 +87,14 @@ formatter.setup({
 	},
 })
 
+-- For .templ files
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = { "*.templ" },
+	callback = function()
+		vim.lsp.buf.format()
+	end,
+})
+
 vim.cmd([[
     nnoremap <silent> <leader>m :Format<CR>
 ]])
