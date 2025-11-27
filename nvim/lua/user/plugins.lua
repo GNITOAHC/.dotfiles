@@ -146,11 +146,20 @@ require("lazy").setup({
 	"akinsho/bufferline.nvim",
 	"nvim-lualine/lualine.nvim",
 	-- TODO: migrate to dropbar.nvim (barbecue is deprecated)
+	-- {
+	-- 	"utilyre/barbecue.nvim",
+	-- 	dependencies = {
+	-- 		"smiteshp/nvim-navic",
+	-- 		"nvim-tree/nvim-web-devicons",
+	-- 	},
+	-- },
 	{
-		"utilyre/barbecue.nvim",
-		dependencies = {
-			"smiteshp/nvim-navic",
-			"nvim-tree/nvim-web-devicons",
+		"Bekaboo/dropbar.nvim",
+		opts = {
+			icons = {
+				enable = false,
+				ui = { bar = { separator = "  ", extends = "…" } },
+			},
 		},
 	},
 
