@@ -60,6 +60,7 @@ formatter.setup({
 		javascriptreact = { prettier() },
 		typescript = { prettier() },
 		typescriptreact = { prettier() },
+		svelte = { require("formatter.filetypes.svelte").prettier },
 		html = { require("formatter.filetypes.html").prettier },
 		css = { require("formatter.filetypes.css").prettier },
 		json = { require("formatter.filetypes.json").prettier },
