@@ -46,29 +46,32 @@ require("lazy").setup({
 			})
 		end,
 	},
-	-- {
-	-- 	"yetone/avante.nvim",
-	-- 	event = "VeryLazy",
-	-- 	opts = {
-	-- 		provider = "openai",
-	-- 	},
-	-- 	-- if you want to download pre-built binary, then pass source=false. Make sure to follow instruction above.
-	-- 	-- Also note that downloading prebuilt binary is a lot faster comparing to compiling from source.
-	-- 	build = ":AvanteBuild source=false",
-	-- 	dependencies = {
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"MunifTanjim/nui.nvim",
-	-- 		--- The below dependencies are optional,
-	-- 		"zbirenbaum/copilot.lua", -- for providers='copilot'
-	-- 	},
-	-- },
 	{
-		"olimorris/codecompanion.nvim",
-		opts = {},
+		"yetone/avante.nvim",
+		event = "VeryLazy",
+		opts = {
+			provider = "copilot",
+			providers = {
+				copilot = { model = "claude-sonnet-4.5" },
+			},
+		},
+		-- if you want to download pre-built binary, then pass source=false. Make sure to follow instruction above.
+		-- Also note that downloading prebuilt binary is a lot faster comparing to compiling from source.
+		build = ":AvanteBuild source=false",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			--- The below dependencies are optional,
+			"zbirenbaum/copilot.lua", -- for providers='copilot'
 		},
 	},
+	-- {
+	-- 	"olimorris/codecompanion.nvim",
+	-- 	opts = {},
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 	},
+	-- },
 
 	--[[ CMP Plugins ]]
 	"hrsh7th/nvim-cmp", -- The completion plugin
@@ -142,6 +145,7 @@ require("lazy").setup({
 	--[[ BufferLine & Lualine & Winbar ]]
 	"akinsho/bufferline.nvim",
 	"nvim-lualine/lualine.nvim",
+	-- TODO: migrate to dropbar.nvim (barbecue is deprecated)
 	{
 		"utilyre/barbecue.nvim",
 		dependencies = {
