@@ -7,7 +7,7 @@ local config = wezterm.config_builder()
 -- config.disable_default_key_bindings = true
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-    config.default_prog = { 'pwsh.exe', '-NoLogo' }
+	config.default_prog = { "pwsh.exe", "-NoLogo" }
 end
 
 -- Color scheme
@@ -15,13 +15,12 @@ config.color_scheme = "Github Dark (Gogh)"
 
 -- font
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-    config.font_size = 12.0
+	config.font_size = 12.0
 end
 if wezterm.target_triple == "aarch64-apple-darwin" then -- Apple specific font
 	config.font = wezterm.font("TerminessTTF Nerd Font Mono")
-    config.font_size = 16.0
+	config.font_size = 16.0
 end
-
 
 -- Appearance
 config.window_background_opacity = 0.7
@@ -43,7 +42,7 @@ config.keys = {
 	{ key = "p", mods = "CMD", action = wezterm.action.ActivateCommandPalette },
 	-- Enter CopyMode
 	{ key = "v", mods = "ALT", action = wezterm.action.ActivateCopyMode },
-	{ key = "t", mods = "SHIFT|ALT", action = wezterm.action.SpawnTab("DefaultDomain") }
+	{ key = "t", mods = "SHIFT|ALT", action = wezterm.action.SpawnTab("DefaultDomain") },
 }
 
 -- CopyMode
