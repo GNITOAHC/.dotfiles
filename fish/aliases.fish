@@ -25,6 +25,7 @@ alias gp="git push"
 alias gb="git branch"
 alias gl="git log --oneline -n 5"
 alias gt="git tag"
+alias glf="git log --graph --pretty=format:'%C(yellow)%h%Creset %C(auto)%d%Creset %s %C(cyan)(%cr) %C(blue)<%an>%Creset' --abbrev-commit -n 20"
 
 # eza
 alias l="eza"
