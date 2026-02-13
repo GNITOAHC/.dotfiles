@@ -15,6 +15,8 @@ set -gx PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
 # If install sqlite3 with homebrew
 if test -d /opt/homebrew/opt/sqlite/bin
     set -gx PATH /opt/homebrew/opt/sqlite/bin $PATH
+    set -gx LDFLAGS "-L/opt/homebrew/opt/sqlite/lib" $LDFLAGS
+    set -gx CPPFLAGS "-I/opt/homebrew/opt/sqlite/include" $CPPFLAGS
 end
 
 # If install Java with homebrew
@@ -26,9 +28,13 @@ end
 # If install llvm with homebrew
 if test -d /opt/homebrew/opt/llvm/
     set -gx PATH /opt/homebrew/opt/llvm/bin/ $PATH
-    set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
-    set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
+    set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib" $LDFLAGS
+    set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include" $CPPFLAGS
     set -gx CPATH "/opt/homebrew/opt/llvm/include" $CPATH
+    set -gx CMAKE_PREFIX_PATH "/opt/homebrew/opt/llvm"
+
+    # To use the bundled libc++/libunwind please use the following LDFLAGS:
+    set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib/c++ -L/opt/homebrew/opt/llvm/lib/unwind -lunwind"
 end
 
 # Add C++ headers files installed from homebrew, e.g. boost, glew, glfw...
