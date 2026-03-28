@@ -15,7 +15,7 @@ which_key.add({
 	{ "<leader>x", "<cmd>bd<cr>", desc = "Buffer delete", hidden = true },
 	{ "<leader>v", "<cmd>vsp<cr>", desc = "Vertical split", hidden = true },
 	{ "<leader>V", "<cmd>sp<cr>", desc = "Horizontal split", hidden = true },
-	{ "<leader>f", "<cmd>Telescope file_browser<cr>", desc = "Find file", hidden = true },
+	{ "<leader>f", "<cmd>Telescope find_files<cr>", desc = "Find file", hidden = true },
 	{ "<leader>F", "<cmd>Telescope live_grep<cr>", desc = "Live grep", hidden = true },
 	{ "<leader>o", "<cmd>Outline<cr>", desc = "Outline toggle", hidden = true },
 	{ "<leader>s", send_line, desc = "Send line", hidden = true },

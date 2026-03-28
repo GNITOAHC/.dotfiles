@@ -3,8 +3,6 @@ if not status_ok then
 	return
 end
 
-telescope.load_extension("file_browser")
-
 local actions = require("telescope.actions")
 
 telescope.setup({
@@ -89,18 +87,4 @@ telescope.setup({
 			},
 		},
 	},
-	extensions = {
-		file_browser = {
-			theme = "ivy",
-			hijack_netrw = true,
-		},
-		-- Your extension configuration goes here:
-		-- extension_name = {
-		--   extension_config_key = value,
-		-- }
-		-- please take a look at the readme of the extension you want to configure
-	},
 })
-
--- To get telescope-file-browser loaded and working with telescope,
--- you need to call load_extension, somewhere after setup function:
