@@ -18,6 +18,12 @@ api.nvim_create_autocmd("FileType", {
 	group = jsGrp,
 })
 
+-- Don't wrap text in CSV files
+api.nvim_create_autocmd("FileType", {
+	pattern = "csv",
+	command = "setlocal nowrap",
+})
+
 vim.cmd([[
     autocmd RecordingEnter * echo("Recording macro...")
     autocmd RecordingLeave * echo("Macro recorded!")
