@@ -13,6 +13,11 @@ local function clang_format()
 	}
 end
 
+local function prettier_exe()
+	local local_bin = vim.fn.getcwd() .. "/node_modules/.bin/prettier"
+	return vim.fn.filereadable(local_bin) == 1 and local_bin or "prettier"
+end
+
 local function prettier()
 	local dir = vim.fn.getcwd()
 	-- Check if a .prettierrc or .prettierrc.json file exists in the current directory
@@ -24,7 +29,7 @@ local function prettier()
 		path = dir .. "/.prettierrc.json"
 	end
 	return {
-		exe = "prettier",
+		exe = prettier_exe(),
 		args = { "--config", path, "--parser", "typescript" },
 		stdin = true,
 	}
@@ -32,7 +37,7 @@ end
 
 local function prettier_md()
 	return {
-		exe = "prettier",
+		exe = prettier_exe(),
 		args = { "--parser", "markdown" },
 		stdin = true,
 	}
@@ -40,7 +45,7 @@ end
 
 local function prettier_mdx()
 	return {
-		exe = "prettier",
+		exe = prettier_exe(),
 		args = { "--parser", "mdx" },
 		stdin = true,
 	}
