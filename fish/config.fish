@@ -19,6 +19,10 @@ if test -d /opt/homebrew/opt/sqlite/bin
     set -gx CPPFLAGS "-I/opt/homebrew/opt/sqlite/include" $CPPFLAGS
 end
 
+if type -q rustup
+    set -gx PATH $(brew --prefix rustup)/bin $PATH
+end
+
 # If install Java with homebrew
 if test -d /opt/homebrew/opt/openjdk/bin
     set -gx PATH /opt/homebrew/opt/openjdk/bin $PATH
@@ -51,11 +55,6 @@ if type -q nvim
     set -gx EDITOR nvim
 end
 
-# If ~/.cargo/bin exists, add it to path
-if test -d ~/.cargo/bin/
-    set -gx PATH ~/.cargo/bin $PATH
-end
-
 # If ~/go exists, add it to path
 if test -d ~/go
     set -gx GOPATH ~/go
@@ -63,11 +62,6 @@ if test -d ~/go
     if test -d ~/go/bin
         set -gx PATH ~/go/bin/ $PATH
     end
-end
-
-# Link mason lsp server and share with helix
-if test -d ~/.local/share/nvim/mason/bin
-    set -gx PATH ~/.local/share/nvim/mason/bin $PATH
 end
 
 # fisher install PatrickF1/fzf.fish
