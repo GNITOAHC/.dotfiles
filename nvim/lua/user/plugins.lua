@@ -87,7 +87,13 @@ require("lazy").setup({
 	"rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
 	--[[ Git-conflict ]]
-	{ "akinsho/git-conflict.nvim", version = "*", config = true },
+	-- { "akinsho/git-conflict.nvim", version = "*", config = true }, -- https://github.com/akinsho/git-conflict.nvim/issues/115
+	{
+		"niekdomi/conflict.nvim",
+		config = function()
+			require("conflict").setup()
+		end,
+	},
 
 	-- [[ LSP ]]
 	"neovim/nvim-lspconfig",
