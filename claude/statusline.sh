@@ -10,7 +10,9 @@ ICON_GIT="branch"
 model=$(echo "$input" | jq -r '.model.display_name // ""')
 ctx_remain=$(echo "$input" | jq -r '.context_window.remaining_percentage // empty')
 five_h_used=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
+five_h_resets=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
 seven_d_used=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
+seven_d_resets=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // empty')
 cost=$(echo "$input" | jq -r '.cost.total_cost_usd // empty')
 
 # Git branch (detected from working directory, not JSON)
@@ -26,6 +28,44 @@ color_by_remain() {
     else
         printf '\033[34m' # Blue — healthy
     fi
+}
+
+# ── Format reset time ──
+# For 5h: relative ("reset in 3h49m")
+# For 7d: absolute day+hour ("reset on Fri 3am")
+fmt_reset_relative() {
+    local resets_at=$1
+    if [ -z "$resets_at" ] || [ "$resets_at" = "null" ]; then return; fi
+    local now=$(date +%s)
+    local diff=$((resets_at - now))
+    if [ "$diff" -le 0 ]; then
+        printf 'reset soon'
+        return
+    fi
+    local h=$((diff / 3600))
+    local m=$(( (diff % 3600) / 60 ))
+    if [ "$h" -gt 0 ]; then
+        printf 'reset in %dh%02dm' "$h" "$m"
+    else
+        printf 'reset in %dm' "$m"
+    fi
+}
+
+fmt_reset_absolute() {
+    local resets_at=$1
+    if [ -z "$resets_at" ] || [ "$resets_at" = "null" ]; then return; fi
+    local now=$(date +%s)
+    local diff=$((resets_at - now))
+    if [ "$diff" -le 0 ]; then
+        printf 'reset soon'
+        return
+    fi
+    # Format as "reset on Fri 3am" / "reset on Fri 3pm"
+    local day hour ampm
+    day=$(date -r "$resets_at" '+%a' 2>/dev/null || date -d "@$resets_at" '+%a' 2>/dev/null)
+    hour=$(date -r "$resets_at" '+%-I%p' 2>/dev/null || date -d "@$resets_at" '+%-I%p' 2>/dev/null)
+    hour=$(echo "$hour" | tr '[:upper:]' '[:lower:]')
+    printf 'reset on %s %s' "$day" "$hour"
 }
 
 # ── Mini progress bar (10 chars wide) ──
@@ -63,18 +103,28 @@ if [ -n "$ctx_remain" ]; then
     parts="$parts$SEP$(printf '%s%s %s %s%%\033[0m' "$color" "$ICON_CTX" "$bar" "$val")"
 fi
 
-# 5-hour rate limit (show remaining %)
+# 5-hour rate limit (show remaining % + reset countdown)
 if [ -n "$five_h_used" ]; then
     val=$((100 - $(printf '%.0f' "$five_h_used")))
     color=$(color_by_remain "$val")
-    parts="$parts$SEP$(printf '%s5h:%s%%\033[0m' "$color" "$val")"
+    reset_info=$(fmt_reset_relative "$five_h_resets")
+    if [ -n "$reset_info" ]; then
+        parts="$parts$SEP$(printf '%s5h:%s%%, %s\033[0m' "$color" "$val" "$reset_info")"
+    else
+        parts="$parts$SEP$(printf '%s5h:%s%%\033[0m' "$color" "$val")"
+    fi
 fi
 
-# 7-day rate limit (show remaining %)
+# 7-day rate limit (show remaining % + reset day)
 if [ -n "$seven_d_used" ]; then
     val=$((100 - $(printf '%.0f' "$seven_d_used")))
     color=$(color_by_remain "$val")
-    parts="$parts$SEP$(printf '%s7d:%s%%\033[0m' "$color" "$val")"
+    reset_info=$(fmt_reset_absolute "$seven_d_resets")
+    if [ -n "$reset_info" ]; then
+        parts="$parts$SEP$(printf '%s7d:%s%%, %s\033[0m' "$color" "$val" "$reset_info")"
+    else
+        parts="$parts$SEP$(printf '%s7d:%s%%\033[0m' "$color" "$val")"
+    fi
 fi
 
 # Session cost (dim so it doesn't dominate)
