@@ -39,10 +39,19 @@ vim.lsp.config("clangd", server.get_clangd_opts())
 
 -- Use `rustup component add rust-analyzer`
 vim.lsp.config.rust_analyzer = {
+    cmd = { "rust-analyzer" },
 	on_attach = require("user.lsp.handlers").on_attach,
 	capabilities = require("user.lsp.handlers").capabilities,
 }
 vim.lsp.enable("rust_analyzer")
+
+-- Golang
+vim.lsp.config.gopls = {
+    cmd = { "gopls" },
+    on_attach = require("user.lsp.handlers").on_attach,
+    capabilities = require("user.lsp.handlers").capabilities,
+}
+vim.lsp.enable("gopls")
 
 -- For sourcekit (Xcode)
 -- https://github.com/SolaWing/xcode-build-server
