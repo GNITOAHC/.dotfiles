@@ -23,7 +23,9 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"zbirenbaum/copilot-cmp",
+		-- "zbirenbaum/copilot-cmp",
+        "gnitoahc/copilot-cmp",
+        branch = "patches",
 		config = function()
 			require("copilot_cmp").setup({
 				suggestion = { enabled = false },
