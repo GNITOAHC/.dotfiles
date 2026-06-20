@@ -6,9 +6,16 @@ if not formatter_ok then
 end
 
 local function clang_format()
+	local dir = vim.fn.getcwd()
+	local args
+	if vim.fn.filereadable(dir .. "/.clang-format") == 1 then
+		args = { "--style=file:" .. dir .. "/.clang-format" }
+	else
+		args = { "--style=file:$HOME/.dotfiles/format/.clang-format" }
+	end
 	return {
 		exe = "clang-format",
-		args = { "--style=file:$HOME/.dotfiles/format/.clang_format" },
+		args = args,
 		stdin = true,
 	}
 end
