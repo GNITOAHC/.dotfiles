@@ -43,6 +43,7 @@
 3. `gzip` is required by Codium ([windsurf.nvim](https://github.com/Exafunction/windsurf.nvim)), but not built-in on Windows.
    1. Use `winget install -e --id GnuWin32.Gzip` to install gzip (recommended).
    2. Add it to Environment Variable. Binaries are generally installed at `C:\Program Files\GnuWin32\bin`.
+4. `pwsh` for Microsoft Windows is required for some plugins. Install it via `winget install -e --id Microsoft.PowerShell`
 
 ## Plugins
 
