@@ -51,9 +51,9 @@ Plugins are installed via [lazy.nvim](https://github.com/folke/lazy.nvim), for f
 
 ## Dependencies
 
-| Plugin                                                                | Dependencies                                                                                    |
-| --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| [lazy.nvim](https://github.com/folke/lazy.nvim)                       | git                                                                                             |
-| [treesitter.nvim](https://github.com/nvim-treesitter/nvim-treesitter) | (C compiler), git, tree-sitter-cli, node(npm)                                                   |
-| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)    | (rg i.e. [ripgrep](https://github.com/BurntSushi/ripgrep)), [fd](https://github.com/sharkdp/fd) |
-| [copilot.lua](https://github.com/zbirenbaum/copilot.lua)              | node >= 18.x or newer                                                                           |
+| Plugin                                                                | Dependencies                                                                                                                |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| [lazy.nvim](https://github.com/folke/lazy.nvim)                       | git                                                                                                                         |
+| [treesitter.nvim](https://github.com/nvim-treesitter/nvim-treesitter) | C compiler, git, [tree-sitter](https://github.com/tree-sitter/tree-sitter), node(npm)                                       |
+| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)    | [rg](https://github.com/BurntSushi/ripgrep) for live_grep, [fd](https://github.com/sharkdp/fd) (recommanded) for find_files |
+| [copilot.lua](https://github.com/zbirenbaum/copilot.lua)              | node >= 18.x                                                                                                                |
