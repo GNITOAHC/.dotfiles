@@ -2,7 +2,7 @@
 
 ## Setup
 
-> Currently using nvim v0.11.6
+> Currently using nvim v0.12.4
 
 ### MacOS
 
@@ -16,6 +16,16 @@
 
    ```shell
    cd ~/.config && ln -s ~/.dotfiles/nvim .
+   ```
+
+### Linux
+
+1. Install `nvim` appimage to `~/.local/bin` is the easiest way
+2. Link nvim directory to the default config folder
+3. C compiler is required for tree-sitter, if `stdint.h: No such file or directory` error occurs, try
+
+   ```shell
+   sudo apt install build-essential libc6-dev
    ```
 
 ### Windows
@@ -51,9 +61,13 @@ Plugins are installed via [lazy.nvim](https://github.com/folke/lazy.nvim), for f
 
 ## Dependencies
 
-| Plugin                                                                | Dependencies                                                                                                                |
-| --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| [lazy.nvim](https://github.com/folke/lazy.nvim)                       | git                                                                                                                         |
-| [treesitter.nvim](https://github.com/nvim-treesitter/nvim-treesitter) | C compiler, git, [tree-sitter](https://github.com/tree-sitter/tree-sitter), node(npm)                                       |
-| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)    | [rg](https://github.com/BurntSushi/ripgrep) for live_grep, [fd](https://github.com/sharkdp/fd) (recommanded) for find_files |
-| [copilot.lua](https://github.com/zbirenbaum/copilot.lua)              | node >= 18.x                                                                                                                |
+| Plugin                                                                | Dependencies                                          |
+| --------------------------------------------------------------------- | ----------------------------------------------------- |
+| [lazy.nvim](https://github.com/folke/lazy.nvim)                       | git                                                   |
+| [treesitter.nvim](https://github.com/nvim-treesitter/nvim-treesitter) | C compiler, git, [tree-sitter], node(npm)             |
+| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)    | [rg] for live_grep, [fd] (recommanded) for find_files |
+| [copilot.lua](https://github.com/zbirenbaum/copilot.lua)              | node >= 18.x                                          |
+
+[tree-sitter]: https://github.com/tree-sitter/tree-sitter
+[rg]: https://github.com/BurntSushi/ripgrep
+[fd]: https://github.com/sharkdp/fd
