@@ -6,11 +6,11 @@ if not mason_ok or not mason_lspconfig_ok then
 	return
 end
 
--- [[ Mason ]]
+-- Mason
 
 mason.setup()
 
--- [[ Mason LSP ]]
+-- Mason LSP
 
 local opts = {
 	on_attach = require("user.lsp.handlers").on_attach,
@@ -39,7 +39,7 @@ vim.lsp.config("clangd", server.get_clangd_opts())
 
 -- Use `rustup component add rust-analyzer`
 vim.lsp.config.rust_analyzer = {
-    cmd = { "rust-analyzer" },
+	cmd = { "rust-analyzer" },
 	on_attach = require("user.lsp.handlers").on_attach,
 	capabilities = require("user.lsp.handlers").capabilities,
 }
@@ -47,9 +47,9 @@ vim.lsp.enable("rust_analyzer")
 
 -- Golang
 vim.lsp.config.gopls = {
-    cmd = { "gopls" },
-    on_attach = require("user.lsp.handlers").on_attach,
-    capabilities = require("user.lsp.handlers").capabilities,
+	cmd = { "gopls" },
+	on_attach = require("user.lsp.handlers").on_attach,
+	capabilities = require("user.lsp.handlers").capabilities,
 }
 vim.lsp.enable("gopls")
 
@@ -89,6 +89,7 @@ vim.lsp.config.denols = {
 }
 vim.lsp.enable("denols")
 
+-- typescript-language-server (ts_ls) setup
 vim.lsp.config.ts_ls = {
 	cmd = { "typescript-language-server", "--stdio" },
 	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
@@ -104,3 +105,12 @@ vim.lsp.config.ts_ls = {
 	capabilities = require("user.lsp.handlers").capabilities,
 }
 vim.lsp.enable("ts_ls")
+
+-- typst setup
+vim.lsp.config.tinymist = {
+	cmd = { "tinymist" },
+	filetypes = { "typst" },
+	on_attach = require("user.lsp.handlers").on_attach,
+	capabilities = require("user.lsp.handlers").capabilities,
+}
+vim.lsp.enable("tinymist")
