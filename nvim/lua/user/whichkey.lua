@@ -3,10 +3,26 @@ if not status_ok then
 	return
 end
 
-local send_line =
-	'<cmd>lua require("toggleterm").send_lines_to_terminal("single_line", false, { args = vim.v.count })<cr>'
-local send_visual =
-	'<cmd>lua require("toggleterm").send_lines_to_terminal("visual_selection", false, { args = vim.v.count })<cr>'
+-- [deprecated] <leader>s has moved to lua/user/sendline.lua
+-- local send_line =
+-- 	'<cmd>lua require("toggleterm").send_lines_to_terminal("single_line", false, { args = vim.v.count })<cr>'
+-- local send_visual =
+-- 	'<cmd>lua require("toggleterm").send_lines_to_terminal("visual_selection", false, { args = vim.v.count })<cr>'
+
+local sl_ok, _ = pcall(function()
+	require("user.sendline").setup({
+		mappings = {
+			normal = "<leader>s",
+			visual = "<leader>s",
+		},
+		execute = false,
+		join_multiline = true,
+		strip_continuation = true,
+	})
+end)
+if not sl_ok then
+	vim.notify("Failed to load sendline module", vim.log.levels.ERROR)
+end
 
 which_key.add({
 	{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer", hidden = true },
@@ -18,7 +34,6 @@ which_key.add({
 	{ "<leader>f", "<cmd>Telescope find_files<cr>", desc = "Find file", hidden = true },
 	{ "<leader>F", "<cmd>Telescope live_grep<cr>", desc = "Live grep", hidden = true },
 	{ "<leader>o", "<cmd>Outline<cr>", desc = "Outline toggle", hidden = true },
-	{ "<leader>s", send_line, desc = "Send line", hidden = true },
 
 	-- Diagnostics -> move back to lua/user/lsp/handlers.lua
 	-- { "<leader>d", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Diagnose window", hidden = true },
@@ -56,8 +71,10 @@ which_key.add({
 	{ "<leader>tn", "<cmd>tabnext<cr>", desc = "Next tab" },
 	{ "<leader>tp", "<cmd>tabprevious<cr>", desc = "Previous tab" },
 
-	{
-		mode = "v",
-		{ "<leader>s", send_visual, desc = "Send visual" },
-	},
+	-- [deprecated] <leader>s has moved to lua/user/sendline.lua
+	-- { "<leader>s", send_line, desc = "Send line", hidden = true },
+	-- {
+	-- 	mode = "v",
+	-- 	{ "<leader>s", send_visual, desc = "Send visual" },
+	-- },
 })
