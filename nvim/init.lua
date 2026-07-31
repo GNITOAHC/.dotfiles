@@ -23,12 +23,8 @@ require("user.lualine")
 require("user.whichkey")
 require("user.alpha")
 require("user.transparent")
--- require("user.ufo")
--- require("user.pretty-fold")
 require("user.autocmd")
 require("user.friendly-snip")
---[[ require "user.vimtex" ]]
---[[ require "user.silicon" ]]
 require("user.barbecue")
 require("user.formatter")
 
