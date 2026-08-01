@@ -15,6 +15,7 @@ local sl_ok, _ = pcall(function()
 			normal = "<leader>s",
 			visual = "<leader>s",
 		},
+		prefix = "RunCodeCmd ",
 		execute = false,
 		join_multiline = true,
 		strip_continuation = true,

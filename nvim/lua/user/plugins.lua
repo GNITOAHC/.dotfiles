@@ -15,6 +15,22 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	{
+		dir = vim.fn.stdpath("config") .. "/dev/runner.nvim",
+		name = "runner.nvim",
+		lazy = false,
+		opts = {
+			runner_files = {
+				"coderunner.sh",
+				".nvim/run.sh",
+			},
+			output = {
+				layout = "float",
+				focus = true,
+			},
+		},
+	},
+
 	--[[ GitHub copilot ]]
 	{
 		"zbirenbaum/copilot.lua",
@@ -24,8 +40,8 @@ require("lazy").setup({
 	},
 	{
 		-- "zbirenbaum/copilot-cmp",
-        "gnitoahc/copilot-cmp",
-        branch = "patches",
+		"gnitoahc/copilot-cmp",
+		branch = "patches",
 		config = function()
 			require("copilot_cmp").setup({
 				suggestion = { enabled = false },

@@ -1,0 +1,50 @@
+*runner.nvim*                     Find and run project scripts asynchronously
+
+=============================================================================
+COMMANDS                                                        *runner-commands*
+
+                                                    *:RunCode*
+:RunCode [file]
+    Search upward from the current buffer for a configured runner file and
+    execute it. When [file] is supplied, use it instead of the configured
+    candidates. Output is streamed to the runner.nvim output buffer.
+
+                                                    *:RunCodeCmd*
+:RunCodeCmd {cmd}
+    Run {cmd} through Neovim's configured shell from the current working
+    directory. Standard output and errors are streamed to the runner output
+    buffer. Shell syntax such as pipes and redirections is supported.
+
+                                                    *:RunCodeStop*
+:RunCodeStop
+    Stop the active process. Pressing CTRL-C in the output buffer does the
+    same thing.
+
+                                                    *:RunCodeOutput*
+:RunCodeOutput
+    Reopen the existing runner output buffer using the configured layout.
+    This does not start, restart, or stop the active process.
+
+=============================================================================
+SETUP                                                              *runner-setup*
+
+>lua
+    require("runner").setup({
+      runner_files = { "coderunner.sh" },
+      output = {
+        layout = "horizontal", -- horizontal, vertical, float, or buffer
+        size = nil,             -- split height or vertical split width
+        focus = false,
+        float = {
+          width = 0.8,          -- fraction or absolute columns
+          height = 0.8,         -- fraction or absolute rows
+          border = "rounded",
+        },
+      },
+    })
+<
+
+When layout is "float", leaving the floating window closes it automatically.
+The output buffer and active process remain available through :RunCodeOutput.
+
+vim:tw=78:ts=8:noet:ft=help:norl:

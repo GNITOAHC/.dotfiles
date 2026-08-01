@@ -5,6 +5,7 @@ local defaults = {
 		normal = "<leader>s",
 		visual = "<leader>s",
 	},
+	prefix = "!",
 	execute = false,
 	join_multiline = true,
 	strip_continuation = true,
@@ -44,7 +45,7 @@ end
 
 local function command_keys(command)
 	local enter = config.execute and "<CR>" or ""
-	return vim.api.nvim_replace_termcodes(":!" .. command .. enter, true, false, true)
+	return vim.api.nvim_replace_termcodes(":" .. config.prefix .. command .. enter, true, false, true)
 end
 
 local function send_command(command, leave_visual_mode)
