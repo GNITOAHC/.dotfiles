@@ -6,12 +6,16 @@ logic. It deliberately knows nothing about runner discovery or job creation;
 callers pass the configured output options to show().
 ]]
 
+local ansi = require("runner.ansi")
+
 local M = {}
 
 local buffer
 local window
 local previous_buffer
 local wrote_output = false
+local ansi_state = ansi.new_state()
+local ansi_namespace = vim.api.nvim_create_namespace("runner.nvim ansi")
 
 local function close_output(output_buffer)
 	local output_window = vim.api.nvim_get_current_win()
@@ -125,6 +129,19 @@ local function clamp_window_cursors(output_buffer, last_line)
 	end
 end
 
+local function apply_ansi_highlights(output_buffer, start_row, spans)
+	for line_index, line_spans in ipairs(spans) do
+		local row = start_row + line_index - 1
+		for _, span in ipairs(line_spans) do
+			vim.api.nvim_buf_set_extmark(output_buffer, ansi_namespace, row, span.start_col, {
+				end_row = row,
+				end_col = span.end_col,
+				hl_group = span.hl_group,
+			})
+		end
+	end
+end
+
 function M.is_current()
 	return buffer ~= nil and buffer == vim.api.nvim_get_current_buf()
 end
@@ -172,30 +189,41 @@ function M.replace(lines)
 	if not buffer or not vim.api.nvim_buf_is_valid(buffer) then
 		return
 	end
+	ansi.reset(ansi_state)
+	local parsed_lines, spans = ansi.parse(lines, ansi_state)
 	-- Keep every viewport inside the replacement range before shrinking the
 	-- buffer. Text-change listeners may inspect the viewport synchronously.
-	clamp_window_cursors(buffer, #lines)
+	clamp_window_cursors(buffer, #parsed_lines)
 	vim.bo[buffer].modifiable = true
-	vim.api.nvim_buf_set_lines(buffer, 0, -1, false, lines)
+	vim.api.nvim_buf_clear_namespace(buffer, ansi_namespace, 0, -1)
+	vim.api.nvim_buf_set_lines(buffer, 0, -1, false, parsed_lines)
+	apply_ansi_highlights(buffer, 0, spans)
 	vim.bo[buffer].modified = false
 	vim.bo[buffer].modifiable = false
-	wrote_output = #lines > 0
+	wrote_output = #parsed_lines > 0
 end
 
 function M.append(lines)
 	if not buffer or not vim.api.nvim_buf_is_valid(buffer) or not lines or #lines == 0 then
 		return
 	end
-	if lines[#lines] == "" then
-		table.remove(lines, #lines)
+	local append_lines = {}
+	for index, line in ipairs(lines) do
+		append_lines[index] = line
 	end
-	if #lines == 0 then
+	if append_lines[#append_lines] == "" then
+		table.remove(append_lines, #append_lines)
+	end
+	if #append_lines == 0 then
 		return
 	end
+	local parsed_lines, spans = ansi.parse(append_lines, ansi_state)
 
 	vim.bo[buffer].modifiable = true
 	local first_line = wrote_output and -1 or 0
-	vim.api.nvim_buf_set_lines(buffer, first_line, -1, false, lines)
+	local start_row = wrote_output and vim.api.nvim_buf_line_count(buffer) or 0
+	vim.api.nvim_buf_set_lines(buffer, first_line, -1, false, parsed_lines)
+	apply_ansi_highlights(buffer, start_row, spans)
 	vim.bo[buffer].modified = false
 	vim.bo[buffer].modifiable = false
 	wrote_output = true

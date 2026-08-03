@@ -56,6 +56,15 @@ output_module.replace({ "short output" })
 assert(vim.api.nvim_win_get_cursor(output_window)[1] == 1, "output cursor was not clamped before replacement")
 assert(vim.api.nvim_buf_line_count(output_buffer) == 1, "long output was not replaced")
 
+-- ANSI SGR sequences are rendered as highlights instead of visible text.
+output_module.replace({ "\27[36mcyan\27[0m plain", "\27[38;5;208mindexed\27[0m", "\27[38;2;12;34;56mtruecolor\27[0m" })
+local ansi_output = vim.api.nvim_buf_get_lines(output_buffer, 0, -1, false)
+assert(ansi_output[1] == "cyan plain", "basic ANSI color was not removed from the output text")
+assert(ansi_output[2] == "indexed", "indexed ANSI color was not removed from the output text")
+assert(ansi_output[3] == "truecolor", "truecolor ANSI color was not removed from the output text")
+local ansi_marks = vim.api.nvim_buf_get_extmarks(output_buffer, -1, { 0, 0 }, { -1, -1 }, { details = true })
+assert(#ansi_marks == 3, "ANSI colors were not represented by buffer highlights")
+
 -- q closes the output window but preserves its buffer for recall.
 vim.api.nvim_set_current_win(output_window)
 local q_map = vim.fn.maparg("q", "n", false, true)

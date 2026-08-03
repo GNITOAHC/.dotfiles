@@ -68,6 +68,10 @@ Commands run from Neovim's current working directory using its configured
 `shell` and `shellcmdflag`. The Lua equivalent is
 `require("runner").run_command("make test")`.
 
+ANSI SGR formatting emitted by commands is rendered in the output buffer.
+This includes standard and bright colors, 256-color indexes, truecolor RGB,
+and common attributes such as bold, italic, underline, and reverse video.
+
 ## Configuration
 
 These are the defaults:
