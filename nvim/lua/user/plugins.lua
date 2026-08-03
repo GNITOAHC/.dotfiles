@@ -26,7 +26,7 @@ require("lazy").setup({
 				".nvim/run.sh",
 			},
 			output = {
-				layout = "float",
+				layout = "float", -- horizontal, vertical, float, or buffer
 				focus = true,
 			},
 		},

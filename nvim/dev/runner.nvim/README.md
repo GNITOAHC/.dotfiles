@@ -42,6 +42,10 @@ stops the previous run.
 Press `<C-c>` in the output buffer to stop the active process. The same action
 is also available as `:RunCodeStop` or `require("runner").stop()`.
 
+Press `q` in the output buffer to close its window. With the `buffer` layout,
+this returns to the buffer that was visible before the output. Closing the
+output does not stop the active process or discard its contents.
+
 If the output window has been closed while a process is still running, reopen
 it without affecting the process:
 

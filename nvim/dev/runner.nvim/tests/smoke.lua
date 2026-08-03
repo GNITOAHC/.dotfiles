@@ -42,6 +42,28 @@ assert(vim.wait(3000, function()
 end, 10), "RunCodeCmd did not capture shell output")
 assert(vim.fn.exists(":RunCodeCmd") == 2, "RunCodeCmd command was not registered")
 
+-- Replacing long output clamps its window view before synchronous buffer
+-- listeners can observe line numbers that no longer exist.
+local output_module = require("runner.output")
+local long_output = {}
+for line = 1, 300 do
+  long_output[line] = "line " .. line
+end
+output_module.replace(long_output)
+local output_window = vim.fn.bufwinid(output_buffer)
+vim.api.nvim_win_set_cursor(output_window, { 270, 0 })
+output_module.replace({ "short output" })
+assert(vim.api.nvim_win_get_cursor(output_window)[1] == 1, "output cursor was not clamped before replacement")
+assert(vim.api.nvim_buf_line_count(output_buffer) == 1, "long output was not replaced")
+
+-- q closes the output window but preserves its buffer for recall.
+vim.api.nvim_set_current_win(output_window)
+local q_map = vim.fn.maparg("q", "n", false, true)
+assert(type(q_map) == "table" and q_map.buffer == 1, "q is not mapped in the output buffer")
+vim.api.nvim_feedkeys("q", "mx", false)
+assert(not vim.api.nvim_win_is_valid(output_window), "q did not close the output window")
+assert(vim.api.nvim_buf_is_valid(output_buffer), "q discarded the output buffer")
+
 -- The output-local CTRL-C mapping stops a long-running process.
 runner.setup({ output = { layout = "horizontal", focus = true } })
 runner.run(fixture .. "/slow.sh")
@@ -102,8 +124,12 @@ assert(vim.api.nvim_buf_is_valid(output_buffer), "closing the float discarded th
 
 -- Buffer layout shows output in the current window without making a split.
 runner.setup({ output = { layout = "buffer" } })
+local source_buffer = vim.api.nvim_get_current_buf()
 runner.run(fixture .. "/coderunner.sh")
 assert(vim.api.nvim_get_current_buf() == output_buffer, "buffer layout did not show the output buffer")
 assert(#vim.api.nvim_tabpage_list_wins(0) == 1, "buffer layout unexpectedly created a window")
+vim.api.nvim_feedkeys("q", "mx", false)
+assert(vim.api.nvim_get_current_buf() == source_buffer, "q did not restore the source buffer")
+assert(vim.api.nvim_buf_is_valid(output_buffer), "q discarded output from the buffer layout")
 
 print("runner.nvim smoke test: ok")

@@ -10,12 +10,36 @@ local M = {}
 
 local buffer
 local window
+local previous_buffer
 local wrote_output = false
 
-local function set_stop_keymaps(output_buffer)
+local function close_output(output_buffer)
+	local output_window = vim.api.nvim_get_current_win()
+	if vim.api.nvim_get_current_buf() ~= output_buffer then
+		return
+	end
+
+	local is_float = vim.api.nvim_win_get_config(output_window).relative ~= ""
+	if is_float or #vim.api.nvim_tabpage_list_wins(0) > 1 then
+		vim.api.nvim_win_close(output_window, false)
+	elseif previous_buffer and vim.api.nvim_buf_is_valid(previous_buffer) then
+		vim.api.nvim_win_set_buf(output_window, previous_buffer)
+	else
+		vim.api.nvim_win_set_buf(output_window, vim.api.nvim_create_buf(true, false))
+	end
+
+	if window == output_window then
+		window = nil
+	end
+end
+
+local function set_output_keymaps(output_buffer)
 	vim.keymap.set({ "n", "i", "v" }, "<C-c>", function()
 		require("runner").stop()
 	end, { buffer = output_buffer, silent = true, nowait = true, desc = "Stop the running process" })
+	vim.keymap.set("n", "q", function()
+		close_output(output_buffer)
+	end, { buffer = output_buffer, silent = true, nowait = true, desc = "Close the runner output" })
 end
 
 local function configure_buffer(output_buffer)
@@ -87,6 +111,20 @@ local function close_float_on_leave(float_window, output_buffer)
 	})
 end
 
+local function clamp_window_cursors(output_buffer, last_line)
+	last_line = math.max(1, last_line)
+	for _, tabpage in ipairs(vim.api.nvim_list_tabpages()) do
+		for _, output_window in ipairs(vim.api.nvim_tabpage_list_wins(tabpage)) do
+			if vim.api.nvim_win_is_valid(output_window) and vim.api.nvim_win_get_buf(output_window) == output_buffer then
+				local cursor = vim.api.nvim_win_get_cursor(output_window)
+				if cursor[1] > last_line then
+					vim.api.nvim_win_set_cursor(output_window, { last_line, 0 })
+				end
+			end
+		end
+	end
+end
+
 function M.is_current()
 	return buffer ~= nil and buffer == vim.api.nvim_get_current_buf()
 end
@@ -97,6 +135,7 @@ end
 
 function M.show(options)
 	local source_window = vim.api.nvim_get_current_win()
+	local source_buffer = vim.api.nvim_get_current_buf()
 	local output_buffer = get_buffer()
 
 	if window and vim.api.nvim_win_is_valid(window) then
@@ -108,6 +147,9 @@ function M.show(options)
 		window = vim.api.nvim_open_win(output_buffer, options.focus, float_window_config(options.float))
 		close_float_on_leave(window, output_buffer)
 	elseif options.layout == "buffer" then
+		if source_buffer ~= output_buffer then
+			previous_buffer = source_buffer
+		end
 		window = source_window
 		vim.api.nvim_win_set_buf(window, output_buffer)
 	else
@@ -122,7 +164,7 @@ function M.show(options)
 	end
 
 	-- Reapply after window events in case a BufEnter hook cleared local maps.
-	set_stop_keymaps(output_buffer)
+	set_output_keymaps(output_buffer)
 	return output_buffer
 end
 
@@ -130,6 +172,9 @@ function M.replace(lines)
 	if not buffer or not vim.api.nvim_buf_is_valid(buffer) then
 		return
 	end
+	-- Keep every viewport inside the replacement range before shrinking the
+	-- buffer. Text-change listeners may inspect the viewport synchronously.
+	clamp_window_cursors(buffer, #lines)
 	vim.bo[buffer].modifiable = true
 	vim.api.nvim_buf_set_lines(buffer, 0, -1, false, lines)
 	vim.bo[buffer].modified = false

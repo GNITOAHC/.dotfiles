@@ -45,6 +45,9 @@ SETUP                                                              *runner-setup
 <
 
 When layout is "float", leaving the floating window closes it automatically.
+Press q in any runner output window to close it. With the "buffer" layout,
+this returns to the previously visible buffer. Output remains available via
+:RunCodeOutput.
 The output buffer and active process remain available through :RunCodeOutput.
 
 vim:tw=78:ts=8:noet:ft=help:norl:
