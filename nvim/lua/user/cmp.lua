@@ -8,11 +8,6 @@ if not snip_status_ok then
 	return
 end
 
--- local tabnine_status_ok, tabnine = pcall(require, "cmp_tabnine.config")
--- if not tabnine_status_ok then
--- 	return
--- end
-
 require("luasnip/loaders/from_vscode").lazy_load()
 
 -- local check_backspace = function()
@@ -71,34 +66,6 @@ cmp.setup({
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
-		-- ["<Tab>"] = cmp.mapping(function(fallback)
-		-- 	if cmp.visible() then
-		-- 		cmp.select_next_item()
-		-- 	elseif luasnip.expandable() then
-		-- 		luasnip.expand()
-		-- 	elseif luasnip.expand_or_jumpable() then
-		-- 		luasnip.expand_or_jump()
-		-- 	elseif check_backspace() then
-		-- 		fallback()
-		-- 	else
-		-- 		fallback()
-		-- 	end
-		-- end, {
-		-- 	"i",
-		-- 	"s",
-		-- }),
-		-- ["<S-Tab>"] = cmp.mapping(function(fallback)
-		-- 	if cmp.visible() then
-		-- 		cmp.select_prev_item()
-		-- 	elseif luasnip.jumpable(-1) then
-		-- 		luasnip.jump(-1)
-		-- 	else
-		-- 		fallback()
-		-- 	end
-		-- end, {
-		-- 	"i",
-		-- 	"s",
-		-- }),
 	}),
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
@@ -110,8 +77,7 @@ cmp.setup({
 				nvim_lsp = "[LSP]",
 				path = "[Path]",
 				copilot = "[Copilot]",
-                codeium = "[Codeium]",
-				-- cmp_tabnine = "[TN]",
+				codeium = "[Codeium]",
 				nvim_lua = "[NVIM_LUA]",
 				luasnip = "[Snippet]",
 				buffer = "[Buffer]",
@@ -121,14 +87,13 @@ cmp.setup({
 		end,
 	},
 	sources = {
-		-- { name = "cmp_tabnine" },
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "copilot" },
-        { name = "codeium" }
+		{ name = "codeium" },
 		--[[ { name = "cmdline" }, ]]
 	},
 	confirm_opts = {
@@ -144,6 +109,9 @@ cmp.setup({
 	experimental = {
 		ghost_text = true,
 		native_menu = false,
+	},
+	view = {
+		docs = { auto_open = false },
 	},
 })
 
@@ -172,16 +140,3 @@ cmp.setup.cmdline("/", {
 		{ name = "buffer" },
 	}),
 })
-
--- tabnine:setup({
--- 	max_lines = 1000,
--- 	max_num_results = 20,
--- 	sort = true,
--- 	run_on_every_keystroke = true,
--- 	snippet_placeholder = "..",
--- 	ignored_file_types = { -- default is not to ignore
--- 		-- uncomment to ignore in lua:
--- 		-- lua = true
--- 	},
--- 	show_prediction_strength = false,
--- })
