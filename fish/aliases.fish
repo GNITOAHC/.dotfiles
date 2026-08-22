@@ -30,10 +30,10 @@ alias glf="git log --graph --pretty=format:'%C(yellow)%h%Creset %C(auto)%d%Crese
 # eza
 alias l="eza"
 alias la="eza --all"
-alias ll="eza --long --icons"
-alias lla="eza --long --icons --all"
-alias lg="eza --long --icons --git"
-alias lta="eza --long --icons --all --tree"
+alias ll="eza --long --icons=auto"
+alias lla="eza --long --icons=auto --all"
+alias lg="eza --long --icons=auto --git"
+alias lta="eza --long --icons=auto --all --tree"
 function lt --description 'alias lt=eza --tree --level $level $dir'
     # if not set -q $argv
     if [ "$argv[1]" = "" ]
