@@ -2,7 +2,7 @@
 
 ## Setup
 
-> Currently using nvim v0.12.4
+> Currently using nvim v0.12.6
 
 ### MacOS
 
